@@ -1,0 +1,30 @@
+export const rarities = {
+    1: { label: 'Common', color: '#838383' },
+    2: { label: 'Uncommon', color: '#29781e' },
+    3: { label: 'Rare', color: '#1c60a4' },
+    4: { label: 'Epic', color: '' },
+};
+
+export const ancients = {
+     1: { label: 'Siyalatas', multiplier: 1 },
+     2: { label: 'Fragsworth', multiplier: 1 },
+     3: { label: 'Chronos', multiplier: 30 },
+     4: { label: 'Chawedo', multiplier: 10 },
+     5: { label: 'Revolc', multiplier: 40 },
+     7: { label: 'Argaiv', multiplier: 1 },
+     8: { label: 'Energon', multiplier: 10 },
+     9: { label: 'Kleptos', multiplier: 15 },
+    10: { label: 'Sniperino', multiplier: 60 },
+    11: { label: 'Berserker', multiplier: 10 },
+    12: { label: 'Hecatoncheir', multiplier: 10 },
+    13: { label: 'Bubos', multiplier: 35 },
+    14: { label: 'Morgulis', multiplier: 1 },
+    16: { label: 'Dora', multiplier: 55 },
+    19: { label: 'Dogcog', multiplier: 50 },
+    21: { label: 'Mimzee', multiplier: 1 },
+    22: { label: 'Mammon', multiplier: 1 },
+    24: { label: 'Libertas', multiplier: 1 },
+    25: { label: 'Solomon', multiplier: 1 },
+    26: { label: 'Juggernaut', multiplier: 1 },
+    27: { label: 'Kumawakamaru', multiplier: 100 },
+};
