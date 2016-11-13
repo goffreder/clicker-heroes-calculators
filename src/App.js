@@ -9,7 +9,7 @@ import reducer from './reducers';
 
 import Main from './containers/Main';
 
-const initialState = {};
+const initialState = { active: 'heroes' };
 
 const store = createStore(reducer, initialState, applyMiddleware(createLogger()));
 

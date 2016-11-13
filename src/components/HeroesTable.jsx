@@ -22,7 +22,19 @@ export default function HeroesTable(props)  {
                 {
                     Object.keys(fullHeroes)
                         .sort((a, b) => fullHeroes[b].baseCost - fullHeroes[a].baseCost)
-                        .map((h, k) => <HeroesTableRow hero={Object.assign({}, fullHeroes[h], { total: getHeroCost(fullHeroes[h], props.dogcogLevel) })} key={k} />)
+                        .map((h, k) => (
+                            <HeroesTableRow
+                                hero={
+                                    Object.assign(
+                                        {},
+                                        fullHeroes[h],
+                                        { total: getHeroCost(fullHeroes[h], props.dogcogLevel) }
+                                    )
+                                }
+                                id={h}
+                                key={k}
+                            />
+                        ))
                 }
             </tbody>
         </table>
