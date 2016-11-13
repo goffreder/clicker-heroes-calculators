@@ -19,6 +19,7 @@ export const ancients = {
     12: { label: 'Hecatoncheir', multiplier: 10 },
     13: { label: 'Bubos', multiplier: 35 },
     14: { label: 'Morgulis', multiplier: 1 },
+    15: { label: 'Bhaal', multiplier: 1 },
     16: { label: 'Dora', multiplier: 55 },
     17: { label: 'Atman', multiplier: 100 },
     19: { label: 'Dogcog', multiplier: 50 },
