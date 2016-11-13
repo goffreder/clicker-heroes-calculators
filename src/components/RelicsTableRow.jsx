@@ -66,7 +66,7 @@ function getRelicImage(name, type, images) {
                     return images.helms.tundraTopper;
             }
             break;
-        case 'glove':
+        case 'gloves':
             switch (true) {
                 case name.match('Ranger Gloves') !== null:
                     return images.gloves.rangerGloves;
