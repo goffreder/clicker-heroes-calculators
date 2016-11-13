@@ -1,7 +1,7 @@
 {
-  "name": "clicker-heroes",
+  "name": "clicker-heroes-calculators",
   "version": "1.0.0",
-  "description": "Clicker Heroes Relic Calculator",
+  "description": "Clicker Heroes Calculators",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --inline --display-error-details",
