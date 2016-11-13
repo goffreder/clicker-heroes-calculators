@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 config = {
-    devtool: 'inline-source-map',
+    devtool: process.env.NODE_ENV !== 'production' ? 'inline-source-map' : null,
 
     entry: {
         main: [
@@ -25,7 +25,7 @@ config = {
             loader: 'style-loader!css-loader?minimize&localIdentName=[name]__[local]___[hash:base64:5]'
         }, {
             test: /\.(png|eot|woff2|ttf|svg|woff)$/,
-            loader: 'url-loader'
+            loader: 'url-loader?limit=4096'
         }, {
             test: /\.json$/,
             loader: 'json-loader'
@@ -38,11 +38,18 @@ config = {
             'ReactDOM': 'react-dom',
             'deepAssign': 'deep-assign'
         }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
     ],
 
     resolve: {
         extensions: ['', '.js', '.jsx', '.json']
     }
 };
+
+if (process.env.NODE_ENV === 'production') {
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}));
+}
 
 module.exports = config;

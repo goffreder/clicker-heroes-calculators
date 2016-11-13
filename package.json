@@ -4,7 +4,7 @@
   "description": "Clicker Heroes Calculators",
   "main": "app.js",
   "scripts": {
-    "build": "webpack -p",
+    "build": "NODE_ENV=production webpack -p",
     "start": "webpack-dev-server --inline --display-error-details",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
