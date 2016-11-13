@@ -10,8 +10,8 @@ config = {
     },
 
     output: {
-        path: 'build',
-        publicPath: 'build',
+        path: 'build/',
+        publicPath: 'build/',
         filename: 'app-bundle.js'
     },
 
