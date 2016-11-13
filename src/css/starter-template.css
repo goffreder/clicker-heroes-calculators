@@ -12,6 +12,10 @@ body {
     text-align: center;
 }
 
+#relics-table > tbody > tr:nth-child(4) {
+    border-bottom: 2px solid #868686;
+}
+
 #relics-table > tbody > tr > td {
     vertical-align: middle;
 }

@@ -117,32 +117,34 @@ function getRelicImage(name, type, images) {
             }
             break;
         case 'ring':
-            case name.match('Copper Band') !== null:
-                return images.rings.copperBand;
-            case name.match('Garnet Ring') !== null:
-                return images.rings.garnetRing;
-            case name.match('Jade Band') !== null:
-                return images.rings.jadeBand;
-            case name.match('Copper Mark') !== null:
-                return images.rings.copperMark;
-            case name.match('Frog Faction') !== null:
-                return images.rings.frogFaction;
-            case name.match('Violet Hoop') !== null:
-                return images.rings.violetHoop;
-            case name.match('Skull Brim') !== null:
-                return images.rings.skullBrim;
-            case name.match('Golden Onyx') !== null:
-                return images.rings.goldenOnyx;
-            case name.match('Galaxy Loop') !== null:
-                return images.rings.galaxyLoop;
-            case name.match('Silver Azurite') !== null:
-                return images.rings.silverAzurite;
-            case name.match('Golden Emerald') !== null:
-                return images.rings.goldenEmerald;
-            case name.match('Golden Ruby') !== null:
-                return images.rings.goldenRuby;
-            case name.match('Verdant Surge') !== null:
-                return images.rings.verdantSurge;
+            switch (true) {
+                case name.match('Copper Band') !== null:
+                    return images.rings.copperBand;
+                case name.match('Garnet Ring') !== null:
+                    return images.rings.garnetRing;
+                case name.match('Jade Band') !== null:
+                    return images.rings.jadeBand;
+                case name.match('Copper Mark') !== null:
+                    return images.rings.copperMark;
+                case name.match('Frog Faction') !== null:
+                    return images.rings.frogFaction;
+                case name.match('Violet Hoop') !== null:
+                    return images.rings.violetHoop;
+                case name.match('Skull Brim') !== null:
+                    return images.rings.skullBrim;
+                case name.match('Golden Onyx') !== null:
+                    return images.rings.goldenOnyx;
+                case name.match('Galaxy Loop') !== null:
+                    return images.rings.galaxyLoop;
+                case name.match('Silver Azurite') !== null:
+                    return images.rings.silverAzurite;
+                case name.match('Golden Emerald') !== null:
+                    return images.rings.goldenEmerald;
+                case name.match('Golden Ruby') !== null:
+                    return images.rings.goldenRuby;
+                case name.match('Verdant Surge') !== null:
+                    return images.rings.verdantSurge;
+            }
             break;
     }
 
@@ -166,6 +168,7 @@ export default function RelicsTableRow(props) {
                 fontWeight: 'bold'
             }}>{props.relic.rarity.label}</td>
             <td>{props.relic.level}</td>
+            <td>{roundNum(props.relic.total)}</td>
             <td>{props.relic.bonuses[0].ancient}</td>
             <td>{roundNum(props.relic.bonuses[0].level)}</td>
             <td>{props.relic.bonuses[1] ? props.relic.bonuses[1].ancient : ''}</td>
@@ -174,7 +177,6 @@ export default function RelicsTableRow(props) {
             <td>{props.relic.bonuses[2] ? roundNum(props.relic.bonuses[2].level) : ''}</td>
             <td>{props.relic.bonuses[3] ? props.relic.bonuses[3].ancient : ''}</td>
             <td>{props.relic.bonuses[3] ? roundNum(props.relic.bonuses[3].level) : ''}</td>
-            <td>{roundNum(props.relic.total)}</td>
         </tr>
     );
 }

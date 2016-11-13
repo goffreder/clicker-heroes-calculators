@@ -10,21 +10,21 @@ export default function RelicsTable(props) {
                         <th rowSpan="2">Relic</th>
                         <th rowSpan="2">Rarity</th>
                         <th rowSpan="2">Level</th>
+                        <th rowSpan="2">Total</th>
                         <th colSpan="2">I</th>
                         <th colSpan="2">II</th>
                         <th colSpan="2">III</th>
                         <th colSpan="2">IV</th>
-                        <th rowSpan="2">Total</th>
                     </tr>
                     <tr>
                         <th>Ancient</th>
-                        <th>Level</th>
+                        <th>Levels</th>
                         <th>Ancient</th>
-                        <th>Level</th>
+                        <th>Levels</th>
                         <th>Ancient</th>
-                        <th>Level</th>
+                        <th>Levels</th>
                         <th>Ancient</th>
-                        <th>Level</th>
+                        <th>Levels</th>
                     </tr>
                 </thead>
                 <tbody>
