@@ -1,21 +1,14 @@
 export default class Header extends React.Component {
     onClick = event => {
-        const dest = event.target.textContent.toLowerCase();
+        const dest = event.target.href.match(/#([a-zA-Z-_]*)$/)[1];
 
         if (this.props.active !== dest) {
-            this.props.onClick(event.target.textContent.toLowerCase());
+            this.props.loadTab(dest);
         }
     }
 
     render() {
-        switch (this.props.active) {
-            case 'home':
-                location.hash = '';
-                break;
-            default:
-                location.hash = this.props.active;
-                break;
-        }
+        location.hash = this.props.active;
 
         return (
             <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -27,12 +20,15 @@ export default class Header extends React.Component {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <a className="navbar-brand" href="#">Clicker Heroes Relic Calculator</a>
+                        <a className="navbar-brand" href="#">Clicker Heroes Calculators</a>
                     </div>
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
-                            <li className={this.props.active === 'home' ? 'active' : ''}>
-                                <a href="#" onClick={this.onClick}>Home</a>
+                            <li className={this.props.active === 'relics' ? 'active' : ''}>
+                                <a href="#relics" onClick={this.onClick}>Relics</a>
+                            </li>
+                            <li className={this.props.active === 'heroes' ? 'active' : ''}>
+                                <a href="#heroes" onClick={this.onClick}>Hero Costs</a>
                             </li>
                             {/* <li className={this.props.active === 'ancients' ? 'active' : ''}>
                                 <a href="#ancients" onClick={this.onClick}>Ancients</a>

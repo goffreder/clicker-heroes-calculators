@@ -1,9 +1,9 @@
 import GameStateInput from '../containers/GameStateInput';
 import RelicsTable from '../containers/RelicsTable';
 
-export default function Home(props)  {
+export default function Relics(props)  {
     return (
-        <div>
+        <div className="container">
             <GameStateInput />
             <RelicsTable />
         </div>

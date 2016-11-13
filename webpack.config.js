@@ -36,6 +36,7 @@ config = {
         new webpack.ProvidePlugin({
             'React': 'react',
             'ReactDOM': 'react-dom',
+            'deepAssign': 'deep-assign'
         }),
     ],
 

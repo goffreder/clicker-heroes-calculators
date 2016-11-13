@@ -2,6 +2,10 @@ body {
     padding-top: 5rem;
 }
 
+input.form-control.short {
+    width: 75px;
+}
+
 #app {
     padding: 3rem 1.5rem;
     text-align: center;
@@ -12,11 +16,12 @@ body {
     text-align: center;
 }
 
-#relics-table > tbody > tr:nth-child(4) {
-    border-bottom: 2px solid #868686;
+#relics-table > tbody > tr:nth-child(5) {
+    border-top: 2px solid #868686;
 }
 
-#relics-table > tbody > tr > td {
+#relics-table > tbody > tr > td,
+#heroes-table > tbody > tr > td {
     vertical-align: middle;
 }
 
@@ -25,4 +30,8 @@ body {
     margin-right: 5px;
     padding: 7px;
     border-radius: 5px;
+}
+
+#dogcog-block input {
+    margin: 0 10px;
 }

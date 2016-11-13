@@ -9,7 +9,9 @@ import reducer from './reducers';
 
 import Main from './containers/Main';
 
-const store = createStore(reducer, {}, applyMiddleware(createLogger()));
+const initialState = { active: 'heroes' };
+
+const store = createStore(reducer, initialState, applyMiddleware(createLogger()));
 
 ReactDOM.render(
     <Provider store={store}>
