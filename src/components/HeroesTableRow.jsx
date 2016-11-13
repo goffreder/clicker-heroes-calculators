@@ -15,8 +15,22 @@ export default function HeroesTableRow(props) {
                 {hero.label}
             </td>
             <td className="text-left">{hero.baseCost.toExponential(2)}</td>
-            <td>{hero.currentLevel}</td>
-            <td>{hero.targetLevel}</td>
+            <td>
+                <input
+                    type="number"
+                    className="form-control short"
+                    value={hero.currentLevel}
+                    onChange={event => props.setHeroCurrentLevel(props.id, event.target.value)}
+                />
+            </td>
+            <td>
+                <input
+                    type="number"
+                    className="form-control short"
+                    value={hero.targetLevel}
+                    onChange={event => props.setHeroTargetLevel(props.id, event.target.value)}
+                />
+            </td>
             <td>{hero.total.toExponential(2)}</td>
         </tr>
     );

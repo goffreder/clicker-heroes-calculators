@@ -4,6 +4,7 @@ body {
 
 input.form-control.short {
     width: 75px;
+    margin: auto;
 }
 
 #app {

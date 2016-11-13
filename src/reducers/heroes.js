@@ -63,6 +63,30 @@ const reducer = {
             ...state,
             dogcogLevel: action.payload.level
         };
+    },
+    SET_HERO_CURRENT_LEVEL: (state, action) => {
+        return {
+            ...state,
+            costs: {
+                ...state.costs,
+                [action.payload.hero]: {
+                    ...state.costs[action.payload.hero],
+                    currentLevel: action.payload.value
+                }
+            }
+        };
+    },
+    SET_HERO_TARGET_LEVEL: (state, action) => {
+        return {
+            ...state,
+            costs: {
+                ...state.costs,
+                [action.payload.hero]: {
+                    ...state.costs[action.payload.hero],
+                    targetLevel: action.payload.value
+                }
+            }
+        };
     }
 };
 
