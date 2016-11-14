@@ -2,7 +2,7 @@ export const rarities = {
     1: { label: 'Common', color: '#838383' },
     2: { label: 'Uncommon', color: '#29781e' },
     3: { label: 'Rare', color: '#1c60a4' },
-    4: { label: 'Epic', color: '' },
+    4: { label: 'Epic', color: '#8b24d1' },
 };
 
 export const ancients = {
@@ -22,6 +22,7 @@ export const ancients = {
     15: { label: 'Bhaal', multiplier: 1 },
     16: { label: 'Dora', multiplier: 55 },
     17: { label: 'Atman', multiplier: 100 },
+    18: { label: 'Fortuna', multiplier: 45 },
     19: { label: 'Dogcog', multiplier: 50 },
     21: { label: 'Mimzee', multiplier: 1 },
     22: { label: 'Mammon', multiplier: 1 },
