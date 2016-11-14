@@ -9,7 +9,7 @@ import reducer from './reducers';
 
 import Main from './containers/Main';
 
-const initialState = { active: 'relics' };
+const initialState = { active: 'ancients' };
 
 const store = createStore(reducer, initialState, applyMiddleware(createLogger()));
 

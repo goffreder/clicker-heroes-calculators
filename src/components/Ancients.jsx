@@ -1,3 +1,9 @@
+import AncientsTable from './AncientsTable';
+
 export default function Ancients()  {
-    return <div>Ancients</div>;
+    return (
+        <div className="container">
+            <AncientsTable />
+        </div>
+    );
 }

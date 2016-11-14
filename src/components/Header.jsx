@@ -27,12 +27,12 @@ export default class Header extends React.Component {
                             <li className={this.props.active === 'relics' ? 'active' : ''}>
                                 <a href="#relics" onClick={this.onClick}>Relics</a>
                             </li>
+                            <li className={this.props.active === 'ancients' ? 'active' : ''}>
+                                <a href="#ancients" onClick={this.onClick}>Ancients Relic Tiers</a>
+                            </li>
                             <li className={this.props.active === 'heroes' ? 'active' : ''}>
                                 <a href="#heroes" onClick={this.onClick}>Hero Costs</a>
                             </li>
-                            {/* <li className={this.props.active === 'ancients' ? 'active' : ''}>
-                                <a href="#ancients" onClick={this.onClick}>Ancients</a>
-                            </li> */}
                         </ul>
                     </div>
                 </div>
