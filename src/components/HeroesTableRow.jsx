@@ -8,13 +8,15 @@ export default function HeroesTableRow(props) {
     const { hero } = props;
     const { heroes } = images;
 
+    const imgStyle = { marginLeft: 10 };
+
     return (
         <tr>
             <td className="text-right">
-                <img src={getHeroImage(props.id, heroes)} />
                 {hero.label}
+                <img src={getHeroImage(props.id, heroes)} style={imgStyle} />
             </td>
-            <td className="text-left">{hero.baseCost.toExponential(2)}</td>
+            <td>{hero.baseCost.toExponential(2)}</td>
             <td>
                 <input
                     type="number"
