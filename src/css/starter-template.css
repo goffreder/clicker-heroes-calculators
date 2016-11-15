@@ -22,8 +22,7 @@ input.form-control.short {
 }
 
 #relics-table > tbody > tr > td,
-#heroes-table > tbody > tr > td,
-#ancients-table > tbody > tr > td {
+#heroes-table > tbody > tr > td {
     vertical-align: middle;
 }
 
@@ -32,16 +31,6 @@ input.form-control.short {
     margin-right: 5px;
     padding: 7px;
     border-radius: 5px;
-}
-
-#ancients-table {
-    width: 30%;
-    margin: auto;
-}
-
-#ancients-table img {
-    width: 50px;
-    margin-right: 5px;
 }
 
 #heroes-table img {
