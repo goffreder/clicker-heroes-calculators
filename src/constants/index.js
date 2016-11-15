@@ -30,6 +30,7 @@ export const ancients = {
     25: { label: 'Solomon', multiplier: 1 },
     26: { label: 'Juggernaut', multiplier: 1 },
     27: { label: 'Kumawakamaru', multiplier: 100 },
+    28: { label: 'Vaagur', multiplier: 25 },
 };
 
 export const heroes = {
