@@ -3,6 +3,7 @@ export const rarities = {
     2: { label: 'Uncommon', color: '#29781e' },
     3: { label: 'Rare', color: '#1c60a4' },
     4: { label: 'Epic', color: '#8b24d1' },
+    5: { label: 'Fabled', color: '#30d330' },
 };
 
 export const ancients = {
