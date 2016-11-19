@@ -17,7 +17,7 @@ export const parseGameState = gameState => {
     return null;
 }
 
-export const getRelics = items => {
+export const getRelics = (items, style) => {
     return Object.keys(items).map(k => {
         const item = items[k];
         let total = 0;
@@ -28,14 +28,14 @@ export const getRelics = items => {
             ancient: ancients[item.bonusType1].label,
             level: item.bonus1Level
         });
-        total += item.bonus1Level * ancients[item.bonusType1].multiplier;
+        total += item.bonus1Level * ancients[item.bonusType1].multipliers[style];
 
         if (item.bonusType2) {
             bonuses.push({
                 ancient: ancients[item.bonusType2].label,
                 level: item.bonus2Level
             });
-            total += item.bonus2Level * ancients[item.bonusType2].multiplier;
+            total += item.bonus2Level * ancients[item.bonusType2].multipliers[style];
         }
 
         if (item.bonusType3) {
@@ -43,7 +43,7 @@ export const getRelics = items => {
                 ancient: ancients[item.bonusType3].label,
                 level: item.bonus3Level
             });
-            total += item.bonus3Level * ancients[item.bonusType3].multiplier;
+            total += item.bonus3Level * ancients[item.bonusType3].multipliers[style];
         }
 
         if (item.bonusType4) {
@@ -51,7 +51,7 @@ export const getRelics = items => {
                 ancient: ancients[item.bonusType4].label,
                 level: item.bonus4Level
             });
-            total += item.bonus4Level * ancients[item.bonusType4].multiplier;
+            total += item.bonus4Level * ancients[item.bonusType4].multipliers[style];
         }
 
         return {

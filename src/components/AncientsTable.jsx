@@ -15,7 +15,7 @@ export default function AncientsTable(props)  {
                         <AncientsTableRow
                             key={k}
                             name={a.label}
-                            multiplier={a.multiplier}
+                            multiplier={a.multipliers[props.playStyle]}
                         />
                     ))
                 }

@@ -1,11 +1,21 @@
-import GameStateInput from '../containers/GameStateInput';
-import RelicsTable from '../containers/RelicsTable';
+import StyleSwitcher from './StyleSwitcher';
+import GameStateInput from './GameStateInput';
+import RelicsTable from './RelicsTable';
 
 export default function Relics(props)  {
     return (
         <div className="container">
-            <GameStateInput />
-            <RelicsTable />
+            <StyleSwitcher
+                playStyle={props.playStyle}
+                setPlayStyle={props.setPlayStyle}
+            />
+            <GameStateInput
+                encodedState={props.encodedState}
+                saveGameState={props.saveGameState}
+            />
+            <RelicsTable
+                relics={props.relics}
+            />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import Header from '../containers/Header';
-import Relics from './Relics';
-import Ancients from './Ancients';
+import Relics from '../containers/Relics';
+import Ancients from '../containers/Ancients';
 import Heroes from './Heroes';
 
 export default function Main(props) {
