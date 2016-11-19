@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 config = {
-    devtool: process.env.NODE_ENV !== 'production' ? 'inline-source-map' : null,
+    devtool: process.env.NODE_ENV !== 'production' ? 'eval' : null,
 
     entry: {
         main: [
