@@ -13,6 +13,8 @@ export default function Heroes(props)  {
                                 ? +props.dogcogLevel + +props.bonusLevels
                                 : props.dogcogLevel
                         }
+                        setHeroCurrentLevel={props.setHeroCurrentLevel}
+                        setHeroTargetLevel={props.setHeroTargetLevel}
                     />
                 </div>
                 <div className="col-md-4">
