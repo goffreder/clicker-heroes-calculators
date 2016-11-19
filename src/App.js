@@ -11,7 +11,9 @@ import Main from './containers/Main';
 
 const initialState = { active: 'relics' };
 
-const store = createStore(reducer, initialState, applyMiddleware(createLogger()));
+const store = process.env.NODE_ENV === 'production'
+    ? createStore(reducer, initialState)
+    : createStore(reducer, initialState, applyMiddleware(createLogger()));
 
 ReactDOM.render(
     <Provider store={store}>
