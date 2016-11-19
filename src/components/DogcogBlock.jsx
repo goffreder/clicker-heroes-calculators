@@ -2,11 +2,23 @@ import { getDogcogPercentage } from '../utils';
 
 export default class DogcogBlock extends React.Component {
 
-    _handleChange = event => {
+    _handleLevelChange = event => {
         this.props.setDogcogLevel(+event.target.value);
     }
 
+    _handleCheckboxChange = event => {
+        this.props.setRelicsBonusCheckboxValue(event.target.checked);
+    }
+
     render() {
+        const checkboxLabelStyle = { marginRight: 10, marginTop: 10 };
+
+        const relicBonusLabel = this.props.bonusLevels === 1
+            ? 'Include ' + this.props.bonusLevels + ' level from relics'
+            : 'Include ' + this.props.bonusLevels + ' levels from relics';
+
+        const dogcogLevel = +this.props.dogcogLevel + (this.props.relicsBonusChecked ? this.props.bonusLevels : 0);
+
         return (
             <form className="form-inline">
                 <div className="form-group" id="dogcog-block">
@@ -14,11 +26,23 @@ export default class DogcogBlock extends React.Component {
                     <input
                         id="dogcog-level"
                         className="form-control short"
-                        value={this.props.dogcogLevel}
+                        value={dogcogLevel}
                         type="number"
-                        onChange={this._handleChange}
+                        min="0"
+                        onChange={this._handleLevelChange}
                     />
-                    <span>-{getDogcogPercentage(this.props.dogcogLevel).toFixed(2)}%</span>
+                    <span>-{getDogcogPercentage(dogcogLevel).toFixed(2)}%</span>
+                </div>
+                <div className={'checkbox' + (!this.props.relicsCheckboxEnabled ? ' disabled' : '')}>
+                    <label style={checkboxLabelStyle}>
+                        {relicBonusLabel}
+                    </label>
+                    <input
+                        type="checkbox"
+                        checked={this.props.relicsBonusChecked}
+                        disabled={!this.props.relicsCheckboxEnabled}
+                        onChange={this._handleCheckboxChange}
+                    />
                 </div>
             </form>
         );

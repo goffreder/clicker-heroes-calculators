@@ -1,15 +1,29 @@
-import HeroesTable from '../containers/HeroesTable';
-import DogcogBlock from '../containers/DogcogBlock';
+import HeroesTable from './HeroesTable';
+import DogcogBlock from './DogcogBlock';
 
-export default function Heroes()  {
+export default function Heroes(props)  {
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-8">
-                    <HeroesTable />
+                    <HeroesTable
+                        heroes={props.heroes}
+                        dogcogLevel={
+                            props.relicsBonusChecked
+                                ? +props.dogcogLevel + +props.bonusLevels
+                                : props.dogcogLevel
+                        }
+                    />
                 </div>
                 <div className="col-md-4">
-                    <DogcogBlock />
+                    <DogcogBlock
+                        dogcogLevel={props.dogcogLevel}
+                        bonusLevels={props.bonusLevels}
+                        relicsCheckboxEnabled={props.isGameStateSet}
+                        relicsBonusChecked={props.relicsBonusChecked}
+                        setDogcogLevel={props.setDogcogLevel}
+                        setRelicsBonusCheckboxValue={props.setRelicsBonusCheckboxValue}
+                    />
                 </div>
             </div>
         </div>

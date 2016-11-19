@@ -1,5 +1,6 @@
 const defaultState = {
     dogcogLevel: 0,
+    relicsBonusChecked: false,
     costs: {
         cid: { currentLevel: 0, targetLevel: 1000 },
         treebeast: { currentLevel: 0, targetLevel: 1000 },
@@ -62,6 +63,12 @@ const reducer = {
         return {
             ...state,
             dogcogLevel: action.payload.level
+        };
+    },
+    SET_DOGCOG_RELICS_BONUS_CHECKBOX: (state, action) => {
+        return {
+            ...state,
+            relicsBonusChecked: action.payload.checkboxState
         };
     },
     SET_HERO_CURRENT_LEVEL: (state, action) => {

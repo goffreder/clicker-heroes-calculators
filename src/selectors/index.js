@@ -64,3 +64,29 @@ export const getRelics = (items, style) => {
         };
     }).sort((a, b) => b.total - a.total);
 };
+
+export const getDogcogRelicLevels = items => {
+    let bonusLevels = 0;
+
+    Object.keys(items).forEach(k => {
+        const item = items[k];
+
+        if (item.bonusType1 === 19) {
+            bonusLevels += +item.bonus1Level
+        }
+
+        if (item.bonusType2 === 19) {
+            bonusLevels += +item.bonus2Level
+        }
+
+        if (item.bonusType3 === 19) {
+            bonusLevels += +item.bonus3Level
+        }
+
+        if (item.bonusType4 === 19) {
+            bonusLevels += +item.bonus4Level
+        }
+    });
+
+    return Math.floor(bonusLevels);
+};

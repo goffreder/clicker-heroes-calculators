@@ -33,8 +33,6 @@ export default function HeroesTable(props)  {
                                 }
                                 id={h}
                                 key={k}
-                                setHeroCurrentLevel={props.setHeroCurrentLevel}
-                                setHeroTargetLevel={props.setHeroTargetLevel}
                             />
                         ))
                 }
