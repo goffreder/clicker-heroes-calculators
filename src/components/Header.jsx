@@ -1,3 +1,5 @@
+import images from '../css/images';
+
 export default class Header extends React.Component {
     onClick = event => {
         const dest = event.target.href.match(/#([a-zA-Z-_]*)$/)[1];
@@ -8,6 +10,9 @@ export default class Header extends React.Component {
     }
 
     render() {
+        const githubLink = { paddingTop: 10, paddingBottom: 10 };
+        const githubIcon = { width: 30 };
+
         location.hash = this.props.active;
 
         return (
@@ -32,6 +37,11 @@ export default class Header extends React.Component {
                             </li>
                             <li className={this.props.active === 'heroes' ? 'active' : ''}>
                                 <a href="#heroes" onClick={this.onClick}>Hero Costs</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/goffreder/clicker-heroes-calculators" target="_blank" style={githubLink}>
+                                    <img style={githubIcon} src={images.github} />
+                                </a>
                             </li>
                         </ul>
                     </div>
