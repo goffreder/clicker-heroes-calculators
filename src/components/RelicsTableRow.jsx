@@ -70,7 +70,7 @@ function getRelicImage(name, type, images) {
             switch (true) {
                 case name.match('Ranger Gloves') !== null:
                     return images.gloves.rangerGloves;
-                case name.match('Arctic Wraps') !== null:
+                case name.match('Artic Wraps') !== null:
                     return images.gloves.arcticWraps;
                 case name.match('Handwraps') !== null:
                     return images.gloves.handwraps;
