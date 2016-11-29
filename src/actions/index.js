@@ -4,6 +4,10 @@ export const loadTab = createAction('LOAD_TAB', tab => ({ tab }));
 
 export const setPlayStyle = createAction('SET_PLAY_STYLE', style => ({ style }));
 
+export const toggleEditMode = createAction('TOGGLE_EDIT_MODE');
+
+export const setAncientMultiplier = createAction('SET_ANCIENT_MULTIPLIER', (ancientId, style, multiplier) => ({ ancientId, style, multiplier }))
+
 export const loadGameState = createAction('LOAD_GAME_STATE', (state, encodedState) => ({ state, encodedState }));
 
 export const setDogcogLevel = createAction('SET_DOGCOG_LEVEL', level => ({ level }));

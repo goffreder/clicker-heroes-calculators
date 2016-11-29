@@ -1,11 +1,9 @@
 import StyleSwitcher from './StyleSwitcher';
 import AncientsTable from './AncientsTable';
 
-import { ancients } from '../constants';
-
 export default function Ancients(props) {
-    const ancientsIII = Object.keys(ancients)
-        .map(k => ancients[k])
+    const ancientsIII = Object.keys(props.ancients)
+        .map(k => props.ancients[k])
         .sort((a, b) => b.multipliers[props.playStyle] - a.multipliers[props.playStyle]);
 
     const ancientsI = ancientsIII.splice(0, Math.ceil(ancientsIII.length / 3));
@@ -18,13 +16,31 @@ export default function Ancients(props) {
                 setPlayStyle={props.setPlayStyle}
             />
             <div className="col-md-4">
-                <AncientsTable ancients={ancientsI} playStyle={props.playStyle}/>
+                <AncientsTable
+                    ancients={ancientsI}
+                    playStyle={props.playStyle}
+                    editing={props.editing}
+                    toggleEditMode={props.toggleEditMode}
+                    setAncientMultiplier={(ancientId, multiplier) => props.setAncientMultiplier(ancientId, props.playStyle, multiplier)}
+                />
             </div>
             <div className="col-md-4">
-                <AncientsTable ancients={ancientsII} playStyle={props.playStyle} />
+                <AncientsTable
+                    ancients={ancientsII}
+                    playStyle={props.playStyle}
+                    editing={props.editing}
+                    toggleEditMode={props.toggleEditMode}
+                    setAncientMultiplier={(ancientId, multiplier) => props.setAncientMultiplier(ancientId, props.playStyle, multiplier)}
+                />
             </div>
             <div className="col-md-4">
-                <AncientsTable ancients={ancientsIII} playStyle={props.playStyle} />
+                <AncientsTable
+                    ancients={ancientsIII}
+                    playStyle={props.playStyle}
+                    editing={props.editing}
+                    toggleEditMode={props.toggleEditMode}
+                    setAncientMultiplier={(ancientId, multiplier) => props.setAncientMultiplier(ancientId, props.playStyle, multiplier)}
+                />
             </div>
         </div>
     );

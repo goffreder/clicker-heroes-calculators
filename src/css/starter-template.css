@@ -7,6 +7,11 @@ input.form-control.short {
     margin: auto;
 }
 
+input.form-control.shorter {
+    width: 50px;
+    margin: auto;
+}
+
 #app {
     padding: 3rem 1.5rem;
     text-align: center;

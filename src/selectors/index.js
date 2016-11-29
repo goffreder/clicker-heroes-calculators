@@ -1,4 +1,4 @@
-import { rarities, ancients } from '../constants';
+import { rarities } from '../constants';
 
 export const parseGameState = gameState => {
     const SPLITTER = 'Fe12NAfA3R6z4k0z';
@@ -17,7 +17,7 @@ export const parseGameState = gameState => {
     return null;
 }
 
-export const getRelics = (items, style) => {
+export const getRelics = (items, style, ancients) => {
     return Object.keys(items).map(k => {
         const item = items[k];
         let total = 0;

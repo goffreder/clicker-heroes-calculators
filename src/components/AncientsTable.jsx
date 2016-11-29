@@ -14,8 +14,12 @@ export default function AncientsTable(props)  {
                     props.ancients.map((a, k) => (
                         <AncientsTableRow
                             key={k}
+                            id={a.id}
                             name={a.label}
                             multiplier={a.multipliers[props.playStyle]}
+                            editing={props.editing}
+                            toggleEditMode={props.toggleEditMode}
+                            setAncientMultiplier={props.setAncientMultiplier}
                         />
                     ))
                 }
