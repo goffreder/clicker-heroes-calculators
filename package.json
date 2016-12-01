@@ -1,6 +1,6 @@
 {
   "name": "clicker-heroes-calculators",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Clicker Heroes Calculators",
   "main": "app.js",
   "scripts": {
