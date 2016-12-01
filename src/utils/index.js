@@ -18,7 +18,7 @@ export const loadState = () => {
             return undefined;
         }
 
-        const unserializedState = serializedState;
+        const unserializedState = JSON.parse(serializedState);
 
         if (unserializedState.version !== appData.version) {
             return undefined;
