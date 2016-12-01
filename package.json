@@ -6,7 +6,10 @@
   "scripts": {
     "build": "NODE_ENV=production webpack -p",
     "start": "webpack-dev-server --inline --display-error-details",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "preversion": "npm test",
+    "version": "npm run build && git add --all",
+    "postversion": "git push"
   },
   "keywords": [],
   "author": "",
