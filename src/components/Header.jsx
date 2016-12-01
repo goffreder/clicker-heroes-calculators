@@ -29,13 +29,13 @@ export default class Header extends React.Component {
                     </div>
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
-                            <li className={this.props.active === 'relics' ? 'active' : ''}>
+                            <li className={this.props.active === 'relics' ? 'active' : null}>
                                 <a href="#relics" onClick={this.onClick}>Relics</a>
                             </li>
-                            <li className={this.props.active === 'ancients' ? 'active' : ''}>
+                            <li className={this.props.active === 'ancients' ? 'active' : null}>
                                 <a href="#ancients" onClick={this.onClick}>Ancients Relic Tiers</a>
                             </li>
-                            <li className={this.props.active === 'heroes' ? 'active' : ''}>
+                            <li className={this.props.active === 'heroes' ? 'active' : null}>
                                 <a href="#heroes" onClick={this.onClick}>Hero Costs</a>
                             </li>
                             <li>
@@ -43,6 +43,9 @@ export default class Header extends React.Component {
                                     <img style={githubIcon} src={images.github} />
                                 </a>
                             </li>
+                        </ul>
+                        <ul className="nav navbar-nav navbar-right">
+                            <li><p className="navbar-text">v{appData.version}</p></li>
                         </ul>
                     </div>
                 </div>

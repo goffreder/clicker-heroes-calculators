@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var version = require('./package.json').version;
 
 config = {
     devtool: process.env.NODE_ENV !== 'production' ? 'eval' : null,
@@ -39,7 +40,8 @@ config = {
             'deepAssign': 'deep-assign'
         }),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+            'appData.version': JSON.stringify(version)
         }),
     ],
 
