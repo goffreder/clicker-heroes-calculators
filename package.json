@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 0",
     "preversion": "npm test",
     "version": "npm run build && git add --all",
-    "postversion": "git push"
+    "postversion": "git push && ./deploy.sh"
   },
   "keywords": [],
   "author": "",
