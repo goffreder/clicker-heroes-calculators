@@ -2,12 +2,18 @@ import { connect } from 'react-redux';
 
 import { setPlayStyle, toggleEditMode, setAncientMultiplier } from '../actions';
 
+import {
+    getAncients,
+    getPlayStyle,
+    isEditing,
+} from '../selectors';
+
 import Ancients from '../components/Ancients';
 
 const mapStateToProps = state => ({
-    playStyle: state.appState.playStyle,
-    ancients: Object.keys(state.ancients.tiers).map(id => ({ ...state.ancients.tiers[id], id })),
-    editing: state.ancients.editing,
+    playStyle: getPlayStyle(state),
+    ancients: getAncients(state),
+    editing: isEditing(state),
 });
 
 const mapDispatchToProps = dispatch => ({

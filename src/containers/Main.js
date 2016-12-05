@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 
+import { getActiveTab } from '../selectors';
+
 import Main from '../components/Main';
 
 const mapStateToProps = state => ({
-    active: state.appState.activeTab
+    active: getActiveTab(state),
 });
 
 const mapDispatchToProps = () => ({});
