@@ -6,9 +6,9 @@ import { parseGameState, getRelics } from '../selectors';
 import Relics from '../components/Relics';
 
 const mapStateToProps = state => ({
-    playStyle: state.playStyle,
+    playStyle: state.appState.playStyle,
     encodedState: state.encodedState,
-    relics: state.gameState ? getRelics(state.gameState.items.items, state.playStyle, state.ancients.tiers) : []
+    relics: state.gameState ? getRelics(state.gameState.items.items, state.appState.playStyle, state.ancients.tiers) : []
 });
 
 const mapDispatchToProps = dispatch => ({

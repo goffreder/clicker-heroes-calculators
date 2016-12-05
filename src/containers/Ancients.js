@@ -5,7 +5,7 @@ import { setPlayStyle, toggleEditMode, setAncientMultiplier } from '../actions';
 import Ancients from '../components/Ancients';
 
 const mapStateToProps = state => ({
-    playStyle: state.playStyle,
+    playStyle: state.appState.playStyle,
     ancients: Object.keys(state.ancients.tiers).map(id => ({ ...state.ancients.tiers[id], id })),
     editing: state.ancients.editing,
 });

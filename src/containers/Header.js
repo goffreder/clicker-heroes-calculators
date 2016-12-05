@@ -4,8 +4,8 @@ import { loadTab } from '../actions';
 
 import Header from '../components/Header';
 
-const mapStateToProps = state => ({
-    active: state.active
+const mapStateToProps = (state) => ({
+    active: state.appState.activeTab
 });
 
 const mapDispatchToProps = dispatch => ({
