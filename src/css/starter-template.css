@@ -17,6 +17,10 @@ input.form-control.shorter {
     text-align: center;
 }
 
+#links {
+    text-align: left;
+}
+
 #relics-table > thead > tr > th {
     vertical-align: middle;
     text-align: center;

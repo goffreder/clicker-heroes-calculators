@@ -14,7 +14,7 @@ import Main from './containers/Main';
 
 const initialState = loadState() ||
     {
-        active: 'ancients'
+        active: 'relics'
     };
 
 const store = process.env.NODE_ENV === 'production'

@@ -2,6 +2,7 @@ import Header from '../containers/Header';
 import Relics from '../containers/Relics';
 import Ancients from '../containers/Ancients';
 import Heroes from '../containers/Heroes';
+import Links from '../components/Links';
 
 export default function Main(props) {
     let content = null;
@@ -12,6 +13,9 @@ export default function Main(props) {
             break;
         case 'ancients':
             content = <Ancients />;
+            break;
+        case 'links':
+            content = <Links />;
             break;
         case 'relics':
         default:

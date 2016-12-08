@@ -41,6 +41,9 @@ export default class Header extends React.Component {
                                     GitHub
                                 </a>
                             </li>
+                            <li className={this.props.active === 'links' ? 'active' : null}>
+                                <a href="#links" onClick={this.onClick}>Links</a>
+                            </li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
                             <li><p className="navbar-text">v{appData.version}</p></li>
