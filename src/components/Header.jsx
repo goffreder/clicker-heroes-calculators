@@ -1,9 +1,19 @@
+import { clearState } from '../utils';
+
 export default class Header extends React.Component {
     onClick = event => {
         const dest = event.target.href.match(/#([a-zA-Z-_]*)$/)[1];
 
         if (this.props.active !== dest) {
             this.props.loadTab(dest);
+        }
+    }
+
+    resetState = () => {
+        if (confirm('Are you sure?')) {
+            clearState();
+
+            location.href = location.origin;
         }
     }
 
@@ -37,9 +47,7 @@ export default class Header extends React.Component {
                                 <a href="#heroes" onClick={this.onClick}>Hero Costs</a>
                             </li>
                             <li>
-                                <a href="https://github.com/goffreder/clicker-heroes-calculators" target="_blank">
-                                    GitHub
-                                </a>
+                                <a href="#" onClick={this.resetState}>Reset</a>
                             </li>
                             <li className={this.props.active === 'links' ? 'active' : null}>
                                 <a href="#links" onClick={this.onClick}>Links</a>
