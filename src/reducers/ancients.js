@@ -3,6 +3,8 @@ const defaultState = {
     tiers: {
         1: {
             label: 'Siyalatas',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 40
@@ -10,6 +12,8 @@ const defaultState = {
         },
         2: {
             label: 'Fragsworth',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -17,6 +21,8 @@ const defaultState = {
         },
         3: {
             label: 'Chronos',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 30,
                 idle: 20
@@ -24,6 +30,8 @@ const defaultState = {
         },
         4: {
             label: 'Chawedo',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -31,6 +39,8 @@ const defaultState = {
         },
         5: {
             label: 'Revolc',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 40,
                 idle: 60
@@ -38,6 +48,8 @@ const defaultState = {
         },
         7: {
             label: 'Argaiv',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 30
@@ -45,6 +57,8 @@ const defaultState = {
         },
         8: {
             label: 'Energon',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 10,
                 idle: 1
@@ -52,6 +66,8 @@ const defaultState = {
         },
         9: {
             label: 'Kleptos',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 15,
                 idle: 1
@@ -59,6 +75,8 @@ const defaultState = {
         },
         10: {
             label: 'Sniperino',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 60,
                 idle: 1
@@ -66,6 +84,8 @@ const defaultState = {
         },
         11: {
             label: 'Berserker',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -73,6 +93,8 @@ const defaultState = {
         },
         12: {
             label: 'Hecatoncheir',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 10,
                 idle: 1
@@ -80,6 +102,8 @@ const defaultState = {
         },
         13: {
             label: 'Bubos',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 35,
                 idle: 20
@@ -87,6 +111,8 @@ const defaultState = {
         },
         14: {
             label: 'Morgulis',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -94,6 +120,8 @@ const defaultState = {
         },
         15: {
             label: 'Bhaal',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -101,6 +129,8 @@ const defaultState = {
         },
         16: {
             label: 'Dora',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 55,
                 idle: 70
@@ -108,6 +138,8 @@ const defaultState = {
         },
         17: {
             label: 'Atman',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 100,
                 idle: 100
@@ -115,6 +147,8 @@ const defaultState = {
         },
         18: {
             label: 'Fortuna',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 45,
                 idle: 70
@@ -122,6 +156,8 @@ const defaultState = {
         },
         19: {
             label: 'Dogcog',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 50,
                 idle: 50
@@ -129,6 +165,8 @@ const defaultState = {
         },
         21: {
             label: 'Mimzee',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 60
@@ -136,6 +174,8 @@ const defaultState = {
         },
         22: {
             label: 'Mammon',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 70
@@ -143,6 +183,8 @@ const defaultState = {
         },
         24: {
             label: 'Libertas',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -150,6 +192,8 @@ const defaultState = {
         },
         25: {
             label: 'Solomon',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 90
@@ -157,6 +201,8 @@ const defaultState = {
         },
         26: {
             label: 'Juggernaut',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -164,6 +210,8 @@ const defaultState = {
         },
         27: {
             label: 'Kumawakamaru',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 100,
                 idle: 100
@@ -171,6 +219,8 @@ const defaultState = {
         },
         28: {
             label: 'Vaagur',
+            relicText: 'test',
+            baseValue: 0,
             multipliers: {
                 hybrid: 25,
                 idle: 20
