@@ -11,9 +11,14 @@
     "version": "npm run build && git add --all",
     "postversion": "git push && git push --tag && ./deploy.sh"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [ "clicker-heroes" ],
+  "author": "Emanuele Biancardi <goffreder@gmail.com> (http://arrested-developer.com/)",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goffreder/clicker-heroes-calculators"
+  },
+  "bugs": "https://github.com/goffreder/clicker-heroes-calculators/issues",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
