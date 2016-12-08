@@ -39,7 +39,7 @@ export default class AncientsTableRow extends React.Component {
 
         const content = this.state.edit
             ? (
-                <form className="form-inline">
+                <form className="form-inline" onSubmit={e => e.preventDefault()}>
                     <div className="form-group">
                         <input
                             className="form-control shorter text-center"
