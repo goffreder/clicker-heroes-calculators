@@ -40,7 +40,7 @@ const defaultState = {
             label: 'Argaiv',
             multipliers: {
                 hybrid: 1,
-                idle: 40
+                idle: 30
             }
         },
         8: {
@@ -103,7 +103,7 @@ const defaultState = {
             label: 'Dora',
             multipliers: {
                 hybrid: 55,
-                idle: 50
+                idle: 70
             }
         },
         17: {
@@ -117,28 +117,28 @@ const defaultState = {
             label: 'Fortuna',
             multipliers: {
                 hybrid: 45,
-                idle: 50
+                idle: 70
             }
         },
         19: {
             label: 'Dogcog',
             multipliers: {
                 hybrid: 50,
-                idle: 70
+                idle: 50
             }
         },
         21: {
             label: 'Mimzee',
             multipliers: {
                 hybrid: 1,
-                idle: 40
+                idle: 60
             }
         },
         22: {
             label: 'Mammon',
             multipliers: {
                 hybrid: 1,
-                idle: 50
+                idle: 70
             }
         },
         24: {
@@ -152,7 +152,7 @@ const defaultState = {
             label: 'Solomon',
             multipliers: {
                 hybrid: 1,
-                idle: 80
+                idle: 90
             }
         },
         26: {
