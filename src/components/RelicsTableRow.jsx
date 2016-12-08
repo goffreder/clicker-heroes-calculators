@@ -153,12 +153,22 @@ function getRelicImage(name, type, images) {
 
 export default class RelicsTableRow extends React.Component {
     getAncientCells(relicBonus, key) {
+        const tooltipStyle = {
+            borderBottomWidth: 1,
+            borderBottomStyle: 'dashed',
+            borderBottomColor: '#717171',
+            cursor: 'help',
+        };
         let cells = null;
 
         if (relicBonus) {
             cells = [
-                <td key={key + '_0'}>{relicBonus.ancient}</td>,
-                <td key={key + '_1'}>{roundNum(relicBonus.level)}</td>
+                <td key={key + '_0'}>
+                    <span style={tooltipStyle} title={relicBonus.tooltip}>{relicBonus.ancient}</span>
+                </td>,
+                <td key={key + '_1'}>
+                    <span style={tooltipStyle} title={relicBonus.tooltip}>{roundNum(relicBonus.level)}</span>
+                </td>
             ];
         } else {
             cells = [ <td key={key + '_0'}></td>, <td key={key + '_1'}></td> ];

@@ -23,35 +23,46 @@ export const getRelics = (items, style, ancients) => {
         let total = 0;
 
         let bonuses = [];
+        let ancient = ancients[item.bonusType1];
 
         bonuses.push({
-            ancient: ancients[item.bonusType1].label,
-            level: item.bonus1Level
+            ancient: ancient.label,
+            level: item.bonus1Level,
+            tooltip: `${ancient.baseValue} ${ancient.relicText}`,
         });
-        total += item.bonus1Level * ancients[item.bonusType1].multipliers[style];
+        total += item.bonus1Level * ancient.multipliers[style];
 
         if (item.bonusType2) {
+            ancient = ancients[item.bonusType2];
+
             bonuses.push({
-                ancient: ancients[item.bonusType2].label,
-                level: item.bonus2Level
+                ancient: ancient.label,
+                level: item.bonus2Level,
+                tooltip: `${ancient.baseValue} ${ancient.relicText}`,
             });
-            total += item.bonus2Level * ancients[item.bonusType2].multipliers[style];
+            total += item.bonus2Level * ancient.multipliers[style];
         }
 
         if (item.bonusType3) {
+            ancient = ancients[item.bonusType3];
+
             bonuses.push({
-                ancient: ancients[item.bonusType3].label,
-                level: item.bonus3Level
+                ancient: ancient.label,
+                level: item.bonus3Level,
+                tooltip: `${ancient.baseValue} ${ancient.relicText}`,
             });
-            total += item.bonus3Level * ancients[item.bonusType3].multipliers[style];
+            total += item.bonus3Level * ancient.multipliers[style];
         }
 
         if (item.bonusType4) {
+            ancient = ancients[item.bonusType4];
+
             bonuses.push({
-                ancient: ancients[item.bonusType4].label,
-                level: item.bonus4Level
+                ancient: ancient.label,
+                level: item.bonus4Level,
+                tooltip: `${ancient.baseValue} ${ancient.relicText}`,
             });
-            total += item.bonus4Level * ancients[item.bonusType4].multipliers[style];
+            total += item.bonus4Level * ancient.multipliers[style];
         }
 
         return {
