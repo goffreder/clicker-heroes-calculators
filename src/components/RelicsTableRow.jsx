@@ -151,32 +151,45 @@ function getRelicImage(name, type, images) {
     return images.ooze;
 }
 
-export default function RelicsTableRow(props) {
-    return (
-        <tr>
-            <td>{props.index < 4 ? props.index + 1 : ''}</td>
-            <td className="text-left">
-                <img
-                    className="relic-image"
-                    style={{ backgroundColor: props.relic.rarity.color }}
-                    src={getRelicImage(props.relic.name, props.relic.type, images.relics)}
-                />
-                {props.relic.name}
-            </td>
-            <td style={{
-                color: props.relic.rarity.color,
-                fontWeight: 'bold'
-            }}>{props.relic.rarity.label}</td>
-            <td>{props.relic.level}</td>
-            <td>{roundNum(props.relic.total)}</td>
-            <td>{props.relic.bonuses[0].ancient}</td>
-            <td>{roundNum(props.relic.bonuses[0].level)}</td>
-            <td>{props.relic.bonuses[1] ? props.relic.bonuses[1].ancient : ''}</td>
-            <td>{props.relic.bonuses[1] ? roundNum(props.relic.bonuses[1].level) : ''}</td>
-            <td>{props.relic.bonuses[2] ? props.relic.bonuses[2].ancient : ''}</td>
-            <td>{props.relic.bonuses[2] ? roundNum(props.relic.bonuses[2].level) : ''}</td>
-            <td>{props.relic.bonuses[3] ? props.relic.bonuses[3].ancient : ''}</td>
-            <td>{props.relic.bonuses[3] ? roundNum(props.relic.bonuses[3].level) : ''}</td>
-        </tr>
-    );
+export default class RelicsTableRow extends React.Component {
+    getAncientCells(relicBonus, key) {
+        let cells = null;
+
+        if (relicBonus) {
+            cells = [
+                <td key={key + '_0'}>{relicBonus.ancient}</td>,
+                <td key={key + '_1'}>{roundNum(relicBonus.level)}</td>
+            ];
+        } else {
+            cells = [ <td key={key + '_0'}></td>, <td key={key + '_1'}></td> ];
+        }
+
+        return cells;
+    }
+
+    render() {
+        return (
+            <tr>
+                <td>{this.props.index < 4 ? this.props.index + 1 : ''}</td>
+                <td className="text-left">
+                    <img
+                        className="relic-image"
+                        style={{ backgroundColor: this.props.relic.rarity.color }}
+                        src={getRelicImage(this.props.relic.name, this.props.relic.type, images.relics)}
+                    />
+                    {this.props.relic.name}
+                </td>
+                <td style={{
+                    color: this.props.relic.rarity.color,
+                    fontWeight: 'bold'
+                }}>{this.props.relic.rarity.label}</td>
+                <td>{this.props.relic.level}</td>
+                <td>{roundNum(this.props.relic.total)}</td>
+                {this.getAncientCells(this.props.relic.bonuses[0], 0)}
+                {this.getAncientCells(this.props.relic.bonuses[1], 1)}
+                {this.getAncientCells(this.props.relic.bonuses[2], 2)}
+                {this.getAncientCells(this.props.relic.bonuses[3], 3)}
+            </tr>
+        );
+    }
 }
