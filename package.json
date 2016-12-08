@@ -1,6 +1,6 @@
 {
   "name": "clicker-heroes-calculators",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Clicker Heroes Calculators",
   "main": "app.js",
   "scripts": {
@@ -11,7 +11,9 @@
     "version": "npm run build && git add --all",
     "postversion": "git push && git push --tag && ./deploy.sh"
   },
-  "keywords": [ "clicker-heroes" ],
+  "keywords": [
+    "clicker-heroes"
+  ],
   "author": "Emanuele Biancardi <goffreder@gmail.com> (http://arrested-developer.com/)",
   "license": "ISC",
   "repository": {
