@@ -1,6 +1,7 @@
 import StyleSwitcher from './StyleSwitcher';
 import GameStateInput from './GameStateInput';
 import RelicsTable from './RelicsTable';
+import RelicsRecap from './RelicsRecap';
 
 export default function Relics(props)  {
     return (
@@ -16,6 +17,7 @@ export default function Relics(props)  {
             <RelicsTable
                 relics={props.relics}
             />
+            <RelicsRecap />
         </div>
     );
 }

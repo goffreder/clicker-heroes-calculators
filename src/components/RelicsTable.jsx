@@ -3,7 +3,7 @@ import RelicsTableRow from './RelicsTableRow';
 export default function RelicsTable(props) {
     if (props.relics.length) {
         return (
-            <div>
+            <div className="col-md-9">
                 <table id="relics-table" className="table table-hover table-bordered table-condensed">
                     <thead>
                         <tr>

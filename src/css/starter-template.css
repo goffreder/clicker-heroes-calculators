@@ -21,7 +21,7 @@ input.form-control.shorter {
     text-align: left;
 }
 
-#relics-table > thead > tr > th {
+table > thead > tr > th {
     vertical-align: middle;
     text-align: center;
 }
