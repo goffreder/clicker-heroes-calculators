@@ -1,4 +1,4 @@
-import { getDogcogPercentage } from '../utils';
+import { getDogcogPercentage, roundNum } from '../utils';
 
 export default class DogcogBlock extends React.Component {
 
@@ -14,10 +14,12 @@ export default class DogcogBlock extends React.Component {
         const checkboxLabelStyle = { marginRight: 10, marginTop: 10 };
 
         const relicBonusLabel = this.props.bonusLevels === 1
-            ? 'Include ' + this.props.bonusLevels + ' level from relics'
-            : 'Include ' + this.props.bonusLevels + ' levels from relics';
+            ? 'Include ' + roundNum(this.props.bonusLevels) + ' level from relics'
+            : 'Include ' + roundNum(this.props.bonusLevels) + ' levels from relics';
 
         const dogcogLevel = +this.props.dogcogLevel + (this.props.relicsBonusChecked ? this.props.bonusLevels : 0);
+
+        console.log(this.props);
 
         return (
             <form className="form-inline">

@@ -116,33 +116,4 @@ export const getRelicsBonuses = state => {
         }, {}));
 };
 
-export const getDogcogRelicLevels = state => {
-    if (!state.gameState) {
-        return 0;
-    }
-
-    const items = state.gameState.items.items;
-    let bonusLevels = 0;
-
-    Object.keys(items).forEach(k => {
-        const item = items[k];
-
-        if (item.bonusType1 === 19) {
-            bonusLevels += +item.bonus1Level
-        }
-
-        if (item.bonusType2 === 19) {
-            bonusLevels += +item.bonus2Level
-        }
-
-        if (item.bonusType3 === 19) {
-            bonusLevels += +item.bonus3Level
-        }
-
-        if (item.bonusType4 === 19) {
-            bonusLevels += +item.bonus4Level
-        }
-    });
-
-    return Math.floor(bonusLevels);
-};
+export const getDogcogRelicLevels = state => getRelicsBonuses(state).find(b => b.id === 19).level || 0;
