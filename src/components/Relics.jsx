@@ -17,7 +17,9 @@ export default function Relics(props)  {
             <RelicsTable
                 relics={props.relics}
             />
-            <RelicsRecap />
+            <RelicsRecap
+                bonuses={props.bonuses}
+            />
         </div>
     );
 }

@@ -12,7 +12,7 @@ import reducer from './reducers';
 
 import Main from './containers/Main';
 
-const initialState = process.env.NODE_ENV === 'production' && loadState() || {};
+const initialState = loadState() || {};
 
 const store = process.env.NODE_ENV === 'production'
     ? createStore(reducer, initialState)

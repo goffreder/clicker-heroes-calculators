@@ -9,3 +9,5 @@ export const getHeroCost = (hero, dogcogLevel) => {
 
     return (baseCost * (Math.pow(1.07, targetLevel) - Math.pow(1.07, currentLevel)) / 0.07) * (100 - getDogcogPercentage(dogcogLevel)) / 100;
 };
+
+export const roundNum = num => parseFloat(num).toFixed(2);

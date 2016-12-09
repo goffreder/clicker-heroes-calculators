@@ -50,35 +50,46 @@ export const getRelics = state => {
         let total = 0;
 
         let bonuses = [];
+        let ancient = ancients[item.bonusType1];
 
         bonuses.push({
-            ancient: ancients[item.bonusType1].label,
-            level: item.bonus1Level
+            id: item.bonusType1,
+            ancient: ancient.label,
+            level: +item.bonus1Level,
         });
-        total += item.bonus1Level * ancients[item.bonusType1].multipliers[style];
+        total += item.bonus1Level * ancient.multipliers[style];
 
         if (item.bonusType2) {
+            ancient = ancients[item.bonusType2];
+
             bonuses.push({
-                ancient: ancients[item.bonusType2].label,
-                level: item.bonus2Level
+                id: item.bonusType2,
+                ancient: ancient.label,
+                level: +item.bonus2Level,
             });
-            total += item.bonus2Level * ancients[item.bonusType2].multipliers[style];
+            total += item.bonus2Level * ancient.multipliers[style];
         }
 
         if (item.bonusType3) {
+            ancient = ancients[item.bonusType3];
+
             bonuses.push({
-                ancient: ancients[item.bonusType3].label,
-                level: item.bonus3Level
+                id: item.bonusType3,
+                ancient: ancient.label,
+                level: +item.bonus3Level,
             });
-            total += item.bonus3Level * ancients[item.bonusType3].multipliers[style];
+            total += item.bonus3Level * ancient.multipliers[style];
         }
 
         if (item.bonusType4) {
+            ancient = ancients[item.bonusType4];
+
             bonuses.push({
-                ancient: ancients[item.bonusType4].label,
-                level: item.bonus4Level
+                id: item.bonusType4,
+                ancient: ancient.label,
+                level: +item.bonus4Level,
             });
-            total += item.bonus4Level * ancients[item.bonusType4].multipliers[style];
+            total += item.bonus4Level * ancient.multipliers[style];
         }
 
         return {
@@ -90,6 +101,19 @@ export const getRelics = state => {
             total
         };
     }).sort((a, b) => b.total - a.total);
+};
+
+export const getRelicsBonuses = state => {
+    return Object.values([].concat.apply([], getRelics(state).slice(0, 4).map(r => r.bonuses))
+        .reduce((agg, b) => {
+            if (!agg[b.id]) {
+                agg[b.id] = b;
+            } else {
+                agg[b.id].level += b.level;
+            }
+
+            return agg;
+        }, {}));
 };
 
 export const getDogcogRelicLevels = state => {

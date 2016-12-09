@@ -5,6 +5,7 @@ import {
     getEncodedState,
     getPlayStyle,
     getRelics,
+    getRelicsBonuses,
     parseGameState,
 } from '../selectors';
 
@@ -14,6 +15,7 @@ const mapStateToProps = state => ({
     playStyle: getPlayStyle(state),
     encodedState: getEncodedState(state),
     relics: getRelics(state),
+    bonuses: getRelicsBonuses(state),
 });
 
 const mapDispatchToProps = dispatch => ({

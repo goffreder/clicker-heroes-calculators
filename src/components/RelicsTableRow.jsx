@@ -1,8 +1,6 @@
 import images from '../css/images';
 
-function roundNum(num) {
-    return parseFloat(num).toFixed(2);
-}
+import { roundNum } from '../utils';
 
 function getRelicImage(name, type, images) {
     switch (type) {
