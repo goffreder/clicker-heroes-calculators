@@ -1,5 +1,24 @@
 import { rarities } from '../constants';
 
+export const getActiveTab = state => state.appState.activeTab;
+
+export const getPlayStyle = state => state.appState.playStyle;
+
+export const getEncodedState = state => state.encodedState;
+
+export const getAncients = state =>
+    Object.keys(state.ancients.tiers).map(id => ({ ...state.ancients.tiers[id], id }));
+
+export const isEditing = state => state.ancients.editing;
+
+export const getHeroCosts = state => state.heroes.costs;
+
+export const isGameStateSet = state => Boolean(state.gameState);
+
+export const getDogcogLevel = state => state.heroes.dogcogLevel;
+
+export const isRelicBonusChecked = state => state.heroes.relicsBonusChecked;
+
 export const parseGameState = gameState => {
     const SPLITTER = 'Fe12NAfA3R6z4k0z';
     let temp = '';
@@ -17,7 +36,15 @@ export const parseGameState = gameState => {
     return null;
 }
 
-export const getRelics = (items, style, ancients) => {
+export const getRelics = state => {
+    if (!state.gameState) {
+        return [];
+    }
+
+    const items = state.gameState.items.items;
+    const style = state.appState.playStyle;
+    const ancients = state.ancients.tiers;
+
     return Object.keys(items).map(k => {
         const item = items[k];
         let total = 0;
@@ -65,7 +92,12 @@ export const getRelics = (items, style, ancients) => {
     }).sort((a, b) => b.total - a.total);
 };
 
-export const getDogcogRelicLevels = items => {
+export const getDogcogRelicLevels = state => {
+    if (!state.gameState) {
+        return 0;
+    }
+
+    const items = state.gameState.items.items;
     let bonusLevels = 0;
 
     Object.keys(items).forEach(k => {
