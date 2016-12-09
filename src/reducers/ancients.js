@@ -1,9 +1,37 @@
+const callbacks = {
+    argaiv: l => 0,
+    atman: l => 0,
+    berserker: l => l * 2,
+    bhaal: l => 0,
+    bubos: l => 0,
+    chawedo: l => l * 2,
+    chronos: l => 0,
+    dogcog: l => 0,
+    dora: l => 0,
+    energon: l => l * 2,
+    fortuna: l => 0,
+    fragsworth: l => 0,
+    hecatoncheir: l => l * 2,
+    juggernaut: l => 0,
+    kleptos: l => l * 2,
+    kumawakamaru: l => 0,
+    libertas: l => 0,
+    mammon: l => l * 5,
+    mimzee: l => l * 50,
+    morgulis: l => 0,
+    revolc: l => 0,
+    siyalatas: l => 0,
+    sniperino: l => l * 2,
+    solomon: l => 0,
+    vaagur: l => 0,
+};
+
 const defaultState = {
     editing: false,
     tiers: {
         1: {
             label: 'Siyalatas',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 1,
@@ -12,7 +40,7 @@ const defaultState = {
         },
         2: {
             label: 'Fragsworth',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 1,
@@ -21,7 +49,7 @@ const defaultState = {
         },
         3: {
             label: 'Chronos',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 30,
@@ -30,8 +58,8 @@ const defaultState = {
         },
         4: {
             label: 'Chawedo',
-            relicText: 'test',
-            baseValue: 0,
+            relicText: '+{} seconds to duration of Clickstorm',
+            baseValue: 2,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -39,7 +67,7 @@ const defaultState = {
         },
         5: {
             label: 'Revolc',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 40,
@@ -48,7 +76,7 @@ const defaultState = {
         },
         7: {
             label: 'Argaiv',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 1,
@@ -57,8 +85,8 @@ const defaultState = {
         },
         8: {
             label: 'Energon',
-            relicText: 'test',
-            baseValue: 0,
+            relicText: '+{} seconds to duration of Metal Detector',
+            baseValue: 2,
             multipliers: {
                 hybrid: 10,
                 idle: 1
@@ -66,8 +94,8 @@ const defaultState = {
         },
         9: {
             label: 'Kleptos',
-            relicText: 'test',
-            baseValue: 0,
+            relicText: '+{} seconds to duration of Golden Clicks',
+            baseValue: 2,
             multipliers: {
                 hybrid: 15,
                 idle: 1
@@ -75,8 +103,8 @@ const defaultState = {
         },
         10: {
             label: 'Sniperino',
-            relicText: 'test',
-            baseValue: 0,
+            relicText: '+{} seconds to duration of Lucky Strikes',
+            baseValue: 2,
             multipliers: {
                 hybrid: 60,
                 idle: 1
@@ -84,8 +112,8 @@ const defaultState = {
         },
         11: {
             label: 'Berserker',
-            relicText: 'test',
-            baseValue: 0,
+            relicText: '+{} seconds to duration of Powersurge',
+            baseValue: 2,
             multipliers: {
                 hybrid: 1,
                 idle: 1
@@ -93,8 +121,8 @@ const defaultState = {
         },
         12: {
             label: 'Hecatoncheir',
-            relicText: 'test',
-            baseValue: 0,
+            relicText: '+{} seconds to duration of Super Clicks',
+            baseValue: 2,
             multipliers: {
                 hybrid: 10,
                 idle: 1
@@ -102,7 +130,7 @@ const defaultState = {
         },
         13: {
             label: 'Bubos',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 35,
@@ -111,7 +139,7 @@ const defaultState = {
         },
         14: {
             label: 'Morgulis',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 1,
@@ -120,7 +148,7 @@ const defaultState = {
         },
         15: {
             label: 'Bhaal',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 1,
@@ -129,7 +157,7 @@ const defaultState = {
         },
         16: {
             label: 'Dora',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 55,
@@ -138,7 +166,7 @@ const defaultState = {
         },
         17: {
             label: 'Atman',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 100,
@@ -147,7 +175,7 @@ const defaultState = {
         },
         18: {
             label: 'Fortuna',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 45,
@@ -156,7 +184,7 @@ const defaultState = {
         },
         19: {
             label: 'Dogcog',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 50,
@@ -165,8 +193,8 @@ const defaultState = {
         },
         21: {
             label: 'Mimzee',
-            relicText: 'test',
-            baseValue: 0,
+            relicText: '+{}% Gold From Treasure Chests',
+            baseValue: 50,
             multipliers: {
                 hybrid: 1,
                 idle: 60
@@ -174,8 +202,8 @@ const defaultState = {
         },
         22: {
             label: 'Mammon',
-            relicText: 'test',
-            baseValue: 0,
+            relicText: '+{}% Gold Dropped',
+            baseValue: 5,
             multipliers: {
                 hybrid: 1,
                 idle: 70
@@ -183,7 +211,7 @@ const defaultState = {
         },
         24: {
             label: 'Libertas',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 1,
@@ -192,7 +220,7 @@ const defaultState = {
         },
         25: {
             label: 'Solomon',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 1,
@@ -201,7 +229,7 @@ const defaultState = {
         },
         26: {
             label: 'Juggernaut',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 1,
@@ -210,7 +238,7 @@ const defaultState = {
         },
         27: {
             label: 'Kumawakamaru',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 100,
@@ -219,7 +247,7 @@ const defaultState = {
         },
         28: {
             label: 'Vaagur',
-            relicText: 'test',
+            relicText: '{} test',
             baseValue: 0,
             multipliers: {
                 hybrid: 25,

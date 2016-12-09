@@ -28,7 +28,7 @@ export const getRelics = (items, style, ancients) => {
         bonuses.push({
             ancient: ancient.label,
             level: item.bonus1Level,
-            tooltip: `${ancient.baseValue} ${ancient.relicText}`,
+            tooltip: ancient.relicText.replace('{}', ancient.baseValue * item.bonus1Level),
         });
         total += item.bonus1Level * ancient.multipliers[style];
 
@@ -38,7 +38,7 @@ export const getRelics = (items, style, ancients) => {
             bonuses.push({
                 ancient: ancient.label,
                 level: item.bonus2Level,
-                tooltip: `${ancient.baseValue} ${ancient.relicText}`,
+                tooltip: ancient.relicText.replace('{}', ancient.baseValue * item.bonus2Level),
             });
             total += item.bonus2Level * ancient.multipliers[style];
         }
@@ -49,7 +49,7 @@ export const getRelics = (items, style, ancients) => {
             bonuses.push({
                 ancient: ancient.label,
                 level: item.bonus3Level,
-                tooltip: `${ancient.baseValue} ${ancient.relicText}`,
+                tooltip: ancient.relicText.replace('{}', ancient.baseValue * item.bonus3Level),
             });
             total += item.bonus3Level * ancient.multipliers[style];
         }
@@ -60,7 +60,7 @@ export const getRelics = (items, style, ancients) => {
             bonuses.push({
                 ancient: ancient.label,
                 level: item.bonus4Level,
-                tooltip: `${ancient.baseValue} ${ancient.relicText}`,
+                tooltip: ancient.relicText.replace('{}', ancient.baseValue * item.bonus4Level),
             });
             total += item.bonus4Level * ancient.multipliers[style];
         }
