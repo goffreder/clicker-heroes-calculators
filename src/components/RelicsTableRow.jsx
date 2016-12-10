@@ -1,8 +1,6 @@
 import images from '../css/images';
 
-function roundNum(num) {
-    return parseFloat(num).toFixed(2);
-}
+import { roundNum } from '../utils';
 
 function getRelicImage(name, type, images) {
     switch (type) {
@@ -152,7 +150,7 @@ function getRelicImage(name, type, images) {
 }
 
 export default class RelicsTableRow extends React.Component {
-    getAncientCells(relicBonus, key) {
+    getAncientCell(relicBonus, key) {
         const tooltipStyle = {
             borderBottomWidth: 1,
             borderBottomStyle: 'dashed',
@@ -162,16 +160,11 @@ export default class RelicsTableRow extends React.Component {
         let cells = null;
 
         if (relicBonus) {
-            cells = [
-                <td key={key + '_0'}>
-                    <span style={tooltipStyle} title={relicBonus.tooltip}>{relicBonus.ancient}</span>
-                </td>,
-                <td key={key + '_1'}>
-                    <span style={tooltipStyle} title={relicBonus.tooltip}>{roundNum(relicBonus.level)}</span>
-                </td>
-            ];
+            cells = (<td key={key}>
+                <span style={tooltipStyle} title={relicBonus.tooltip}>{relicBonus.ancient} - {roundNum(relicBonus.level)}</span>
+            </td>);
         } else {
-            cells = [ <td key={key + '_0'}></td>, <td key={key + '_1'}></td> ];
+            cells = <td key={key}></td>;
         }
 
         return cells;
@@ -189,16 +182,11 @@ export default class RelicsTableRow extends React.Component {
                     />
                     {this.props.relic.name}
                 </td>
-                <td style={{
-                    color: this.props.relic.rarity.color,
-                    fontWeight: 'bold'
-                }}>{this.props.relic.rarity.label}</td>
-                <td>{this.props.relic.level}</td>
                 <td>{roundNum(this.props.relic.total)}</td>
-                {this.getAncientCells(this.props.relic.bonuses[0], 0)}
-                {this.getAncientCells(this.props.relic.bonuses[1], 1)}
-                {this.getAncientCells(this.props.relic.bonuses[2], 2)}
-                {this.getAncientCells(this.props.relic.bonuses[3], 3)}
+                {this.getAncientCell(this.props.relic.bonuses[0], 0)}
+                {this.getAncientCell(this.props.relic.bonuses[1], 1)}
+                {this.getAncientCell(this.props.relic.bonuses[2], 2)}
+                {this.getAncientCell(this.props.relic.bonuses[3], 3)}
             </tr>
         );
     }

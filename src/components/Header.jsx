@@ -54,7 +54,9 @@ export default class Header extends React.Component {
                             </li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
-                            <li><p className="navbar-text">v{appData.version}</p></li>
+                            <li>
+                                <a href="https://github.com/goffreder/clicker-heroes-calculators/releases" target="_blank">v{appData.version}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

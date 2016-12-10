@@ -1,6 +1,6 @@
 {
   "name": "clicker-heroes-calculators",
-  "version": "1.0.7",
+  "version": "1.1.2",
   "description": "Clicker Heroes Calculators",
   "main": "app.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 0",
     "preversion": "npm test",
     "version": "npm run build && git add --all",
-    "postversion": "git push && git push --tag && ./deploy.sh"
+    "postversion": "git push && git push --tag && ./deploy.sh && ./release.sh"
   },
   "keywords": [
     "clicker-heroes"

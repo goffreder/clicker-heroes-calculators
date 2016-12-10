@@ -1,14 +1,21 @@
 import { connect } from 'react-redux';
 
 import { loadGameState, setPlayStyle } from '../actions';
-import { parseGameState, getRelics } from '../selectors';
+import {
+    getEncodedState,
+    getPlayStyle,
+    getRelics,
+    getRelicsBonuses,
+    parseGameState,
+} from '../selectors';
 
 import Relics from '../components/Relics';
 
 const mapStateToProps = state => ({
-    playStyle: state.playStyle,
-    encodedState: state.encodedState,
-    relics: state.gameState ? getRelics(state.gameState.items.items, state.playStyle, state.ancients.tiers) : []
+    playStyle: getPlayStyle(state),
+    encodedState: getEncodedState(state),
+    relics: getRelics(state),
+    bonuses: getRelicsBonuses(state),
 });
 
 const mapDispatchToProps = dispatch => ({
