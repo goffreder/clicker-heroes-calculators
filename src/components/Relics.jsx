@@ -5,7 +5,7 @@ import RelicsRecap from './RelicsRecap';
 
 export default function Relics(props)  {
     return (
-        <div className="container">
+        <div className="container-fluid">
             <StyleSwitcher
                 playStyle={props.playStyle}
                 setPlayStyle={props.setPlayStyle}
