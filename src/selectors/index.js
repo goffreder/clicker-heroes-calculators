@@ -1,13 +1,14 @@
 import { rarities } from '../constants';
 
+import { roundNum } from '../utils';
+
 export const getActiveTab = state => state.appState.activeTab;
 
 export const getPlayStyle = state => state.appState.playStyle;
 
 export const getEncodedState = state => state.encodedState;
 
-export const getAncients = state =>
-    Object.keys(state.ancients.tiers).map(id => ({ ...state.ancients.tiers[id], id }));
+export const getAncients = state => state.ancients.ancients;
 
 export const isEditing = state => state.ancients.editing;
 
@@ -43,57 +44,53 @@ export const getRelics = state => {
 
     const items = state.gameState.items.items;
     const style = state.appState.playStyle;
-    const ancients = state.ancients.tiers;
+    const { ancients, byRelicBonusId } = state.ancients;
 
-    return Object.keys(items).map(k => {
+    const relics = Object.keys(items).map(k => {
         const item = items[k];
         let total = 0;
 
         let bonuses = [];
-        let ancient = ancients[item.bonusType1];
+        let ancient = ancients[byRelicBonusId[item.bonusType1]];
 
         bonuses.push({
-            id: item.bonusType1,
+            id: ancient.id,
             ancient: ancient.label,
             level: +item.bonus1Level,
-            tooltip: ancient.relicText.replace('{}', ancient.baseValue * item.bonus1Level),
         });
-        total += item.bonus1Level * ancient.multipliers[style];
+        total += item.bonus1Level * ancient.coefficients[style];
 
         if (item.bonusType2) {
-            ancient = ancients[item.bonusType2];
+            ancient = ancients[byRelicBonusId[item.bonusType2]];
 
             bonuses.push({
-                id: item.bonusType2,
+                id: ancient.id,
                 ancient: ancient.label,
                 level: +item.bonus2Level,
-                tooltip: ancient.relicText.replace('{}', ancient.baseValue * item.bonus2Level),
             });
-            total += item.bonus2Level * ancient.multipliers[style];
+            total += item.bonus2Level * ancient.coefficients[style];
         }
 
         if (item.bonusType3) {
-            ancient = ancients[item.bonusType3];
+            ancient = ancients[byRelicBonusId[item.bonusType3]];
 
             bonuses.push({
-                id: item.bonusType3,
+                id: ancient.id,
                 ancient: ancient.label,
                 level: +item.bonus3Level,
-                tooltip: ancient.relicText.replace('{}', ancient.baseValue * item.bonus3Level),
             });
-            total += item.bonus3Level * ancient.multipliers[style];
+            total += item.bonus3Level * ancient.coefficients[style];
         }
 
         if (item.bonusType4) {
-            ancient = ancients[item.bonusType4];
+            ancient = ancients[byRelicBonusId[item.bonusType4]];
 
             bonuses.push({
-                id: item.bonusType4,
+                id: ancient.id,
                 ancient: ancient.label,
                 level: +item.bonus4Level,
-                tooltip: ancient.relicText.replace('{}', ancient.baseValue * item.bonus4Level),
             });
-            total += item.bonus4Level * ancient.multipliers[style];
+            total += item.bonus4Level * ancient.coefficients[style];
         }
 
         return {
@@ -105,19 +102,34 @@ export const getRelics = state => {
             total
         };
     }).sort((a, b) => b.total - a.total);
+
+    const aggBonuses = aggregateBonuses(relics.slice(0, 4));
+
+    relics.forEach(r => {
+        r.bonuses.forEach(b => {
+            const ancient = ancients[b.id];
+            const totalLevels = ancient.baseLevel + (aggBonuses[ancient.id] ? aggBonuses[ancient.id].level : 0);
+
+            b.tooltip = ancient.relicText.replace('{}', roundNum(ancient.relicBonusCallback(b.level, totalLevels)))
+        });
+    });
+
+    return relics;
 };
 
-export const getRelicsBonuses = state => {
-    return Object.values([].concat.apply([], getRelics(state).slice(0, 4).map(r => r.bonuses))
+const aggregateBonuses = relics => {
+    return [].concat.apply([], relics.map(r => r.bonuses))
         .reduce((agg, b) => {
             if (!agg[b.id]) {
-                agg[b.id] = b;
+                agg[b.id] = { ...b };
             } else {
                 agg[b.id].level += b.level;
             }
 
             return agg;
-        }, {}));
-};
+        }, {});
+}
 
-export const getDogcogRelicLevels = state => getRelicsBonuses(state).find(b => b.id === 19).level || 0;
+export const getRelicsBonuses = state => Object.values(aggregateBonuses(getRelics(state).slice(0, 4)));
+
+export const getDogcogRelicLevels = state => getRelicsBonuses(state).find(b => b.id === 11).level || 0;

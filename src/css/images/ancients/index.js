@@ -1,53 +1,53 @@
-import argaiv from './Argaiv.png';
-import atman from './Atman.png';
-import berserker from './Berserker.png';
-import bhaal from './Bhaal.png';
-import bubos from './Bubos.png';
-import chawedo from './Chawedo.png';
-import chronos from './Chronos.png';
-import dogcog from './Dogcog.png';
-import dora from './Dora.png';
-import energon from './Energon.png';
-import fortuna from './Fortuna.png';
-import fragsworth from './Fragsworth.png';
-import hecatoncheir from './Hecatoncheir.png';
-import juggernaut from './Juggernaut.png';
-import kleptos from './Kleptos.png';
-import kumawakamaru from './Kumawakamaru.png';
-import libertas from './Libertas.png';
-import mammon from './Mammon.png';
-import mimzee from './Mimzee.png';
-import morgulis from './Morgulis.png';
-import revolc from './Revolc.png';
-import siyalatas from './Siyalatas.png';
-import sniperino from './Sniperino.png';
-import solomon from './Solomon.png';
-import vaagur from './Vaagur.png';
+import Argaiv from './Argaiv.png';
+import Atman from './Atman.png';
+import Berserker from './Berserker.png';
+import Bhaal from './Bhaal.png';
+import Bubos from './Bubos.png';
+import Chawedo from './Chawedo.png';
+import Chronos from './Chronos.png';
+import Dogcog from './Dogcog.png';
+import Dora from './Dora.png';
+import Energon from './Energon.png';
+import Fortuna from './Fortuna.png';
+import Fragsworth from './Fragsworth.png';
+import Hecatoncheir from './Hecatoncheir.png';
+import Juggernaut from './Juggernaut.png';
+import Kleptos from './Kleptos.png';
+import Kumawakamaru from './Kumawakamaru.png';
+import Libertas from './Libertas.png';
+import Mammon from './Mammon.png';
+import Mimzee from './Mimzee.png';
+import Morgulis from './Morgulis.png';
+import Revolc from './Revolc.png';
+import Siyalatas from './Siyalatas.png';
+import Sniperino from './Sniperino.png';
+import Solomon from './Solomon.png';
+import Vaagur from './Vaagur.png';
 
 export default {
-    argaiv,
-    atman,
-    berserker,
-    bhaal,
-    bubos,
-    chawedo,
-    chronos,
-    dogcog,
-    dora,
-    energon,
-    fortuna,
-    fragsworth,
-    hecatoncheir,
-    juggernaut,
-    kleptos,
-    kumawakamaru,
-    libertas,
-    mammon,
-    mimzee,
-    morgulis,
-    revolc,
-    siyalatas,
-    sniperino,
-    solomon,
-    vaagur,
+    Argaiv,
+    Atman,
+    Berserker,
+    Bhaal,
+    Bubos,
+    Chawedo,
+    Chronos,
+    Dogcog,
+    Dora,
+    Energon,
+    Fortuna,
+    Fragsworth,
+    Hecatoncheir,
+    Juggernaut,
+    Kleptos,
+    Kumawakamaru,
+    Libertas,
+    Mammon,
+    Mimzee,
+    Morgulis,
+    Revolc,
+    Siyalatas,
+    Sniperino,
+    Solomon,
+    Vaagur,
 };

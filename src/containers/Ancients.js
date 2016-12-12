@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { setPlayStyle, toggleEditMode, setAncientMultiplier } from '../actions';
+import { setPlayStyle, toggleEditMode, setAncientCoefficient } from '../actions';
 
 import {
     getAncients,
@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setPlayStyle: style => dispatch(setPlayStyle(style)),
     toggleEditMode: () => dispatch(toggleEditMode()),
-    setAncientMultiplier: (ancientId, style, multiplier) => dispatch(setAncientMultiplier(ancientId, style, multiplier)),
+    setAncientCoefficient: (ancientId, style, coefficient) => dispatch(setAncientCoefficient(ancientId, style, coefficient)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ancients);

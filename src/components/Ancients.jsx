@@ -4,7 +4,7 @@ import AncientsTable from './AncientsTable';
 export default function Ancients(props) {
     const ancientsIII = Object.keys(props.ancients)
         .map(k => props.ancients[k])
-        .sort((a, b) => b.multipliers[props.playStyle] - a.multipliers[props.playStyle]);
+        .sort((a, b) => b.coefficients[props.playStyle] - a.coefficients[props.playStyle]);
 
     const ancientsI = ancientsIII.splice(0, Math.ceil(ancientsIII.length / 3));
     const ancientsII = ancientsIII.splice(0, ancientsI.length);
@@ -21,7 +21,7 @@ export default function Ancients(props) {
                     playStyle={props.playStyle}
                     editing={props.editing}
                     toggleEditMode={props.toggleEditMode}
-                    setAncientMultiplier={(ancientId, multiplier) => props.setAncientMultiplier(ancientId, props.playStyle, multiplier)}
+                    setAncientCoefficient={(ancientId, coefficient) => props.setAncientCoefficient(ancientId, props.playStyle, coefficient)}
                 />
             </div>
             <div className="col-md-4">
@@ -30,7 +30,7 @@ export default function Ancients(props) {
                     playStyle={props.playStyle}
                     editing={props.editing}
                     toggleEditMode={props.toggleEditMode}
-                    setAncientMultiplier={(ancientId, multiplier) => props.setAncientMultiplier(ancientId, props.playStyle, multiplier)}
+                    setAncientCoefficient={(ancientId, coefficient) => props.setAncientCoefficient(ancientId, props.playStyle, coefficient)}
                 />
             </div>
             <div className="col-md-4">
@@ -39,7 +39,7 @@ export default function Ancients(props) {
                     playStyle={props.playStyle}
                     editing={props.editing}
                     toggleEditMode={props.toggleEditMode}
-                    setAncientMultiplier={(ancientId, multiplier) => props.setAncientMultiplier(ancientId, props.playStyle, multiplier)}
+                    setAncientCoefficient={(ancientId, coefficient) => props.setAncientCoefficient(ancientId, props.playStyle, coefficient)}
                 />
             </div>
         </div>

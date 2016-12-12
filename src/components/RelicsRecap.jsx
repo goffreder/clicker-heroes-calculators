@@ -9,7 +9,7 @@ export default function RelicsRecap(props) {
                         <tr><th colSpan="2">Bonus Recap</th></tr>
                     </thead>
                     <tbody>
-                        {props.bonuses.map(b => <tr key={b.id}><td>{b.ancient}</td><td>{roundNum(b.level)}</td></tr>)}
+                        {props.bonuses.map(b => <tr key={b.id}><td>{b.ancient}</td><td>{Math.floor(b.level)}</td></tr>)}
                     </tbody>
                 </table>
             </div>

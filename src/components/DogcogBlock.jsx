@@ -19,8 +19,6 @@ export default class DogcogBlock extends React.Component {
 
         const dogcogLevel = +this.props.dogcogLevel + (this.props.relicsBonusChecked ? this.props.bonusLevels : 0);
 
-        console.log(this.props);
-
         return (
             <form className="form-inline">
                 <div className="form-group" id="dogcog-block">

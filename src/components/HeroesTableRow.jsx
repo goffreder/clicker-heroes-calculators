@@ -1,4 +1,4 @@
-import images from '../css/images';
+import { allImages as images } from '../css/images';
 
 function getHeroImage(hero, images) {
     return images[hero];

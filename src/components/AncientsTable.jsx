@@ -6,7 +6,7 @@ export default function AncientsTable(props)  {
             <thead>
                 <tr>
                     <th className="text-center">Ancient</th>
-                    <th className="text-center">Multiplier</th>
+                    <th className="text-center">Coefficient</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,10 +16,10 @@ export default function AncientsTable(props)  {
                             key={k}
                             id={a.id}
                             name={a.label}
-                            multiplier={a.multipliers[props.playStyle]}
+                            coefficient={a.coefficients[props.playStyle]}
                             editing={props.editing}
                             toggleEditMode={props.toggleEditMode}
-                            setAncientMultiplier={props.setAncientMultiplier}
+                            setAncientCoefficient={props.setAncientCoefficient}
                         />
                     ))
                 }

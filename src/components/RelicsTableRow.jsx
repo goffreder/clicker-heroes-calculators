@@ -1,6 +1,49 @@
-import images from '../css/images';
+import { allImages as images } from '../css/images';
 
 import { roundNum } from '../utils';
+
+export default class RelicsTableRow extends React.Component {
+    getAncientCell(relicBonus, key) {
+        const tooltipStyle = {
+            borderBottomWidth: 1,
+            borderBottomStyle: 'dashed',
+            borderBottomColor: '#717171',
+            cursor: 'help',
+        };
+        let cells = null;
+
+        if (relicBonus) {
+            cells = (<td key={key}>
+                <span style={relicBonus.tooltip !== '0' ? tooltipStyle : {}} title={relicBonus.tooltip}>{relicBonus.ancient} - {roundNum(relicBonus.level)}</span>
+            </td>);
+        } else {
+            cells = <td key={key}></td>;
+        }
+
+        return cells;
+    }
+
+    render() {
+        return (
+            <tr>
+                <td>{this.props.index < 4 ? this.props.index + 1 : ''}</td>
+                <td className="text-left">
+                    <img
+                        className="relic-image"
+                        style={{ backgroundColor: this.props.relic.rarity.color }}
+                        src={getRelicImage(this.props.relic.name, this.props.relic.type, images.relics)}
+                    />
+                    {this.props.relic.name}
+                </td>
+                <td>{roundNum(this.props.relic.total)}</td>
+                {this.getAncientCell(this.props.relic.bonuses[0], 0)}
+                {this.getAncientCell(this.props.relic.bonuses[1], 1)}
+                {this.getAncientCell(this.props.relic.bonuses[2], 2)}
+                {this.getAncientCell(this.props.relic.bonuses[3], 3)}
+            </tr>
+        );
+    }
+}
 
 function getRelicImage(name, type, images) {
     switch (type) {
@@ -147,47 +190,4 @@ function getRelicImage(name, type, images) {
     }
 
     return images.ooze;
-}
-
-export default class RelicsTableRow extends React.Component {
-    getAncientCell(relicBonus, key) {
-        const tooltipStyle = {
-            borderBottomWidth: 1,
-            borderBottomStyle: 'dashed',
-            borderBottomColor: '#717171',
-            cursor: 'help',
-        };
-        let cells = null;
-
-        if (relicBonus) {
-            cells = (<td key={key}>
-                <span style={tooltipStyle} title={relicBonus.tooltip}>{relicBonus.ancient} - {roundNum(relicBonus.level)}</span>
-            </td>);
-        } else {
-            cells = <td key={key}></td>;
-        }
-
-        return cells;
-    }
-
-    render() {
-        return (
-            <tr>
-                <td>{this.props.index < 4 ? this.props.index + 1 : ''}</td>
-                <td className="text-left">
-                    <img
-                        className="relic-image"
-                        style={{ backgroundColor: this.props.relic.rarity.color }}
-                        src={getRelicImage(this.props.relic.name, this.props.relic.type, images.relics)}
-                    />
-                    {this.props.relic.name}
-                </td>
-                <td>{roundNum(this.props.relic.total)}</td>
-                {this.getAncientCell(this.props.relic.bonuses[0], 0)}
-                {this.getAncientCell(this.props.relic.bonuses[1], 1)}
-                {this.getAncientCell(this.props.relic.bonuses[2], 2)}
-                {this.getAncientCell(this.props.relic.bonuses[3], 3)}
-            </tr>
-        );
-    }
 }

@@ -1,4 +1,4 @@
-import images from '../css/images';
+import {allImages as images} from '../css/images';
 
 export default class AncientsTableRow extends React.Component {
     constructor() {
@@ -11,10 +11,10 @@ export default class AncientsTableRow extends React.Component {
         this.setState({ edit: true });
         this.props.toggleEditMode();
     }
-    _saveMultiplier = event => {
-        this.props.setAncientMultiplier(
+    _saveCoefficient = event => {
+        this.props.setAncientCoefficient(
             this.props.id,
-            event.target.value
+            +event.target.value
         );
         this.props.toggleEditMode();
         this.setState({ edit: false });
@@ -44,19 +44,19 @@ export default class AncientsTableRow extends React.Component {
                         <input
                             className="form-control shorter text-center"
                             autoFocus
-                            onBlur={this._saveMultiplier}
-                            defaultValue={this.props.multiplier}
+                            onBlur={this._saveCoefficient}
+                            defaultValue={this.props.coefficient}
                         />
                     </div>
                 </form>
             )
-            : this.props.multiplier;
+            : this.props.coefficient;
 
         return (
             <tr>
                 <td className="text-left">
                     <img
-                        src={images.ancients[this.props.name.toLowerCase()]}
+                        src={images.ancients[this.props.name]}
                         style={imgStyle}
                     />
                     {this.props.name}

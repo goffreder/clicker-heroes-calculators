@@ -6,7 +6,7 @@ export const setPlayStyle = createAction('SET_PLAY_STYLE', style => ({ style }))
 
 export const toggleEditMode = createAction('TOGGLE_EDIT_MODE');
 
-export const setAncientMultiplier = createAction('SET_ANCIENT_MULTIPLIER', (ancientId, style, multiplier) => ({ ancientId, style, multiplier }))
+export const setAncientCoefficient = createAction('SET_ANCIENT_COEFFICIENT', (ancientId, style, coefficient) => ({ ancientId, style, coefficient }))
 
 export const loadGameState = createAction('LOAD_GAME_STATE', (state, encodedState) => ({ state, encodedState }));
 
