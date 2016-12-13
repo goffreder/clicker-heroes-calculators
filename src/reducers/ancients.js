@@ -23,7 +23,6 @@ const ancients = {
         image: images.Libertas,
         relicBonusId: 24,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -36,7 +35,6 @@ const ancients = {
         image: images.Siyalatas,
         relicBonusId: 1,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -49,7 +47,6 @@ const ancients = {
         image: images.Mammon,
         relicBonusId: 22,
         relicText: '+{}% Gold Dropped',
-        relicBonusCallback: levels => levels * 5,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -62,7 +59,6 @@ const ancients = {
         image: images.Mimzee,
         relicBonusId: 21,
         relicText: '+{}% Gold From Treasure Chests',
-        relicBonusCallback: levels => levels * 50,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -75,9 +71,6 @@ const ancients = {
         image: images.Dogcog,
         relicBonusId: 19,
         relicText: '-{}% Hero Hiring and Level-Up cost',
-        relicBonusCallback: (relicLevels, totalLevels) => {
-            return 99 * (1 - Math.exp(-0.01 * totalLevels)) - 99 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)))
-        },
         coefficients: {
             hybrid: 50,
             idle: 50,
@@ -89,10 +82,7 @@ const ancients = {
         fullName: 'Fortuna, Ancient of Chance',
         image: images.Fortuna,
         relicBonusId: 18,
-        relicText: '+{}% Change of 10% Gold',
-        relicBonusCallback: (relicLevels, totalLevels) => {
-            return 100 * (1 - Math.exp(-0.0025 * totalLevels)) - 100 * (1 - Math.exp(-0.0025 * (totalLevels - relicLevels)))
-        },
+        relicText: '+{}% Chance of 10% Gold',
         coefficients: {
             hybrid: 45,
             idle: 70,
@@ -105,9 +95,6 @@ const ancients = {
         image: images.Atman,
         relicBonusId: 17,
         relicText: '+{}% Chance of Primal Bosses',
-        relicBonusCallback: (relicLevels, totalLevels) => {
-            return 75 * (1 - Math.exp(-0.013 * totalLevels)) - 75 * (1 - Math.exp(-0.013 * (totalLevels - relicLevels)));
-        },
         coefficients: {
             hybrid: 100,
             idle: 100,
@@ -120,7 +107,6 @@ const ancients = {
         image: images.Dora,
         relicBonusId: 16,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 55,
             idle: 70,
@@ -133,7 +119,6 @@ const ancients = {
         image: images.Bhaal,
         relicBonusId: 15,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -146,7 +131,6 @@ const ancients = {
         image: images.Morgulis,
         relicBonusId: 14,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -159,9 +143,6 @@ const ancients = {
         image: images.Chronos,
         relicBonusId: 3,
         relicText: '+{} seconds to Boss Fight timers',
-        relicBonusCallback: (relicLevels, totalLevels) => {
-            return 30 * (1 - Math.exp(-0.034 * totalLevels)) - 30 * (1 - Math.exp(-0.034 * (totalLevels - relicLevels)));
-        },
         coefficients: {
             hybrid: 30,
             idle: 20,
@@ -174,9 +155,6 @@ const ancients = {
         image: images.Bubos,
         relicBonusId: 13,
         relicText: '-{}% Boss Life',
-        relicBonusCallback: (relicLevels, totalLevels) => {
-            return 50 * (1 - Math.exp(-0.02 * totalLevels)) - 50 * (1 - Math.exp(-0.02 * (totalLevels - relicLevels)))
-        },
         coefficients: {
             hybrid: 35,
             idle: 20,
@@ -189,7 +167,6 @@ const ancients = {
         image: images.Fragsworth,
         relicBonusId: 2,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -202,9 +179,6 @@ const ancients = {
         image: images.Vaagur,
         relicBonusId: 28,
         relicText: '-{}% skill cooldowns',
-        relicBonusCallback: (relicLevels, totalLevels) => {
-            return 75 * (1 - Math.exp(-0.026 * totalLevels)) - 75 * (1 - Math.exp(-0.026 * (totalLevels - relicLevels)))
-        },
         coefficients: {
             hybrid: 25,
             idle: 20,
@@ -217,9 +191,6 @@ const ancients = {
         image: images.Kumawakamaru,
         relicBonusId: 27,
         relicText: '-{} monsters required to advance to the next level',
-        relicBonusCallback: (relicLevels, totalLevels) => {
-            return 8 * (1 - Math.exp(-0.01 * totalLevels)) - 8 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)))
-        },
         coefficients: {
             hybrid: 100,
             idle: 100,
@@ -232,7 +203,6 @@ const ancients = {
         image: images.Chawedo,
         relicBonusId: 4,
         relicText: '+{} seconds to duration of Clickstorm',
-        relicBonusCallback: levels => levels * 2,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -245,7 +215,6 @@ const ancients = {
         image: images.Hecatoncheir,
         relicBonusId: 12,
         relicText: '+{} seconds to duration of Super Clicks',
-        relicBonusCallback: levels => levels * 2,
         coefficients: {
             hybrid: 10,
             idle: 1,
@@ -258,7 +227,6 @@ const ancients = {
         image: images.Berserker,
         relicBonusId: 11,
         relicText: '+{} seconds to duration of Powersurge',
-        relicBonusCallback: levels => levels * 2,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -271,7 +239,6 @@ const ancients = {
         image: images.Sniperino,
         relicBonusId: 10,
         relicText: '+{} seconds to duration of Lucky Strikes',
-        relicBonusCallback: levels => levels * 2,
         coefficients: {
             hybrid: 60,
             idle: 1,
@@ -284,7 +251,6 @@ const ancients = {
         image: images.Kleptos,
         relicBonusId: 9,
         relicText: '+{} seconds to duration of Golden Clicks',
-        relicBonusCallback: levels => levels * 2,
         coefficients: {
             hybrid: 15,
             idle: 1,
@@ -297,7 +263,6 @@ const ancients = {
         image: images.Energon,
         relicBonusId: 8,
         relicText: '+{} seconds to duration of Metal Detector',
-        relicBonusCallback: levels => levels * 2,
         coefficients: {
             hybrid: 10,
             idle: 1,
@@ -310,7 +275,6 @@ const ancients = {
         image: images.Argaiv,
         relicBonusId: 7,
         relicText: '{}',
-        relicBonusCallback: levels => levels * 2,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -323,7 +287,6 @@ const ancients = {
         image: images.Juggernaut,
         relicBonusId: 26,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -336,9 +299,6 @@ const ancients = {
         image: images.Revolc,
         relicBonusId: 5,
         relicText: '+{}% Chance of double rubies from clickable treasures, when you get a ruby.',
-        relicBonusCallback: (relicLevels, totalLevels) => {
-            return 100 * (1 - Math.exp(-0.01 * totalLevels)) - 100 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)));
-        },
         coefficients: {
             hybrid: 40,
             idle: 60,
@@ -351,7 +311,6 @@ const ancients = {
         image: images.Nogardinit,
         relicBonusId: 0,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 0,
             idle: 0,

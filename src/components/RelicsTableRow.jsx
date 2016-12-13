@@ -2,7 +2,17 @@ import { allImages as images } from '../css/images';
 
 import { roundNum } from '../utils';
 
+import RelicTooltip from './RelicTooltip';
+
 export default class RelicsTableRow extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            showTooltip: false,
+        };
+    }
+
     getAncientCell(relicBonus, key) {
         const tooltipStyle = {
             borderBottomWidth: 1,
@@ -23,17 +33,33 @@ export default class RelicsTableRow extends React.Component {
         return cells;
     }
 
+    showRelicTooltip = () => {
+        this.setState({ showTooltip: true });
+    }
+
+    hideRelicTooltip = () => {
+        this.setState({ showTooltip: false });
+    }
+
     render() {
         return (
             <tr>
                 <td>{this.props.index < 4 ? this.props.index + 1 : ''}</td>
                 <td className="text-left">
-                    <img
-                        className="relic-image"
-                        style={{ backgroundColor: this.props.relic.rarity.color }}
-                        src={getRelicImage(this.props.relic.name, this.props.relic.type, images.relics)}
-                    />
-                    {this.props.relic.name}
+                    <div style={{ position: 'relative' }}>
+                        <RelicTooltip
+                            visible={this.state.showTooltip}
+                            {...this.props.relic}
+                        />
+                        <img
+                            className="relic-image"
+                            style={{ backgroundColor: this.props.relic.rarity.color }}
+                            src={getRelicImage(this.props.relic.name, this.props.relic.type, images.relics)}
+                            onMouseOver={this.showRelicTooltip}
+                            onMouseOut={this.hideRelicTooltip}
+                        />
+                        {this.props.relic.name}
+                    </div>
                 </td>
                 <td>{roundNum(this.props.relic.total)}</td>
                 {this.getAncientCell(this.props.relic.bonuses[0], 0)}
