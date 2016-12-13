@@ -116,4 +116,8 @@ export const getRelicsBonuses = state => {
         }, {}));
 };
 
-export const getDogcogRelicLevels = state => getRelicsBonuses(state).find(b => b.id === 19).level || 0;
+export const getDogcogRelicLevels = state => {
+    const dogcogRelic = getRelicsBonuses(state).find(b => b.id === 19);
+
+    return dogcogRelic ? dogcogRelic.level : 0;
+};
