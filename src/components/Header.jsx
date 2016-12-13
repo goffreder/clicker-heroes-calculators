@@ -13,7 +13,7 @@ export default class Header extends React.Component {
         if (confirm('Are you sure?')) {
             clearState();
 
-            location.href = location.origin;
+            location.reload();
         }
     }
 
