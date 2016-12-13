@@ -181,4 +181,8 @@ const aggregateBonuses = relics => {
 
 export const getRelicsBonuses = state => Object.values(aggregateBonuses(getRelics(state).slice(0, 4)));
 
-export const getDogcogRelicLevels = state => getRelicsBonuses(state).find(b => b.id === 11).level || 0;
+export const getDogcogRelicLevels = state => {
+    const dogcogRelic = getRelicsBonuses(state).find(b => b.id === 11);
+
+    return dogcogRelic ? dogcogRelic.level : 0;
+};
