@@ -37,7 +37,7 @@ const ancients = {
         image: images.Siyalatas,
         baseLevel: 0,
         relicBonusId: 1,
-        relicText: '{}',
+        relicText: '+{}% DPS when idle (no clicks for 60 seconds)',
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -92,7 +92,7 @@ const ancients = {
         relicText: '+{}% Chance of 10% Gold',
         coefficients: {
             hybrid: 45,
-            idle: 70,
+            idle: 50,
         },
     },
     13: {
@@ -180,7 +180,7 @@ const ancients = {
         image: images.Fragsworth,
         baseLevel: 0,
         relicBonusId: 2,
-        relicText: '{}',
+        relicText: '+{}% Click Damage',
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -196,7 +196,7 @@ const ancients = {
         relicText: '-{}% skill cooldowns',
         coefficients: {
             hybrid: 25,
-            idle: 20,
+            idle: 1,
         },
     },
     21: {
