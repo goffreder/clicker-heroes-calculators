@@ -115,7 +115,7 @@ const ancients = {
         image: images.Dora,
         baseLevel: 0,
         relicBonusId: 16,
-        relicText: '{}',
+        relicText: '+{}% more Treasure Chests',
         coefficients: {
             hybrid: 55,
             idle: 70,
@@ -128,7 +128,7 @@ const ancients = {
         image: images.Bhaal,
         baseLevel: 0,
         relicBonusId: 15,
-        relicText: '{}',
+        relicText: '+{}% damage to Critical Clicks',
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -141,7 +141,7 @@ const ancients = {
         image: images.Morgulis,
         baseLevel: 0,
         relicBonusId: 14,
-        relicText: '{}',
+        relicText: '+{}% to Hero Soul DPS (additive)',
         coefficients: {
             hybrid: 1,
             idle: 1,

@@ -5,7 +5,7 @@ export default function RelicTooltip(props) {
         position: 'absolute',
         left: 55,
         display: props.visible ? 'initial' : 'none',
-        backgroundColor: 'black',
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
         color: 'white',
         fontWeight: 'bold',
         border: '5px solid lightgray',

@@ -52,9 +52,11 @@ const relicBonusCallbacks = {
     13: (relicLevels, totalLevels) => {
         return 75 * (1 - Math.exp(-0.013 * totalLevels)) - 75 * (1 - Math.exp(-0.013 * (totalLevels - relicLevels)));
     },
-    14: levels => 0,
-    15: levels => 0,
-    16: levels => 0,
+    14: (relicLevels, totalLevels) => {
+        return 9900 * (1 - Math.exp(-0.002 * totalLevels)) - 9900 * (1 - Math.exp(-0.002 * (totalLevels - relicLevels)));
+    },
+    15: levels => levels * 15,
+    16: levels => levels * 11,
     17: (relicLevels, totalLevels) => {
         return 30 * (1 - Math.exp(-0.034 * totalLevels)) - 30 * (1 - Math.exp(-0.034 * (totalLevels - relicLevels)));
     },
