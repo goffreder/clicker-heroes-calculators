@@ -18,6 +18,7 @@ import Libertas from './Libertas.png';
 import Mammon from './Mammon.png';
 import Mimzee from './Mimzee.png';
 import Morgulis from './Morgulis.png';
+import Nogardnit from './Nogardnit.png';
 import Revolc from './Revolc.png';
 import Siyalatas from './Siyalatas.png';
 import Sniperino from './Sniperino.png';
@@ -45,6 +46,7 @@ export default {
     Mammon,
     Mimzee,
     Morgulis,
+    Nogardnit,
     Revolc,
     Siyalatas,
     Sniperino,

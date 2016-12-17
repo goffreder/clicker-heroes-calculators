@@ -23,9 +23,7 @@ export default class RelicsTableRow extends React.Component {
         let cells = null;
 
         if (relicBonus) {
-            cells = (<td key={key}>
-                <span style={relicBonus.tooltip !== '0' ? tooltipStyle : {}} title={relicBonus.tooltip}>{relicBonus.ancient} - {roundNum(relicBonus.level)}</span>
-            </td>);
+            cells = <td key={key}>{relicBonus.ancient} - {roundNum(relicBonus.level)}</td>;
         } else {
             cells = <td key={key}></td>;
         }

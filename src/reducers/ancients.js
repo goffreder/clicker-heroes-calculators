@@ -10,7 +10,7 @@ const ancients = {
         image: images.Solomon,
         baseLevel: 0,
         relicBonusId: 25,
-        relicText: '{}',
+        relicText: '+{}% Primal Hero Souls',
         coefficients: {
             hybrid: 1,
             idle: 10,
@@ -309,7 +309,7 @@ const ancients = {
         image: images.Juggernaut,
         baseLevel: 0,
         relicBonusId: 26,
-        relicText: '{}',
+        relicText: '+{}% DPS per click combo (active clicking)',
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -330,9 +330,9 @@ const ancients = {
     },
     32: {
         id: 32,
-        label: 'Nogardinit',
-        fullName: 'Nogardinit, Ancient of Moderation',
-        image: images.Nogardinit,
+        label: 'Nogardnit',
+        fullName: 'Nogardnit, Ancient of Moderation',
+        image: images.Nogardnit,
         baseLevel: 0,
         relicBonusId: 0,
         relicText: '{}',
@@ -350,7 +350,8 @@ const defaultState = {
     editing: false,
     ancients,
     byRelicBonusId,
-    xyliqilLevel: 0
+    ponyboyLevel: 0,
+    xyliqilLevel: 0,
 };
 
 const reducer = {
@@ -361,6 +362,7 @@ const reducer = {
 
         return {
             ...state,
+            ponyboyLevel: action.payload.state.outsiders.outsiders[5].level,
             xyliqilLevel: action.payload.state.outsiders.outsiders[1].level,
         };
     },

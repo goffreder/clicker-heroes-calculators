@@ -52,8 +52,32 @@ const idleAncientBonusCallback = (levels, xyliqilLevel) => {
     return sum + (sum * xyliqilLevel);
 }
 
+const solomonBonusCallback = (levels, ponyboyLevel = 23) => {
+    let sum = 0;
+
+    switch (true) {
+        case levels <= 20:
+            sum = levels * 5;
+            break;
+        case levels <= 40:
+            sum = 20 + levels * 4;
+            break;
+        case levels <= 60:
+            sum = 60 + levels * 3;
+            break;
+        case levels <= 80:
+            sum = 120 + levels * 2;
+            break;
+        default:
+            sum = 200 + levels;
+            break;
+    }
+
+    return sum + (sum * ponyboyLevel);
+}
+
 const relicBonusCallbacks = {
-    3: levels => 0,
+    3: (relicLevels, totalLevels, xyliqilLevel, ponyboyLevel) => solomonBonusCallback(totalLevels, ponyboyLevel) - solomonBonusCallback((totalLevels - relicLevels), ponyboyLevel),
     4: (relicLevels, totalLevels, xyliqilLevel) => idleAncientBonusCallback(totalLevels, xyliqilLevel) - idleAncientBonusCallback((totalLevels - relicLevels), xyliqilLevel),
     5: (relicLevels, totalLevels, xyliqilLevel) => idleAncientBonusCallback(totalLevels, xyliqilLevel) - idleAncientBonusCallback((totalLevels - relicLevels), xyliqilLevel),
     8: levels => levels * 5,
@@ -92,7 +116,7 @@ const relicBonusCallbacks = {
     26: levels => levels * 2,
     27: levels => levels * 2,
     28: levels => levels * 2,
-    29: levels => 0,
+    29: levels => levels / 100,
     31: (relicLevels, totalLevels) => {
         return 100 * (1 - Math.exp(-0.01 * totalLevels)) - 100 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)));
     },
@@ -106,7 +130,7 @@ export const getRelics = state => {
 
     const items = state.gameState.items.items;
     const style = state.appState.playStyle;
-    const { ancients, byRelicBonusId, xyliqilLevel } = state.ancients;
+    const { ancients, byRelicBonusId, xyliqilLevel, ponyboyLevel } = state.ancients;
 
     const relics = Object.keys(items).map(k => {
         const item = items[k];
@@ -176,7 +200,7 @@ export const getRelics = state => {
             const ancient = ancients[b.id];
             const totalLevels = ancient.baseLevel + (aggBonuses[ancient.id] ? aggBonuses[ancient.id].level : 0);
 
-            b.tooltip = ancient.relicText.replace('{}', roundNum(relicBonusCallbacks[b.id](b.level, totalLevels, xyliqilLevel)))
+            b.tooltip = ancient.relicText.replace('{}', roundNum(relicBonusCallbacks[b.id](b.level, totalLevels, xyliqilLevel, ponyboyLevel)))
         });
     });
 
@@ -201,5 +225,5 @@ export const getRelicsBonuses = state => Object.values(aggregateBonuses(getRelic
 export const getDogcogRelicLevels = state => {
     const dogcogRelic = getRelicsBonuses(state).find(b => b.id === 11);
 
-    return dogcogRelic ? dogcogRelic.level : 0;
+    return dogcogRelic ? Math.floor(dogcogRelic.level) : 0;
 };
