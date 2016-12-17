@@ -11,7 +11,6 @@ const ancients = {
         baseLevel: 0,
         relicBonusId: 25,
         relicText: '{}',
-        relicBonusCallback: levels => 0,
         coefficients: {
             hybrid: 1,
             idle: 10,
@@ -351,6 +350,7 @@ const defaultState = {
     editing: false,
     ancients,
     byRelicBonusId,
+    xyliqilLevel: 0
 };
 
 const reducer = {
@@ -359,7 +359,10 @@ const reducer = {
             ancients[ancientId].baseLevel = +action.payload.state.ancients.ancients[ancientId].level;
         });
 
-        return state;
+        return {
+            xyliqilLevel: action.payload.state.outsiders.outsiders[1].level,
+            ...state
+        };
     },
     TOGGLE_EDIT_MODE: (state) => {
         return {

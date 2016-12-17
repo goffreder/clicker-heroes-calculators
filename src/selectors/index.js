@@ -37,10 +37,25 @@ export const parseGameState = gameState => {
     return null;
 }
 
+const siyalatasBonusCallback = (levels, xyliqilLevel) => {
+    const kMax = 25;
+    let k = Math.max(15, kMax - Math.floor(levels / 10));
+    let kDiff = kMax - k;
+    let sum = (levels * k) - kDiff;
+
+    while (k < kMax) {
+        sum += (10 * kDiff);
+        k++;
+        kDiff--;
+    }
+
+    return sum + (sum * xyliqilLevel);
+}
+
 const relicBonusCallbacks = {
     3: levels => 0,
     4: levels => 0,
-    5: levels => 0,
+    5: (relicLevels, totalLevels, xyliqilLevel) => siyalatasBonusCallback(totalLevels, xyliqilLevel) - siyalatasBonusCallback((totalLevels - relicLevels), xyliqilLevel),
     8: levels => levels * 5,
     9: levels => levels * 50,
     11: (relicLevels, totalLevels) => {
@@ -91,7 +106,7 @@ export const getRelics = state => {
 
     const items = state.gameState.items.items;
     const style = state.appState.playStyle;
-    const { ancients, byRelicBonusId } = state.ancients;
+    const { ancients, byRelicBonusId, xyliqilLevel } = state.ancients;
 
     const relics = Object.keys(items).map(k => {
         const item = items[k];
@@ -161,7 +176,7 @@ export const getRelics = state => {
             const ancient = ancients[b.id];
             const totalLevels = ancient.baseLevel + (aggBonuses[ancient.id] ? aggBonuses[ancient.id].level : 0);
 
-            b.tooltip = ancient.relicText.replace('{}', roundNum(relicBonusCallbacks[b.id](b.level, totalLevels)))
+            b.tooltip = ancient.relicText.replace('{}', roundNum(relicBonusCallbacks[b.id](b.level, totalLevels, xyliqilLevel)))
         });
     });
 
