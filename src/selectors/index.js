@@ -37,7 +37,7 @@ export const parseGameState = gameState => {
     return null;
 }
 
-const siyalatasBonusCallback = (levels, xyliqilLevel) => {
+const idleAncientBonusCallback = (levels, xyliqilLevel) => {
     const kMax = 25;
     let k = Math.max(15, kMax - Math.floor(levels / 10));
     let kDiff = kMax - k;
@@ -54,8 +54,8 @@ const siyalatasBonusCallback = (levels, xyliqilLevel) => {
 
 const relicBonusCallbacks = {
     3: levels => 0,
-    4: levels => 0,
-    5: (relicLevels, totalLevels, xyliqilLevel) => siyalatasBonusCallback(totalLevels, xyliqilLevel) - siyalatasBonusCallback((totalLevels - relicLevels), xyliqilLevel),
+    4: (relicLevels, totalLevels, xyliqilLevel) => idleAncientBonusCallback(totalLevels, xyliqilLevel) - idleAncientBonusCallback((totalLevels - relicLevels), xyliqilLevel),
+    5: (relicLevels, totalLevels, xyliqilLevel) => idleAncientBonusCallback(totalLevels, xyliqilLevel) - idleAncientBonusCallback((totalLevels - relicLevels), xyliqilLevel),
     8: levels => levels * 5,
     9: levels => levels * 50,
     11: (relicLevels, totalLevels) => {

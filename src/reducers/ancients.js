@@ -23,7 +23,7 @@ const ancients = {
         image: images.Libertas,
         baseLevel: 0,
         relicBonusId: 24,
-        relicText: '{}',
+        relicText: '+{}% Gold gained from monsters when idle (no clicks for 60 seconds)',
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -360,8 +360,8 @@ const reducer = {
         });
 
         return {
+            ...state,
             xyliqilLevel: action.payload.state.outsiders.outsiders[1].level,
-            ...state
         };
     },
     TOGGLE_EDIT_MODE: (state) => {
