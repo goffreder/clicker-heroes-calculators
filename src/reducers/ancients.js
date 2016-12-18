@@ -296,7 +296,7 @@ const ancients = {
         image: images.Argaiv,
         baseLevel: 0,
         relicBonusId: 7,
-        relicText: '{}',
+        relicText: '+{}% to Gilded damage bonus (per Gild)',
         coefficients: {
             hybrid: 1,
             idle: 1,
