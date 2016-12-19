@@ -1,9 +1,9 @@
 export const LOCALSTORAGE_KEY = 'adch-state';
 
 export const rarities = {
-    1: { label: 'Common', color: '#838383' },
-    2: { label: 'Uncommon', color: '#29781e' },
-    3: { label: 'Rare', color: '#1c60a4' },
+    1: { label: 'Common', color: '#dbdbdb' },
+    2: { label: 'Uncommon', color: '#37fc30' },
+    3: { label: 'Rare', color: '#1986fa' },
     4: { label: 'Epic', color: '#8b24d1' },
     5: { label: 'Fabled', color: '#30d330' },
     6: { label: '', color: '#000000' },
