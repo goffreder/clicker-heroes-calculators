@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/starter-template.css';
+import './css/relics.css';
 
 import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';

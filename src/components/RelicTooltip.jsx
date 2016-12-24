@@ -17,14 +17,13 @@ export default function RelicTooltip(props) {
     };
 
     const relicNameStyle = {
-        color: props.rarity.color,
         fontSize: 14,
         marginBottom: 5,
     };
 
     return (
         <div style={relicTooltipStyle}>
-            <div style={relicNameStyle}>{props.name}</div>
+            <div className={"relic-name " + props.rarity.className} style={relicNameStyle}>{props.name}</div>
             <div>{props.rarity.label}</div>
             <div style={{ marginBottom: 15 }}>Level {props.level}</div>
 

@@ -50,8 +50,7 @@ export default class RelicsTableRow extends React.Component {
                             {...this.props.relic}
                         />
                         <img
-                            className="relic-image"
-                            style={{ backgroundColor: this.props.relic.rarity.color }}
+                            className={'relic-image ' + this.props.relic.rarity.className}
                             src={getRelicImage(this.props.relic.name, this.props.relic.type, images.relics)}
                             onMouseOver={this.showRelicTooltip}
                             onMouseOut={this.hideRelicTooltip}
