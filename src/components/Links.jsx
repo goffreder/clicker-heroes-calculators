@@ -10,6 +10,7 @@ export default function Links()  {
                 <li><a href="https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405" target="_blank">
                     https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405
                 </a> (outsiders spreadsheet)</li>
+                <li><a href="https://www.itshax.com/Clicker-Heroes/" target="_blank">https://www.itshax.com/Clicker-Heroes/</a> (save game editor)</li>
                 <li><a href="https://github.com/goffreder/clicker-heroes-calculators/" target="_blank">https://github.com/goffreder/clicker-heroes-calculators</a> (this repo)</li>
             </ul>
         </div>
