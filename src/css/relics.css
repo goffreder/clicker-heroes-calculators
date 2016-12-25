@@ -2,11 +2,12 @@
 .relic-image.common { background: linear-gradient( 45deg, #868686, #5e5e5e ); }
 .relic-image.uncommon { background: linear-gradient( 45deg, #3d8c32, #105f05 ); }
 .relic-image.rare { background: linear-gradient( 45deg, #3276ba, #0a4e92 ); }
+.relic-image.epic { background: linear-gradient( 45deg, #a039e6, #7811be ); }
 
 /* relic names */
 .relic-name.common { color: #dbdbdb; }
 .relic-name.uncommon { color: #37fc30; }
 .relic-name.rare { color: #1986fa; }
-.relic-name.epic { color: #8b24d1; }
+.relic-name.epic { color: #af4af7; }
 .relic-name.fabled { color: #30d330; }
 .relic-name.legendary { color: #cfcf1e; }
