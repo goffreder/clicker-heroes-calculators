@@ -143,6 +143,7 @@ export const getRelics = state => {
             id: ancient.id,
             ancient: ancient.label,
             ancientFullName: ancient.fullName,
+            ancientCoefficient: ancient.coefficients[style],
             level: +item.bonus1Level,
         });
         total += item.bonus1Level * ancient.coefficients[style];
@@ -154,6 +155,7 @@ export const getRelics = state => {
                 id: ancient.id,
                 ancient: ancient.label,
                 ancientFullName: ancient.fullName,
+                ancientCoefficient: ancient.coefficients[style],
                 level: +item.bonus2Level,
             });
             total += item.bonus2Level * ancient.coefficients[style];
@@ -166,6 +168,7 @@ export const getRelics = state => {
                 id: ancient.id,
                 ancient: ancient.label,
                 ancientFullName: ancient.fullName,
+                ancientCoefficient: ancient.coefficients[style],
                 level: +item.bonus3Level,
             });
             total += item.bonus3Level * ancient.coefficients[style];
@@ -178,6 +181,7 @@ export const getRelics = state => {
                 id: ancient.id,
                 ancient: ancient.label,
                 ancientFullName: ancient.fullName,
+                ancientCoefficient: ancient.coefficients[style],
                 level: +item.bonus4Level,
             });
             total += item.bonus4Level * ancient.coefficients[style];
