@@ -1,13 +1,19 @@
 /* relic backgrounds */
-.relic-image.common { background: linear-gradient( 45deg, #868686, #5e5e5e ); }
-.relic-image.uncommon { background: linear-gradient( 45deg, #3d8c32, #105f05 ); }
-.relic-image.rare { background: linear-gradient( 45deg, #3276ba, #0a4e92 ); }
-.relic-image.epic { background: linear-gradient( 45deg, #a039e6, #7811be ); }
+.relic-image.common       { background: linear-gradient( 45deg, #868686, #5e5e5e ); }
+.relic-image.uncommon     { background: linear-gradient( 45deg, #3d8c32, #105f05 ); }
+.relic-image.rare         { background: linear-gradient( 45deg, #3276ba, #0a4e92 ); }
+.relic-image.epic         { background: linear-gradient( 45deg, #a039e6, #7811be ); }
+.relic-image.fabled       { background: linear-gradient( 45deg, #32d733, #07aa07 ); }
+.relic-image.mythical     { background: linear-gradient( 45deg, #8b8bfe, #6767d5 ); }
+.relic-image.legendary    { background: linear-gradient( 45deg, #e7e742, #b8b807 ); }
+.relic-image.transcendent { background: linear-gradient( 45deg, #ca30cb, #9e079f ); }
 
 /* relic names */
-.relic-name.common { color: #dbdbdb; }
-.relic-name.uncommon { color: #37fc30; }
-.relic-name.rare { color: #1986fa; }
-.relic-name.epic { color: #af4af7; }
-.relic-name.fabled { color: #30d330; }
-.relic-name.legendary { color: #cfcf1e; }
+.relic-name.common       { color: #dbdbdb; }
+.relic-name.uncommon     { color: #37fc30; }
+.relic-name.rare         { color: #1986fa; }
+.relic-name.epic         { color: #af4af7; }
+.relic-name.fabled       { color: #77ff77; }
+.relic-name.mythical     { color: #bbbbff; }
+.relic-name.legendary    { color: #cfcf1e; }
+.relic-name.transcendent { color: #ff00ff; }

@@ -6,7 +6,9 @@ export const rarities = {
     3: { label: 'Rare', className: 'rare' },
     4: { label: 'Epic', className: 'epic' },
     5: { label: 'Fabled', className: 'fabled' },
+    6: { label: 'Mythical', className: 'mythical' },
     7: { label: 'Legendary', className: 'legendary' },
+    8: { label: 'Transcendent', className: 'transcendent' },
 };
 
 export const heroes = {
