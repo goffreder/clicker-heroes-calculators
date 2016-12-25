@@ -325,7 +325,7 @@ const ancients = {
         relicText: '+{}% Chance of double rubies from clickable treasures, when you get a ruby.',
         coefficients: {
             hybrid: 40,
-            idle: 60,
+            idle: 30,
         },
     },
     32: {
