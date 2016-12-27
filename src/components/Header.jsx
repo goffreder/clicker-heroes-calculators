@@ -38,24 +38,24 @@ export default class Header extends React.Component {
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
                             <li className={this.props.active === 'relics' ? 'active' : null}>
-                                <a href="#relics" onClick={this.onClick}>Relics</a>
+                                <a href="#relics" data-toggle="collapse" data-target="#navbar.in" onClick={this.onClick}>Relics</a>
                             </li>
                             <li className={this.props.active === 'ancients' ? 'active' : null}>
-                                <a href="#ancients" onClick={this.onClick}>Ancients Relic Tiers</a>
+                                <a href="#ancients" data-toggle="collapse" data-target="#navbar.in" onClick={this.onClick}>Ancients Relic Tiers</a>
                             </li>
                             <li className={this.props.active === 'heroes' ? 'active' : null}>
-                                <a href="#heroes" onClick={this.onClick}>Hero Costs</a>
+                                <a href="#heroes" data-toggle="collapse" data-target="#navbar.in" onClick={this.onClick}>Hero Costs</a>
                             </li>
                             <li>
-                                <a href="#" onClick={this.resetState}>Reset</a>
+                                <a href="#" data-toggle="collapse" data-target="#navbar.in" onClick={this.resetState}>Reset</a>
                             </li>
                             <li className={this.props.active === 'links' ? 'active' : null}>
-                                <a href="#links" onClick={this.onClick}>Links</a>
+                                <a href="#links" data-toggle="collapse" data-target="#navbar.in" onClick={this.onClick}>Links</a>
                             </li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <a href="https://github.com/goffreder/clicker-heroes-calculators/releases" target="_blank">v{appData.version}</a>
+                                <a href="https://github.com/goffreder/clicker-heroes-calculators/releases" data-toggle="collapse" data-target="#navbar.in" target="_blank">v{appData.version}</a>
                             </li>
                         </ul>
                     </div>

@@ -2,6 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/starter-template.css';
 import './css/relics.css';
 
+import 'bootstrap/js/transition';
+import 'bootstrap/js/collapse';
+
 import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 import { Provider } from 'react-redux';
