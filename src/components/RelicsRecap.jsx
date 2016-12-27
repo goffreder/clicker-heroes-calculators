@@ -1,7 +1,6 @@
 import { roundNum } from '../utils';
 
 export default function RelicsRecap(props) {
-    console.log(props);
     if (props.bonuses.length) {
         return (
             <div className="col-md-3">
