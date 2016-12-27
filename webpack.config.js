@@ -37,7 +37,8 @@ config = {
         new webpack.ProvidePlugin({
             'React': 'react',
             'ReactDOM': 'react-dom',
-            'deepAssign': 'deep-assign'
+            'deepAssign': 'deep-assign',
+            'jQuery': 'jquery'
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
