@@ -1,33 +1,52 @@
 import HeroesTable from './HeroesTable';
 import DogcogBlock from './DogcogBlock';
 
-export default function Heroes(props)  {
+const Heroes = ({
+    heroes, relicsBonusChecked, dogcogLevel, bonusLevels, isGameStateSet,
+    setHeroCurrentLevel, setHeroTargetLevel, setDogcogLevel, setRelicsBonusCheckboxValue,
+}) => {
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-8">
                     <HeroesTable
-                        heroes={props.heroes}
+                        heroes={heroes}
                         dogcogLevel={
-                            props.relicsBonusChecked
-                                ? +props.dogcogLevel + +props.bonusLevels
-                                : props.dogcogLevel
+                            relicsBonusChecked
+                                ? Number(dogcogLevel) + Number(bonusLevels)
+                                : dogcogLevel
                         }
-                        setHeroCurrentLevel={props.setHeroCurrentLevel}
-                        setHeroTargetLevel={props.setHeroTargetLevel}
+                        setHeroCurrentLevel={setHeroCurrentLevel}
+                        setHeroTargetLevel={setHeroTargetLevel}
                     />
                 </div>
                 <div className="col-md-4">
                     <DogcogBlock
-                        dogcogLevel={props.dogcogLevel}
-                        bonusLevels={props.bonusLevels}
-                        relicsCheckboxEnabled={props.isGameStateSet}
-                        relicsBonusChecked={props.relicsBonusChecked}
-                        setDogcogLevel={props.setDogcogLevel}
-                        setRelicsBonusCheckboxValue={props.setRelicsBonusCheckboxValue}
+                        dogcogLevel={dogcogLevel}
+                        bonusLevels={bonusLevels}
+                        relicsCheckboxEnabled={isGameStateSet}
+                        relicsBonusChecked={relicsBonusChecked}
+                        setDogcogLevel={setDogcogLevel}
+                        setRelicsBonusCheckboxValue={setRelicsBonusCheckboxValue}
                     />
                 </div>
             </div>
         </div>
     );
-}
+};
+
+const { object, bool, number, func } = React.PropTypes;
+
+Heroes.propTypes = {
+    heroes: object,
+    relicsBonusChecked: bool,
+    dogcogLevel: number,
+    bonusLevels: number,
+    isGameStateSet: bool,
+    setHeroCurrentLevel: func,
+    setHeroTargetLevel: func,
+    setDogcogLevel: func,
+    setRelicsBonusCheckboxValue: func,
+};
+
+export default Heroes;

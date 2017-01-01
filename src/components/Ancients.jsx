@@ -1,47 +1,79 @@
 import StyleSwitcher from './StyleSwitcher';
 import AncientsTable from './AncientsTable';
 
-export default function Ancients(props) {
-    const ancientsIII = Object.keys(props.ancients)
-        .map(k => props.ancients[k])
-        .sort((a, b) => b.coefficients[props.playStyle] - a.coefficients[props.playStyle]);
+const { Component, PropTypes } = React;
+const { object, string, func, bool } = PropTypes;
 
-    const ancientsI = ancientsIII.splice(0, Math.ceil(ancientsIII.length / 3));
-    const ancientsII = ancientsIII.splice(0, ancientsI.length);
+export default class Ancients extends Component {
+    static propTypes = {
+        ancients: object,
+        playStyle: string,
+        editing: bool,
+        setAncientCoefficient: func,
+        setPlayStyle: func,
+        toggleEditMode: func,
+    }
 
-    return (
-        <div className="container">
-            <StyleSwitcher
-                playStyle={props.playStyle}
-                setPlayStyle={props.setPlayStyle}
-            />
-            <div className="col-md-4">
-                <AncientsTable
-                    ancients={ancientsI}
-                    playStyle={props.playStyle}
-                    editing={props.editing}
-                    toggleEditMode={props.toggleEditMode}
-                    setAncientCoefficient={(ancientId, coefficient) => props.setAncientCoefficient(ancientId, props.playStyle, coefficient)}
+    setAncientCoefficient =
+        (ancientId, coefficient) =>
+            this.props.setAncientCoefficient(
+                ancientId,
+                this.props.playStyle,
+                coefficient
+            )
+
+    render() {
+        const {
+            ancients, editing, playStyle,
+            setPlayStyle, toggleEditMode,
+        } = this.props;
+
+        const ancientsIII = Object.keys(ancients)
+            .map(k => ancients[k])
+            .sort(
+                (a, b) => b.coefficients[playStyle] - a.coefficients[playStyle]
+            );
+
+        const ancientsI = ancientsIII.splice(
+            0,
+            Math.ceil(ancientsIII.length / 3)
+        );
+        const ancientsII = ancientsIII.splice(0, ancientsI.length);
+
+        return (
+            <div className="container">
+                <StyleSwitcher
+                    playStyle={playStyle}
+                    setPlayStyle={setPlayStyle}
                 />
+                <div className="col-md-4">
+                    <AncientsTable
+                        ancients={ancientsI}
+                        playStyle={playStyle}
+                        editing={editing}
+                        toggleEditMode={toggleEditMode}
+                        setAncientCoefficient={this.setAncientCoefficient}
+                    />
+                </div>
+                <div className="col-md-4">
+                    <AncientsTable
+                        ancients={ancientsII}
+                        playStyle={playStyle}
+                        editing={editing}
+                        toggleEditMode={toggleEditMode}
+                        setAncientCoefficient={this.setAncientCoefficient}
+                    />
+                </div>
+                <div className="col-md-4">
+                    <AncientsTable
+                        ancients={ancientsIII}
+                        playStyle={playStyle}
+                        editing={editing}
+                        toggleEditMode={toggleEditMode}
+                        setAncientCoefficient={this.setAncientCoefficient}
+                    />
+                </div>
             </div>
-            <div className="col-md-4">
-                <AncientsTable
-                    ancients={ancientsII}
-                    playStyle={props.playStyle}
-                    editing={props.editing}
-                    toggleEditMode={props.toggleEditMode}
-                    setAncientCoefficient={(ancientId, coefficient) => props.setAncientCoefficient(ancientId, props.playStyle, coefficient)}
-                />
-            </div>
-            <div className="col-md-4">
-                <AncientsTable
-                    ancients={ancientsIII}
-                    playStyle={props.playStyle}
-                    editing={props.editing}
-                    toggleEditMode={props.toggleEditMode}
-                    setAncientCoefficient={(ancientId, coefficient) => props.setAncientCoefficient(ancientId, props.playStyle, coefficient)}
-                />
-            </div>
-        </div>
-    );
+        );
+    }
 }

@@ -1,6 +1,15 @@
+/* global appData */
+
+import HeaderLink from './HeaderLink';
+
 import { clearState } from '../utils';
 
 export default class Header extends React.Component {
+    static propTypes = {
+        active: React.PropTypes.string,
+        loadTab: React.PropTypes.func,
+    }
+
     onClick = event => {
         const dest = event.target.href.match(/#([a-zA-Z-_]*)$/)[1];
 
@@ -10,6 +19,7 @@ export default class Header extends React.Component {
     }
 
     resetState = () => {
+        // eslint-disable-next-line no-alert
         if (confirm('Are you sure?')) {
             clearState();
 
@@ -17,9 +27,25 @@ export default class Header extends React.Component {
         }
     }
 
+    renderNavButton = () => {
+        return (<button
+            type="button"
+            className="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar"
+        >
+            <span className="sr-only">{'Toggle navigation'}</span>
+            <span className="icon-bar"/>
+            <span className="icon-bar"/>
+            <span className="icon-bar"/>
+        </button>);
+    }
+
     render() {
-        const githubLink = { paddingTop: 10, paddingBottom: 10 };
-        const githubIcon = { width: 30 };
+        const githubReleasesLink =
+            'https://github.com/goffreder/clicker-heroes-calculators/releases';
 
         location.hash = this.props.active;
 
@@ -27,36 +53,46 @@ export default class Header extends React.Component {
             <nav className="navbar navbar-inverse navbar-fixed-top">
                 <div className="container">
                     <div className="navbar-header">
-                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span className="sr-only">Toggle navigation</span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                        <a className="navbar-brand" href="#">CH Calculators</a>
+                        {this.renderNavButton()}
+                        <a className="navbar-brand" href="#">{'CH Calculators'}</a>
                     </div>
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
-                            <li className={this.props.active === 'relics' ? 'active' : null}>
-                                <a href="#relics" data-toggle="collapse" data-target="#navbar.in" onClick={this.onClick}>Relics</a>
-                            </li>
-                            <li className={this.props.active === 'ancients' ? 'active' : null}>
-                                <a href="#ancients" data-toggle="collapse" data-target="#navbar.in" onClick={this.onClick}>Ancients Relic Tiers</a>
-                            </li>
-                            <li className={this.props.active === 'heroes' ? 'active' : null}>
-                                <a href="#heroes" data-toggle="collapse" data-target="#navbar.in" onClick={this.onClick}>Hero Costs</a>
-                            </li>
-                            <li>
-                                <a href="#" data-toggle="collapse" data-target="#navbar.in" onClick={this.resetState}>Reset</a>
-                            </li>
-                            <li className={this.props.active === 'links' ? 'active' : null}>
-                                <a href="#links" data-toggle="collapse" data-target="#navbar.in" onClick={this.onClick}>Links</a>
-                            </li>
+                            <HeaderLink
+                                active={this.props.active === 'relics'}
+                                href="#relics"
+                                onClick={this.onClick}
+                                label="Relics"
+                            />
+                            <HeaderLink
+                                active={this.props.active === 'ancients'}
+                                href="#ancients"
+                                onClick={this.onClick}
+                                label="Ancients Relic Tiers"
+                            />
+                            <HeaderLink
+                                active={this.props.active === 'heroes'}
+                                href="#heroes"
+                                onClick={this.onClick}
+                                label="Hero Costs"
+                            />
+                            <HeaderLink
+                                href="#"
+                                onClick={this.resetState}
+                                label="Reset"
+                            />
+                            <HeaderLink
+                                active={this.props.active === 'links'}
+                                href="#links"
+                                onClick={this.onClick}
+                                label="Links"
+                            />
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="https://github.com/goffreder/clicker-heroes-calculators/releases" data-toggle="collapse" data-target="#navbar.in" target="_blank">v{appData.version}</a>
-                            </li>
+                            <HeaderLink
+                                href={githubReleasesLink}
+                                label={`v${appData.version}`}
+                            />
                         </ul>
                     </div>
                 </div>

@@ -17,6 +17,10 @@ config = {
     },
 
     module: {
+        preLoaders: [{
+            test: /\.jsx?$/,
+            loader: 'eslint-loader'
+        }],
         loaders: [{
             test: /\.jsx?$/,
             exclude: /node_modules[\/\\]/,

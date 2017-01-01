@@ -19,7 +19,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setPlayStyle: style => dispatch(setPlayStyle(style)),
     toggleEditMode: () => dispatch(toggleEditMode()),
-    setAncientCoefficient: (ancientId, style, coefficient) => dispatch(setAncientCoefficient(ancientId, style, coefficient)),
+    setAncientCoefficient: (ancientId, style, coefficient) => {
+        dispatch(setAncientCoefficient(ancientId, style, coefficient));
+    },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ancients);

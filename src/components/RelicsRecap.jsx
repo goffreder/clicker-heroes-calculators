@@ -1,17 +1,24 @@
-import { roundNum } from '../utils';
-
-export default function RelicsRecap(props) {
-    if (props.bonuses.length) {
+const RelicsRecap = ({ bonuses }) => {
+    if (bonuses.length) {
         return (
             <div className="col-md-3">
                 <table id="relics-recap" className="table table-bordered table-condensed">
                     <thead>
-                        <tr><th colSpan="2">Bonus Recap</th></tr>
+                        <tr><th colSpan="2">{'Bonus Recap'}</th></tr>
                     </thead>
                     <tbody>
                         {
-                            props.bonuses.sort((a, b) => b.ancientCoefficient - a.ancientCoefficient || b.level - a.level)
-                                .map(b => <tr key={b.id}><td>{b.ancient}</td><td>{Math.floor(b.level)}</td></tr>)
+                            bonuses.sort((a, b) => {
+                                const coeffDiff = b.ancientCoefficient - a.ancientCoefficient;
+                                const levelDiff = b.level - a.level;
+
+                                return coeffDiff || levelDiff;
+                            }).map(b => (
+                                <tr key={b.id}>
+                                    <td>{b.ancient}</td>
+                                    <td>{Math.floor(b.level)}</td>
+                                </tr>
+                            ))
                         }
                     </tbody>
                 </table>
@@ -21,3 +28,9 @@ export default function RelicsRecap(props) {
 
     return null;
 };
+
+RelicsRecap.propTypes = {
+    bonuses: React.PropTypes.array,
+};
+
+export default RelicsRecap;

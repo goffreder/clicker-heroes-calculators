@@ -24,6 +24,7 @@ const store = process.env.NODE_ENV === 'production'
 
 // Object.values polyfill
 if (Object.values === undefined) {
+    // eslint-disable-next-line no-extend-native
     Object.prototype.values = obj => Object.keys(obj).map(k => obj[k]);
 }
 

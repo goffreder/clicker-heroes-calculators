@@ -3,23 +3,36 @@ import GameStateInput from './GameStateInput';
 import RelicsTable from './RelicsTable';
 import RelicsRecap from './RelicsRecap';
 
-export default function Relics(props)  {
+const Relics = ({ playStyle, setPlayStyle, encodedState, saveGameState, relics, bonuses }) => {
     return (
         <div className="container-fluid">
             <StyleSwitcher
-                playStyle={props.playStyle}
-                setPlayStyle={props.setPlayStyle}
+                playStyle={playStyle}
+                setPlayStyle={setPlayStyle}
             />
             <GameStateInput
-                encodedState={props.encodedState}
-                saveGameState={props.saveGameState}
+                encodedState={encodedState}
+                saveGameState={saveGameState}
             />
             <RelicsTable
-                relics={props.relics}
+                relics={relics}
             />
             <RelicsRecap
-                bonuses={props.bonuses}
+                bonuses={bonuses}
             />
         </div>
     );
-}
+};
+
+const { string, func, array } = React.PropTypes;
+
+Relics.propTypes = {
+    playStyle: string,
+    setPlayStyle: func,
+    encodedState: string,
+    saveGameState: func,
+    relics: array,
+    bonuses: array,
+};
+
+export default Relics;

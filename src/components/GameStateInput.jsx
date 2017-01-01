@@ -1,4 +1,8 @@
 export default class GameStateInput extends React.Component {
+    static propTypes = {
+        encodedState: React.PropTypes.string,
+        saveGameState: React.PropTypes.func,
+    }
 
     onTextareaClick = event => {
         event.target.select();
@@ -14,7 +18,7 @@ export default class GameStateInput extends React.Component {
         return (
             <form>
                 <div className="form-group">
-                    <label htmlFor="gamestate">Enter your game state:</label>
+                    <label htmlFor="gamestate">{'Enter your game state:'}</label>
                     <textarea
                         id="gamestate"
                         className="form-control"
@@ -23,8 +27,7 @@ export default class GameStateInput extends React.Component {
                         defaultValue={this.props.encodedState}
                         onClick={this.onTextareaClick}
                         onBlur={this.onTextareaBlur}
-                    >
-                        </textarea>
+                    />
                 </div>
             </form>
         );

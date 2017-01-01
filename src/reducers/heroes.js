@@ -56,19 +56,19 @@ const reducer = {
 
         return {
             ...state,
-            dogcogLevel: dogcog ? dogcog.level : 0
+            dogcogLevel: dogcog ? Number(dogcog.level) : 0,
         };
     },
     SET_DOGCOG_LEVEL: (state, action) => {
         return {
             ...state,
-            dogcogLevel: action.payload.level
+            dogcogLevel: action.payload.level,
         };
     },
     SET_DOGCOG_RELICS_BONUS_CHECKBOX: (state, action) => {
         return {
             ...state,
-            relicsBonusChecked: action.payload.checkboxState
+            relicsBonusChecked: action.payload.checkboxState,
         };
     },
     SET_HERO_CURRENT_LEVEL: (state, action) => {
@@ -78,9 +78,9 @@ const reducer = {
                 ...state.costs,
                 [action.payload.hero]: {
                     ...state.costs[action.payload.hero],
-                    currentLevel: action.payload.value
-                }
-            }
+                    currentLevel: action.payload.value,
+                },
+            },
         };
     },
     SET_HERO_TARGET_LEVEL: (state, action) => {
@@ -90,11 +90,11 @@ const reducer = {
                 ...state.costs,
                 [action.payload.hero]: {
                     ...state.costs[action.payload.hero],
-                    targetLevel: action.payload.value
-                }
-            }
+                    targetLevel: action.payload.value,
+                },
+            },
         };
-    }
+    },
 };
 
 export default (state = defaultState, action) => {

@@ -1,47 +1,65 @@
 import { getDogcogPercentage } from '../utils';
 
-export default class DogcogBlock extends React.Component {
+const { Component, PropTypes } = React;
+const { number, bool, func } = PropTypes;
 
-    _handleLevelChange = event => {
-        this.props.setDogcogLevel(+event.target.value);
+export default class DogcogBlock extends Component {
+    static propTypes = {
+        bonusLevels: number,
+        dogcogLevel: number,
+        relicsBonusChecked: bool,
+        relicsCheckboxEnabled: bool,
+        setDogcogLevel: func,
+        setRelicsBonusCheckboxValue: func,
     }
 
-    _handleCheckboxChange = event => {
+    handleLevelChange = event => {
+        this.props.setDogcogLevel(Number(event.target.value));
+    }
+
+    handleCheckboxChange = event => {
         this.props.setRelicsBonusCheckboxValue(event.target.checked);
     }
 
     render() {
+        const {
+            bonusLevels, dogcogLevel,
+            relicsBonusChecked, relicsCheckboxEnabled,
+        } = this.props;
         const checkboxLabelStyle = { marginRight: 10, marginTop: 10 };
 
-        const relicBonusLabel = this.props.bonusLevels === 1
-            ? 'Include ' + this.props.bonusLevels + ' level from relics'
-            : 'Include ' + this.props.bonusLevels + ' levels from relics';
+        const relicBonusLabel = bonusLevels === 1
+            ? `Include ${bonusLevels} level from relics`
+            : `Include ${bonusLevels} levels from relics`;
 
-        const dogcogLevel = +this.props.dogcogLevel + (this.props.relicsBonusChecked ? this.props.bonusLevels : 0);
+        const dogcogTotalLevel = Number(dogcogLevel) +
+            (relicsBonusChecked ? bonusLevels : 0);
 
         return (
             <form className="form-inline">
                 <div className="form-group" id="dogcog-block">
-                    <label htmlFor="dogcog-level">Dogcog Level</label>
+                    <label htmlFor="dogcog-level">{'Dogcog Level'}</label>
                     <input
                         id="dogcog-level"
                         className="form-control short"
-                        value={dogcogLevel}
+                        value={dogcogTotalLevel}
                         type="number"
                         min="0"
-                        onChange={this._handleLevelChange}
+                        onChange={this.handleLevelChange}
                     />
-                    <span>-{getDogcogPercentage(dogcogLevel).toFixed(2)}%</span>
+                    <span>
+                        {`-${getDogcogPercentage(dogcogTotalLevel).toFixed(2)}%`}
+                    </span>
                 </div>
-                <div className={'checkbox' + (!this.props.relicsCheckboxEnabled ? ' disabled' : '')}>
+                <div className={'checkbox' + (!relicsCheckboxEnabled ? ' disabled' : '')}>
                     <label style={checkboxLabelStyle}>
                         {relicBonusLabel}
                     </label>
                     <input
                         type="checkbox"
-                        checked={this.props.relicsBonusChecked}
-                        disabled={!this.props.relicsCheckboxEnabled}
-                        onChange={this._handleCheckboxChange}
+                        checked={relicsBonusChecked}
+                        disabled={!relicsCheckboxEnabled}
+                        onChange={this.handleCheckboxChange}
                     />
                 </div>
             </form>

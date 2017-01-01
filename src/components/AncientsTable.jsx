@@ -1,12 +1,12 @@
 import AncientsTableRow from './AncientsTableRow';
 
-export default function AncientsTable(props)  {
+const AncientsTable = (props) => {
     return (
         <table id="ancients-table" className="table table-hover">
             <thead>
                 <tr>
-                    <th className="text-center">Ancient</th>
-                    <th className="text-center">Coefficient</th>
+                    <th className="text-center">{'Ancient'}</th>
+                    <th className="text-center">{'Coefficient'}</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,4 +26,13 @@ export default function AncientsTable(props)  {
             </tbody>
         </table>
     );
-}
+};
+
+const { array, func } = React.PropTypes;
+
+AncientsTable.propTypes = {
+    ancients: array,
+    setAncientCoefficient: func,
+};
+
+export default AncientsTable;

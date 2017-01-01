@@ -4,7 +4,7 @@ import {
     setDogcogLevel,
     setDogcogRelicsBonusCheckbox,
     setHeroCurrentLevel,
-    setHeroTargetLevel
+    setHeroTargetLevel,
 } from '../actions';
 
 import {
@@ -27,7 +27,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setDogcogLevel: level => dispatch(setDogcogLevel(level)),
-    setRelicsBonusCheckboxValue: checkboxState => dispatch(setDogcogRelicsBonusCheckbox(checkboxState)),
+    setRelicsBonusCheckboxValue: checkboxState => {
+        dispatch(setDogcogRelicsBonusCheckbox(checkboxState));
+    },
     setHeroCurrentLevel: (hero, value) => dispatch(setHeroCurrentLevel(hero, value)),
     setHeroTargetLevel: (hero, value) => dispatch(setHeroTargetLevel(hero, value)),
 });

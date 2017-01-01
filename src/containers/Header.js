@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    loadTab: tab => dispatch(loadTab(tab))
+    loadTab: tab => dispatch(loadTab(tab)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

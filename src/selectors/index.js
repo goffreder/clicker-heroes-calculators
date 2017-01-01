@@ -25,17 +25,17 @@ export const parseGameState = gameState => {
     let temp = '';
 
     if (gameState.indexOf(SPLITTER) > 0) {
-        gameState = gameState.split(SPLITTER)[0];
+        const gameStateChunk = gameState.split(SPLITTER)[0];
 
-        for (let i = 0; i < gameState.length; i += 2) {
-            temp += gameState[i];
+        for (let i = 0; i < gameStateChunk.length; i += 2) {
+            temp += gameStateChunk[i];
         }
 
         return JSON.parse(atob(temp));
     }
 
     return null;
-}
+};
 
 const idleAncientBonusCallback = (levels, xyliqilLevel) => {
     const kMax = 25;
@@ -50,7 +50,7 @@ const idleAncientBonusCallback = (levels, xyliqilLevel) => {
     }
 
     return sum + (sum * xyliqilLevel);
-}
+};
 
 const solomonBonusCallback = (levels, ponyboyLevel = 23) => {
     let sum = 0;
@@ -74,40 +74,92 @@ const solomonBonusCallback = (levels, ponyboyLevel = 23) => {
     }
 
     return sum + (sum * ponyboyLevel);
-}
+};
+
+const aggregateBonuses = relics => {
+    return [].concat(...relics.map(r => r.bonuses))
+        .reduce((agg, b) => {
+            if (!agg[b.id]) {
+                agg[b.id] = { ...b };
+            } else {
+                agg[b.id].level += b.level;
+            }
+
+            return agg;
+        }, {});
+};
 
 const relicBonusCallbacks = {
-    3: (relicLevels, totalLevels, xyliqilLevel, ponyboyLevel) => solomonBonusCallback(totalLevels, ponyboyLevel) - solomonBonusCallback((totalLevels - relicLevels), ponyboyLevel),
-    4: (relicLevels, totalLevels, xyliqilLevel) => idleAncientBonusCallback(totalLevels, xyliqilLevel) - idleAncientBonusCallback((totalLevels - relicLevels), xyliqilLevel),
-    5: (relicLevels, totalLevels, xyliqilLevel) => idleAncientBonusCallback(totalLevels, xyliqilLevel) - idleAncientBonusCallback((totalLevels - relicLevels), xyliqilLevel),
+    3: (relicLevels, totalLevels, xyliqilLevel, ponyboyLevel) => {
+        const totalSolomonBonus = solomonBonusCallback(totalLevels, ponyboyLevel);
+        const diffSolomonBonus = solomonBonusCallback((totalLevels - relicLevels), ponyboyLevel);
+
+        return totalSolomonBonus - diffSolomonBonus;
+    },
+    4: (relicLevels, totalLevels, xyliqilLevel) => {
+        const totalBonus = idleAncientBonusCallback(totalLevels, xyliqilLevel);
+        const diffBonus = idleAncientBonusCallback((totalLevels - relicLevels), xyliqilLevel);
+
+        return totalBonus - diffBonus;
+    },
+    5: (relicLevels, totalLevels, xyliqilLevel) => {
+        const totalBonus = idleAncientBonusCallback(totalLevels, xyliqilLevel);
+        const diffBonus = idleAncientBonusCallback((totalLevels - relicLevels), xyliqilLevel);
+
+        return totalBonus - diffBonus;
+    },
     8: levels => levels * 5,
     9: levels => levels * 50,
     11: (relicLevels, totalLevels) => {
-        return 99 * (1 - Math.exp(-0.01 * totalLevels)) - 99 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)))
+        const totalBonus = 99 * (1 - Math.exp(-0.01 * totalLevels));
+        const diffBonus = 99 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
     12: (relicLevels, totalLevels) => {
-        return 100 * (1 - Math.exp(-0.0025 * totalLevels)) - 100 * (1 - Math.exp(-0.0025 * (totalLevels - relicLevels)))
+        const totalBonus = 100 * (1 - Math.exp(-0.0025 * totalLevels));
+        const diffBonus = 100 * (1 - Math.exp(-0.0025 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
     13: (relicLevels, totalLevels) => {
-        return 75 * (1 - Math.exp(-0.013 * totalLevels)) - 75 * (1 - Math.exp(-0.013 * (totalLevels - relicLevels)));
+        const totalBonus = 75 * (1 - Math.exp(-0.013 * totalLevels));
+        const diffBonus = 75 * (1 - Math.exp(-0.013 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
     14: (relicLevels, totalLevels) => {
-        return 9900 * (1 - Math.exp(-0.002 * totalLevels)) - 9900 * (1 - Math.exp(-0.002 * (totalLevels - relicLevels)));
+        const totalBonus = 9900 * (1 - Math.exp(-0.002 * totalLevels));
+        const diffBonus = 9900 * (1 - Math.exp(-0.002 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
     15: levels => levels * 15,
     16: levels => levels * 11,
     17: (relicLevels, totalLevels) => {
-        return 30 * (1 - Math.exp(-0.034 * totalLevels)) - 30 * (1 - Math.exp(-0.034 * (totalLevels - relicLevels)));
+        const totalBonus = 30 * (1 - Math.exp(-0.034 * totalLevels));
+        const diffBonus = 30 * (1 - Math.exp(-0.034 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
     18: (relicLevels, totalLevels) => {
-        return 50 * (1 - Math.exp(-0.02 * totalLevels)) - 50 * (1 - Math.exp(-0.02 * (totalLevels - relicLevels)))
+        const totalBonus = 50 * (1 - Math.exp(-0.02 * totalLevels));
+        const diffBonus = 50 * (1 - Math.exp(-0.02 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
     19: levels => levels * 20,
     20: (relicLevels, totalLevels) => {
-        return 75 * (1 - Math.exp(-0.026 * totalLevels)) - 75 * (1 - Math.exp(-0.026 * (totalLevels - relicLevels)))
+        const totalBonus = 75 * (1 - Math.exp(-0.026 * totalLevels));
+        const diffBonus = 75 * (1 - Math.exp(-0.026 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
     21: (relicLevels, totalLevels) => {
-        return 8 * (1 - Math.exp(-0.01 * totalLevels)) - 8 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)))
+        const totalBonus = 8 * (1 - Math.exp(-0.01 * totalLevels));
+        const diffBonus = 8 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
     22: levels => levels * 2,
     23: levels => levels * 2,
@@ -118,9 +170,12 @@ const relicBonusCallbacks = {
     28: levels => levels * 2,
     29: levels => levels / 100,
     31: (relicLevels, totalLevels) => {
-        return 100 * (1 - Math.exp(-0.01 * totalLevels)) - 100 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)));
+        const totalBonus = 100 * (1 - Math.exp(-0.01 * totalLevels));
+        const diffBonus = 100 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)));
+
+        return totalBonus - diffBonus;
     },
-    32: levels => 0,
+    32: levels => levels * 0,
 };
 
 export const getRelics = state => {
@@ -144,7 +199,7 @@ export const getRelics = state => {
             ancient: ancient.label,
             ancientFullName: ancient.fullName,
             ancientCoefficient: ancient.coefficients[style],
-            level: +item.bonus1Level,
+            level: Number(item.bonus1Level),
         });
         total += item.bonus1Level * ancient.coefficients[style];
 
@@ -156,7 +211,7 @@ export const getRelics = state => {
                 ancient: ancient.label,
                 ancientFullName: ancient.fullName,
                 ancientCoefficient: ancient.coefficients[style],
-                level: +item.bonus2Level,
+                level: Number(item.bonus2Level),
             });
             total += item.bonus2Level * ancient.coefficients[style];
         }
@@ -169,7 +224,7 @@ export const getRelics = state => {
                 ancient: ancient.label,
                 ancientFullName: ancient.fullName,
                 ancientCoefficient: ancient.coefficients[style],
-                level: +item.bonus3Level,
+                level: Number(item.bonus3Level),
             });
             total += item.bonus3Level * ancient.coefficients[style];
         }
@@ -182,7 +237,7 @@ export const getRelics = state => {
                 ancient: ancient.label,
                 ancientFullName: ancient.fullName,
                 ancientCoefficient: ancient.coefficients[style],
-                level: +item.bonus4Level,
+                level: Number(item.bonus4Level),
             });
             total += item.bonus4Level * ancient.coefficients[style];
         }
@@ -193,7 +248,7 @@ export const getRelics = state => {
             level: item.level,
             type: item.type,
             bonuses,
-            total
+            total,
         };
     }).sort((a, b) => b.total - a.total);
 
@@ -202,29 +257,27 @@ export const getRelics = state => {
     relics.forEach(r => {
         r.bonuses.forEach(b => {
             const ancient = ancients[b.id];
-            const totalLevels = ancient.baseLevel + (aggBonuses[ancient.id] ? aggBonuses[ancient.id].level : 0);
+            const ancientBonuses = aggBonuses[ancient.id];
+            const totalLevels = ancient.baseLevel + (ancientBonuses ? ancientBonuses.level : 0);
 
-            b.tooltip = ancient.relicText.replace('{}', roundNum(relicBonusCallbacks[b.id](b.level, totalLevels, xyliqilLevel, ponyboyLevel)))
+            b.tooltip = ancient.relicText.replace(
+                '{}',
+                roundNum(relicBonusCallbacks[b.id](
+                    b.level,
+                    totalLevels,
+                    xyliqilLevel,
+                    ponyboyLevel)
+                )
+            );
         });
     });
 
     return relics;
 };
 
-const aggregateBonuses = relics => {
-    return [].concat.apply([], relics.map(r => r.bonuses))
-        .reduce((agg, b) => {
-            if (!agg[b.id]) {
-                agg[b.id] = { ...b };
-            } else {
-                agg[b.id].level += b.level;
-            }
-
-            return agg;
-        }, {});
-}
-
-export const getRelicsBonuses = state => Object.values(aggregateBonuses(getRelics(state).slice(0, 4)));
+export const getRelicsBonuses = state => {
+    return Object.values(aggregateBonuses(getRelics(state).slice(0, 4)));
+};
 
 export const getDogcogRelicLevels = state => {
     const dogcogRelic = getRelicsBonuses(state).find(b => b.id === 11);

@@ -1,18 +1,48 @@
-export default function Links()  {
+const Links = () => {
+    const gameLink = 'http://www.clickerheroes.com/';
+    const redditLink = 'https://www.reddit.com/r/ClickerHeroes/';
+    const wikiaLink = 'http://clickerheroes.wikia.com/';
+    const ancientsCalcLink = 'https://graceoflives.github.io/fluffy-garbanzo/';
+    // eslint-disable-next-line max-len
+    const outsidersCalcLink = 'https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405';
+    const gameEditorLink = 'https://www.itshax.com/Clicker-Heroes/';
+    const repoLink = 'https://github.com/goffreder/clicker-heroes-calculators/';
+
     return (
         <div id="links" className="container">
-            <h2>Links</h2>
+            <h2>{''}</h2>
             <ul>
-                <li><a href="http://www.clickerheroes.com/" target="_blank">http://www.clickerheroes.com/</a> (the game)</li>
-                <li><a href="https://www.reddit.com/r/ClickerHeroes/" target="_blank">https://www.reddit.com/r/ClickerHeroes/</a> (the subreddit)</li>
-                <li><a href="http://clickerheroes.wikia.com/" target="_blank">http://clickerheroes.wikia.com/</a> (the wikia)</li>
-                <li><a href="https://graceoflives.github.io/fluffy-garbanzo/" target="_blank">https://graceoflives.github.io/fluffy-garbanzo/</a> (ancients calculator)</li>
-                <li><a href="https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405" target="_blank">
-                    https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405
-                </a> (outsiders spreadsheet)</li>
-                <li><a href="https://www.itshax.com/Clicker-Heroes/" target="_blank">https://www.itshax.com/Clicker-Heroes/</a> (save game editor)</li>
-                <li><a href="https://github.com/goffreder/clicker-heroes-calculators/" target="_blank">https://github.com/goffreder/clicker-heroes-calculators</a> (this repo)</li>
+                <li>
+                    <a href={gameLink} target="_blank">{gameLink}</a>
+                    {' (the game)'}
+                </li>
+                <li>
+                    <a href={redditLink} target="_blank">{redditLink}</a>
+                    {' (the subreddit)'}
+                </li>
+                <li>
+                    <a href={wikiaLink} target="_blank">{wikiaLink}</a>
+                    {' (the wikia)'}
+                </li>
+                <li>
+                    <a href={ancientsCalcLink} target="_blank">{ancientsCalcLink}</a>
+                    {' (ancients calculator)'}
+                </li>
+                <li>
+                    <a href={outsidersCalcLink} target="_blank">{outsidersCalcLink}</a>
+                    {' (outsiders spreadsheet)'}
+                </li>
+                <li>
+                    <a href={gameEditorLink} target="_blank">{gameEditorLink}</a>
+                    {' (save game editor)'}
+                </li>
+                <li>
+                    <a href={repoLink} target="_blank">{repoLink}</a>
+                    {' (this repo)'}
+                </li>
             </ul>
         </div>
     );
 };
+
+export default Links;

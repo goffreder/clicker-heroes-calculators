@@ -1,5 +1,10 @@
 export default class StyleSwitcher extends React.Component {
-    _handleChange = event => {
+    static propTypes = {
+        playStyle: React.PropTypes.string,
+        setPlayStyle: React.PropTypes.func,
+    }
+
+    handleChange = event => {
         this.props.setPlayStyle(event.target.value);
     }
 
@@ -9,16 +14,16 @@ export default class StyleSwitcher extends React.Component {
 
         return (
             <div id="style-switcher" style={switcherStyle}>
-                <label style={switcherLabelStyle}>Playstyle:</label>
+                <label style={switcherLabelStyle}>{'Playstyle:'}</label>
                 <label className="radio-inline">
                     <input
                         type="radio"
                         name="style-switcher"
                         value="idle"
                         checked={this.props.playStyle === 'idle'}
-                        onChange={this._handleChange}
+                        onChange={this.handleChange}
                     />
-                    Idle
+                    {'Idle'}
                 </label>
                 <label className="radio-inline">
                     <input
@@ -26,11 +31,11 @@ export default class StyleSwitcher extends React.Component {
                         name="style-switcher"
                         value="hybrid"
                         checked={this.props.playStyle === 'hybrid'}
-                        onChange={this._handleChange}
+                        onChange={this.handleChange}
                     />
-                    Hybrid
+                    {'Hybrid'}
                 </label>
             </div>
-        )
-    };
+        );
+    }
 }

@@ -344,7 +344,9 @@ const ancients = {
 };
 
 const byRelicBonusId = Object.keys(ancients)
-    .reduce((byRelicBonusId, ancientId) => ({ ...byRelicBonusId, [ancients[ancientId].relicBonusId]: ancientId }), {});
+    .reduce((relicsObj, ancientId) => {
+        return { ...relicsObj, [ancients[ancientId].relicBonusId]: ancientId };
+    }, {});
 
 const defaultState = {
     editing: false,
@@ -356,8 +358,10 @@ const defaultState = {
 
 const reducer = {
     LOAD_GAME_STATE: (state, action) => {
-        Object.keys(action.payload.state.ancients.ancients).forEach(ancientId => {
-            ancients[ancientId].baseLevel = +action.payload.state.ancients.ancients[ancientId].level;
+        const payloadAncients = action.payload.state.ancients.ancients;
+
+        Object.keys(payloadAncients).forEach(ancientId => {
+            ancients[ancientId].baseLevel = Number(payloadAncients[ancientId].level);
         });
 
         return {
@@ -369,7 +373,7 @@ const reducer = {
     TOGGLE_EDIT_MODE: (state) => {
         return {
             ...state,
-            editing: !state.editing
+            editing: !state.editing,
         };
     },
     SET_ANCIENT_COEFFICIENT: (state, action) => {
@@ -381,16 +385,17 @@ const reducer = {
                     ...state.ancients[action.payload.ancientId],
                     coefficients: {
                         ...state.ancients[action.payload.ancientId].coefficients,
-                        [action.payload.style]: action.payload.coefficient
-                    }
-                }
-            }
+                        [action.payload.style]: action.payload.coefficient,
+                    },
+                },
+            },
         };
-    }
+    },
 };
 
 export default(state = defaultState, action) => {
-    if (typeof reducer[action.type] === 'undefined')
+    if (typeof reducer[action.type] === 'undefined') {
         return state;
+    }
     return reducer[action.type](state, action);
 };

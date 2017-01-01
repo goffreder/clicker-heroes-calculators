@@ -1,3 +1,5 @@
+/* global appData */
+
 import { LOCALSTORAGE_KEY } from '../constants';
 
 export const clearState = () => {
