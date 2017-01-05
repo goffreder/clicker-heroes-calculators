@@ -130,7 +130,7 @@ const ancients = {
         relicText: '+{}% damage to Critical Clicks',
         coefficients: {
             hybrid: 1,
-            idle: 1,
+            idle: 0,
         },
     },
     16: {
@@ -182,7 +182,7 @@ const ancients = {
         relicText: '+{}% Click Damage',
         coefficients: {
             hybrid: 1,
-            idle: 1,
+            idle: 0,
         },
     },
     20: {
@@ -195,7 +195,7 @@ const ancients = {
         relicText: '-{}% skill cooldowns',
         coefficients: {
             hybrid: 25,
-            idle: 1,
+            idle: 0,
         },
     },
     21: {
@@ -221,7 +221,7 @@ const ancients = {
         relicText: '+{} seconds to duration of Clickstorm',
         coefficients: {
             hybrid: 1,
-            idle: 1,
+            idle: 0,
         },
     },
     23: {
@@ -234,7 +234,7 @@ const ancients = {
         relicText: '+{} seconds to duration of Super Clicks',
         coefficients: {
             hybrid: 10,
-            idle: 1,
+            idle: 0,
         },
     },
     24: {
@@ -247,7 +247,7 @@ const ancients = {
         relicText: '+{} seconds to duration of Powersurge',
         coefficients: {
             hybrid: 1,
-            idle: 1,
+            idle: 0,
         },
     },
     25: {
@@ -260,7 +260,7 @@ const ancients = {
         relicText: '+{} seconds to duration of Lucky Strikes',
         coefficients: {
             hybrid: 60,
-            idle: 1,
+            idle: 0,
         },
     },
     26: {
@@ -273,7 +273,7 @@ const ancients = {
         relicText: '+{} seconds to duration of Golden Clicks',
         coefficients: {
             hybrid: 15,
-            idle: 1,
+            idle: 0,
         },
     },
     27: {
@@ -286,7 +286,7 @@ const ancients = {
         relicText: '+{} seconds to duration of Metal Detector',
         coefficients: {
             hybrid: 10,
-            idle: 1,
+            idle: 0,
         },
     },
     28: {
@@ -312,7 +312,7 @@ const ancients = {
         relicText: '+{}% DPS per click combo (active clicking)',
         coefficients: {
             hybrid: 1,
-            idle: 1,
+            idle: 0,
         },
     },
     31: {
@@ -338,7 +338,7 @@ const ancients = {
         relicText: '{}',
         coefficients: {
             hybrid: 0,
-            idle: 0,
+            idle: 10,
         },
     },
 };
