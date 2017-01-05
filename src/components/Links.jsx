@@ -2,7 +2,7 @@ const Links = () => {
     const gameLink = 'http://www.clickerheroes.com/';
     const redditLink = 'https://www.reddit.com/r/ClickerHeroes/';
     const wikiaLink = 'http://clickerheroes.wikia.com/';
-    const ancientsCalcLink = 'https://graceoflives.github.io/fluffy-garbanzo/';
+    const ancientsCalcLink = 'http://arrested-developer.com/fluffy-garbanzo/';
     // eslint-disable-next-line max-len
     const outsidersCalcLink = 'https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405';
     const gameEditorLink = 'https://www.itshax.com/Clicker-Heroes/';
