@@ -36,7 +36,7 @@ const Links = () => {
                 </li>
                 <li>
                     <a href={regildingChart} target="_blank">{regildingChart}</a>
-                    {' (save game editor)'}
+                    {' (regilding chart)'}
                 </li>
                 <li>
                     <a href={gameEditorLink} target="_blank">{gameEditorLink}</a>
