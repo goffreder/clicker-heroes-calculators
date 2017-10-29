@@ -5,6 +5,8 @@ const Links = () => {
     const ancientsCalcLink = 'http://arrested-developer.com/fluffy-garbanzo/';
     // eslint-disable-next-line max-len
     const outsidersCalcLink = 'https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405';
+    // eslint-disable-next-line max-len
+    const regildingChart = 'https://www.reddit.com/r/ClickerHeroes/comments/5cocel/updated_hero_regilding_chart_for_clicker_heroes/';
     const gameEditorLink = 'https://www.itshax.com/Clicker-Heroes/';
     const repoLink = 'https://github.com/goffreder/clicker-heroes-calculators/';
 
@@ -31,6 +33,10 @@ const Links = () => {
                 <li>
                     <a href={outsidersCalcLink} target="_blank">{outsidersCalcLink}</a>
                     {' (outsiders spreadsheet)'}
+                </li>
+                <li>
+                    <a href={regildingChart} target="_blank">{regildingChart}</a>
+                    {' (save game editor)'}
                 </li>
                 <li>
                     <a href={gameEditorLink} target="_blank">{gameEditorLink}</a>
