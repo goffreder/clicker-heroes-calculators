@@ -1,3 +1,5 @@
+import pako from 'pako';
+
 import { rarities } from '../constants';
 
 import { roundNum } from '../utils';
@@ -21,20 +23,7 @@ export const getDogcogLevel = state => state.heroes.dogcogLevel;
 export const isRelicBonusChecked = state => state.heroes.relicsBonusChecked;
 
 export const parseGameState = gameState => {
-    const SPLITTER = 'Fe12NAfA3R6z4k0z';
-    let temp = '';
-
-    if (gameState.indexOf(SPLITTER) > 0) {
-        const gameStateChunk = gameState.split(SPLITTER)[0];
-
-        for (let i = 0; i < gameStateChunk.length; i += 2) {
-            temp += gameStateChunk[i];
-        }
-
-        return JSON.parse(atob(temp));
-    }
-
-    return null;
+    return JSON.parse(pako.inflate(atob(gameState.substring(32)), { to: 'string' }));
 };
 
 const idleAncientBonusCallback = (levels, xyliqilLevel) => {
@@ -110,6 +99,7 @@ const relicBonusCallbacks = {
     },
     8: levels => levels * 5,
     9: levels => levels * 50,
+    10: levels => levels,
     11: (relicLevels, totalLevels) => {
         const totalBonus = 99 * (1 - Math.exp(-0.01 * totalLevels));
         const diffBonus = 99 * (1 - Math.exp(-0.01 * (totalLevels - relicLevels)));

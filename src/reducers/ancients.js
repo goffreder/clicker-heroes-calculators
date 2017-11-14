@@ -68,6 +68,19 @@ const ancients = {
             idle: 1,
         },
     },
+    10: {
+        id: 10,
+        label: 'Pluto',
+        fullName: 'Pluto, Ancient of Wealth',
+        image: images.Pluto,
+        baseLevel: 0,
+        relicBonusId: 20,
+        relicText: '+{}% Gold from Golden Clicks',
+        coefficients: {
+            hybrid: 50,
+            idle: 50,
+        },
+    },
     11: {
         id: 11,
         label: 'Dogcog',

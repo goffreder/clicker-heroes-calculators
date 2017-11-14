@@ -19,6 +19,7 @@ import Mammon from './Mammon.png';
 import Mimzee from './Mimzee.png';
 import Morgulis from './Morgulis.png';
 import Nogardnit from './Nogardnit.png';
+import Pluto from './Pluto.png';
 import Revolc from './Revolc.png';
 import Siyalatas from './Siyalatas.png';
 import Sniperino from './Sniperino.png';
@@ -47,6 +48,7 @@ export default {
     Mimzee,
     Morgulis,
     Nogardnit,
+    Pluto,
     Revolc,
     Siyalatas,
     Sniperino,
