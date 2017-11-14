@@ -218,7 +218,7 @@ const ancients = {
         image: images.Kumawakamaru,
         baseLevel: 0,
         relicBonusId: 27,
-        relicText: '-{} monsters required to advance to the next level',
+        relicText: '-{} monsters required to advance to the next zone (minimum 2 monsters per zone)',
         coefficients: {
             hybrid: 100,
             idle: 100,
