@@ -2,7 +2,8 @@ const Links = () => {
     const gameLink = 'http://www.clickerheroes.com/';
     const redditLink = 'https://www.reddit.com/r/ClickerHeroes/';
     const wikiaLink = 'http://clickerheroes.wikia.com/';
-    const ancientsCalcLink = 'http://arrested-developer.com/fluffy-garbanzo/';
+    const ancientsCalcLink = 'https://graceoflives.github.io/fluffy-garbanzo/';
+    const clickerTracker = 'https://clickerheroestracker.azurewebsites.net/';
     // eslint-disable-next-line max-len
     const outsidersCalcLink = 'https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405';
     // eslint-disable-next-line max-len
@@ -29,6 +30,10 @@ const Links = () => {
                 <li>
                     <a href={ancientsCalcLink} target="_blank">{ancientsCalcLink}</a>
                     {' (ancients calculator)'}
+                </li>
+                <li>
+                    <a href={clickerTracker} target="_blank">{clickerTracker}</a>
+                    {' (clicker heroes tracker)'}
                 </li>
                 <li>
                     <a href={outsidersCalcLink} target="_blank">{outsidersCalcLink}</a>
