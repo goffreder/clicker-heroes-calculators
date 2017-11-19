@@ -7,7 +7,7 @@ const Links = () => {
     // eslint-disable-next-line max-len
     const outsidersCalcLink = 'https://docs.google.com/spreadsheets/d/1m09HoNiLW-7t96gzguG9tU_HHaRrDrtMpAoAuukLB4w/edit#gid=233428405';
     // eslint-disable-next-line max-len
-    const regildingChart = 'https://www.reddit.com/r/ClickerHeroes/comments/5cocel/updated_hero_regilding_chart_for_clicker_heroes/';
+    const regildingChart = 'https://www.reddit.com/r/ClickerHeroes/comments/7dvpi2/hero_gilding_chart_for_clicker_heroes_10e10/';
     const gameEditorLink = 'https://www.itshax.com/Clicker-Heroes/';
     const repoLink = 'https://github.com/goffreder/clicker-heroes-calculators/';
 
