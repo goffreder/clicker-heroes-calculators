@@ -1,4 +1,5 @@
 import { allImages as images } from '../css/images';
+import BigInt from '../utils/bigInt';
 
 function getHeroImage(hero, heroesImages) {
     return heroesImages[hero];
@@ -29,6 +30,7 @@ export default class HeroesTableRow extends Component {
 
         const imgStyle = { marginLeft: 10 };
         const image = getHeroImage(id, heroes);
+        const baseCost = new BigInt(hero.newBaseCost).show();
 
         return (
             <tr>
@@ -36,7 +38,7 @@ export default class HeroesTableRow extends Component {
                     {hero.label}
                     <img src={image} style={imgStyle} />
                 </td>
-                <td>{hero.baseCost.toExponential(2)}</td>
+                <td>{baseCost}</td>
                 <td>
                     <input
                         type="number"
@@ -53,7 +55,7 @@ export default class HeroesTableRow extends Component {
                         onChange={this.setHeroTargetLevel}
                     />
                 </td>
-                <td>{hero.total.toExponential(2)}</td>
+                <td>{hero.total}</td>
             </tr>
         );
     }
