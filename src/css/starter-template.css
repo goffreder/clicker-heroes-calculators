@@ -45,3 +45,22 @@ table > thead > tr > th {
 #dogcog-block input {
     margin: 0 10px;
 }
+
+
+.expBar {
+    position: relative;
+    height: 8px;
+    background: #DDD;
+    width: 100%;
+}
+.expBar .completed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient( -45deg, #32d733, #07aa07 );
+}
+
+#mercenaries-table td {
+    vertical-align: middle;
+}

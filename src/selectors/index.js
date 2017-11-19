@@ -274,3 +274,15 @@ export const getDogcogRelicLevels = state => {
 
     return dogcogRelic ? Math.floor(dogcogRelic.level) : 0;
 };
+
+export const getMercenaries = state => {
+    if (!state.gameState) {
+        return [];
+    }
+    const hirelings = state.gameState.mercenaries.mercenaries;
+    const mercs = Object.keys(hirelings).map(k => {
+        const hireling = hirelings[k];
+        return hireling;
+    });
+    return mercs;
+};

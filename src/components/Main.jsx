@@ -2,6 +2,7 @@ import Header from '../containers/Header';
 import Relics from '../containers/Relics';
 import Ancients from '../containers/Ancients';
 import Heroes from '../containers/Heroes';
+import Mercenaries from '../containers/Mercenaries';
 import Links from '../components/Links';
 
 const Main = ({ active }) => {
@@ -13,6 +14,9 @@ const Main = ({ active }) => {
             break;
         case 'ancients':
             content = <Ancients />;
+            break;
+        case 'mercenaries':
+            content = <Mercenaries />;
             break;
         case 'links':
             content = <Links />;
