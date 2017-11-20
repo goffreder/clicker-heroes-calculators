@@ -179,7 +179,7 @@ const ancients = {
         image: images.Bubos,
         baseLevel: 0,
         relicBonusId: 13,
-        relicText: '-{}% Boss Life',
+        relicText: '-{} Monsters Worth of Boss Life (minimum 5 monsters)',
         coefficients: {
             hybrid: 35,
             idle: 20,
