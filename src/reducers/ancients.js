@@ -3,19 +3,19 @@ import { allImages } from '../css/images';
 const images = allImages.ancients;
 
 const ancients = {
-    3: {
-        id: 3,
-        label: 'Solomon',
-        fullName: 'Solomon, Ancient of Wisdom',
-        image: images.Solomon,
-        baseLevel: 0,
-        relicBonusId: 25,
-        relicText: '+{}% Primal Hero Souls',
-        coefficients: {
-            hybrid: 1,
-            idle: 10,
-        },
-    },
+    // 3: {
+    //     id: 3,
+    //     label: 'Solomon',
+    //     fullName: 'Solomon, Ancient of Wisdom',
+    //     image: images.Solomon,
+    //     baseLevel: 0,
+    //     relicBonusId: 25,
+    //     relicText: '+{}% Primal Hero Souls',
+    //     coefficients: {
+    //         hybrid: 1,
+    //         idle: 10,
+    //     },
+    // },
     4: {
         id: 4,
         label: 'Libertas',
