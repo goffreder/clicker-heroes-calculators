@@ -2,11 +2,11 @@ export default class StyleSwitcher extends React.Component {
     static propTypes = {
         playStyle: React.PropTypes.string,
         setPlayStyle: React.PropTypes.func,
-    }
+    };
 
     handleChange = event => {
         this.props.setPlayStyle(event.target.value);
-    }
+    };
 
     render() {
         const switcherStyle = { marginBottom: 20 };

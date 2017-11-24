@@ -18,9 +18,10 @@ import Main from './containers/Main';
 
 const initialState = loadState() || {};
 
-const store = process.env.NODE_ENV === 'production'
-    ? createStore(reducer, initialState)
-    : createStore(reducer, initialState, applyMiddleware(createLogger()));
+const store =
+    process.env.NODE_ENV === 'production'
+        ? createStore(reducer, initialState)
+        : createStore(reducer, initialState, applyMiddleware(createLogger()));
 
 // Object.values polyfill
 if (Object.values === undefined) {
@@ -28,13 +29,15 @@ if (Object.values === undefined) {
     Object.prototype.values = obj => Object.keys(obj).map(k => obj[k]);
 }
 
-store.subscribe(throttle(() => {
-    saveState(store.getState());
-}, 1000));
+store.subscribe(
+    throttle(() => {
+        saveState(store.getState());
+    }, 1000),
+);
 
 ReactDOM.render(
     <Provider store={store}>
         <Main />
     </Provider>,
-    document.getElementById('app')
+    document.getElementById('app'),
 );

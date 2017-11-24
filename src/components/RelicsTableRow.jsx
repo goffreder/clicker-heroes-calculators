@@ -18,13 +18,17 @@ export default class RelicsTableRow extends Component {
     static propTypes = {
         index: PropTypes.number,
         relic: PropTypes.object,
-    }
+    };
 
     getAncientCell(relicBonus, key) {
         let cells = null;
 
         if (relicBonus) {
-            cells = <td key={key}>{`${relicBonus.ancient} - ${roundNum(relicBonus.level)}`}</td>;
+            cells = (
+                <td key={key}>{`${relicBonus.ancient} - ${roundNum(
+                    relicBonus.level,
+                )}`}</td>
+            );
         } else {
             cells = <td key={key} />;
         }
@@ -34,11 +38,11 @@ export default class RelicsTableRow extends Component {
 
     showRelicTooltip = () => {
         this.setState({ showTooltip: true });
-    }
+    };
 
     hideRelicTooltip = () => {
         this.setState({ showTooltip: false });
-    }
+    };
 
     render() {
         const { index, relic } = this.props;
@@ -54,7 +58,11 @@ export default class RelicsTableRow extends Component {
                         />
                         <img
                             className={'relic-image ' + relic.rarity.className}
-                            src={getRelicImage(relic.name, relic.type, images.relics)}
+                            src={getRelicImage(
+                                relic.name,
+                                relic.type,
+                                images.relics,
+                            )}
                             onMouseOver={this.showRelicTooltip}
                             onMouseOut={this.hideRelicTooltip}
                         />

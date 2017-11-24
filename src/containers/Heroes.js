@@ -30,8 +30,10 @@ const mapDispatchToProps = dispatch => ({
     setRelicsBonusCheckboxValue: checkboxState => {
         dispatch(setDogcogRelicsBonusCheckbox(checkboxState));
     },
-    setHeroCurrentLevel: (hero, value) => dispatch(setHeroCurrentLevel(hero, value)),
-    setHeroTargetLevel: (hero, value) => dispatch(setHeroTargetLevel(hero, value)),
+    setHeroCurrentLevel: (hero, value) =>
+        dispatch(setHeroCurrentLevel(hero, value)),
+    setHeroTargetLevel: (hero, value) =>
+        dispatch(setHeroTargetLevel(hero, value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Heroes);

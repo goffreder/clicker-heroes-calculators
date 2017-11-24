@@ -1,6 +1,6 @@
 import AncientsTableRow from './AncientsTableRow';
 
-const AncientsTable = (props) => {
+const AncientsTable = props => {
     return (
         <table id="ancients-table" className="table table-hover">
             <thead>
@@ -10,19 +10,17 @@ const AncientsTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {
-                    props.ancients.map((a, k) => (
-                        <AncientsTableRow
-                            key={k}
-                            id={a.id}
-                            name={a.label}
-                            coefficient={a.coefficients[props.playStyle]}
-                            editing={props.editing}
-                            toggleEditMode={props.toggleEditMode}
-                            setAncientCoefficient={props.setAncientCoefficient}
-                        />
-                    ))
-                }
+                {props.ancients.map((a, k) => (
+                    <AncientsTableRow
+                        key={k}
+                        id={a.id}
+                        name={a.label}
+                        coefficient={a.coefficients[props.playStyle]}
+                        editing={props.editing}
+                        toggleEditMode={props.toggleEditMode}
+                        setAncientCoefficient={props.setAncientCoefficient}
+                    />
+                ))}
             </tbody>
         </table>
     );

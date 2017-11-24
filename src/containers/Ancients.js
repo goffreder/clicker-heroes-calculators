@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 
-import { setPlayStyle, toggleEditMode, setAncientCoefficient } from '../actions';
-
 import {
-    getAncients,
-    getPlayStyle,
-    isEditing,
-} from '../selectors';
+    setPlayStyle,
+    toggleEditMode,
+    setAncientCoefficient,
+} from '../actions';
+
+import { getAncients, getPlayStyle, isEditing } from '../selectors';
 
 import Ancients from '../components/Ancients';
 

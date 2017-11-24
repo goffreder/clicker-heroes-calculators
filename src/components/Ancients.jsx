@@ -12,31 +12,33 @@ export default class Ancients extends Component {
         setAncientCoefficient: func,
         setPlayStyle: func,
         toggleEditMode: func,
-    }
+    };
 
-    setAncientCoefficient =
-        (ancientId, coefficient) =>
-            this.props.setAncientCoefficient(
-                ancientId,
-                this.props.playStyle,
-                coefficient
-            )
+    setAncientCoefficient = (ancientId, coefficient) =>
+        this.props.setAncientCoefficient(
+            ancientId,
+            this.props.playStyle,
+            coefficient,
+        );
 
     render() {
         const {
-            ancients, editing, playStyle,
-            setPlayStyle, toggleEditMode,
+            ancients,
+            editing,
+            playStyle,
+            setPlayStyle,
+            toggleEditMode,
         } = this.props;
 
         const ancientsIII = Object.keys(ancients)
             .map(k => ancients[k])
             .sort(
-                (a, b) => b.coefficients[playStyle] - a.coefficients[playStyle]
+                (a, b) => b.coefficients[playStyle] - a.coefficients[playStyle],
             );
 
         const ancientsI = ancientsIII.splice(
             0,
-            Math.ceil(ancientsIII.length / 3)
+            Math.ceil(ancientsIII.length / 3),
         );
         const ancientsII = ancientsIII.splice(0, ancientsI.length);
 

@@ -3,23 +3,23 @@ import GameStateInput from './GameStateInput';
 import RelicsTable from './RelicsTable';
 import RelicsRecap from './RelicsRecap';
 
-const Relics = ({ playStyle, setPlayStyle, encodedState, saveGameState, relics, bonuses }) => {
+const Relics = ({
+    playStyle,
+    setPlayStyle,
+    encodedState,
+    saveGameState,
+    relics,
+    bonuses,
+}) => {
     return (
         <div className="container-fluid">
-            <StyleSwitcher
-                playStyle={playStyle}
-                setPlayStyle={setPlayStyle}
-            />
+            <StyleSwitcher playStyle={playStyle} setPlayStyle={setPlayStyle} />
             <GameStateInput
                 encodedState={encodedState}
                 saveGameState={saveGameState}
             />
-            <RelicsTable
-                relics={relics}
-            />
-            <RelicsRecap
-                bonuses={bonuses}
-            />
+            <RelicsTable relics={relics} />
+            <RelicsRecap bonuses={bonuses} />
         </div>
     );
 };

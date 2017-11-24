@@ -13,15 +13,15 @@ export default class HeroesTableRow extends Component {
         id: string,
         setHeroCurrentLevel: func,
         setHeroTargetLevel: func,
-    }
+    };
 
-    setHeroCurrentLevel = (e) => {
+    setHeroCurrentLevel = e => {
         this.props.setHeroCurrentLevel(this.props.id, e.target.value);
-    }
+    };
 
-    setHeroTargetLevel = (e) => {
+    setHeroTargetLevel = e => {
         this.props.setHeroTargetLevel(this.props.id, e.target.value);
-    }
+    };
 
     render() {
         const { hero, id } = this.props;

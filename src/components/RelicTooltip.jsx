@@ -23,20 +23,23 @@ const RelicTooltip = ({ visible, rarity, level, bonuses, name }) => {
 
     return (
         <div style={relicTooltipStyle}>
-            <div className={'relic-name ' + rarity.className} style={relicNameStyle}>{name}</div>
+            <div
+                className={'relic-name ' + rarity.className}
+                style={relicNameStyle}
+            >
+                {name}
+            </div>
             <div>{rarity.label}</div>
-            <div style={{ marginBottom: 15 }}>{'Level ' +  level}</div>
+            <div style={{ marginBottom: 15 }}>{'Level ' + level}</div>
 
-            {
-                bonuses.map(
-                    (b, i) => (
-                        <div key={i} style={{ marginBottom: 15 }}>
-                            <div>{`+${roundNum(b.level)} Levels to ${b.ancientFullName}`}</div>
-                            <div style={{ color: 'grey' }}>{`(${b.tooltip})`}</div>
-                        </div>
-                    )
-                )
-            }
+            {bonuses.map((b, i) => (
+                <div key={i} style={{ marginBottom: 15 }}>
+                    <div>{`+${roundNum(b.level)} Levels to ${
+                        b.ancientFullName
+                    }`}</div>
+                    <div style={{ color: 'grey' }}>{`(${b.tooltip})`}</div>
+                </div>
+            ))}
         </div>
     );
 };

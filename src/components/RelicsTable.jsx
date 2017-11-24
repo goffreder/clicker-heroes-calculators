@@ -20,9 +20,9 @@ const RelicsTable = ({ relics }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        { relics.map((r, k) => (
+                        {relics.map((r, k) => (
                             <RelicsTableRow key={k} index={k} relic={r} />
-                        )) }
+                        ))}
                     </tbody>
                 </table>
             </div>

@@ -4,7 +4,7 @@ import { heroes } from '../constants';
 
 import { getHeroCost } from '../utils';
 
-const HeroesTable = (props) => {
+const HeroesTable = props => {
     const fullHeroes = deepAssign({}, heroes, props.heroes);
 
     return (
@@ -19,25 +19,25 @@ const HeroesTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {
-                    Object.keys(fullHeroes)
-                        .sort((a, b) => fullHeroes[b].baseCost - fullHeroes[a].baseCost)
-                        .map((h, k) => (
-                            <HeroesTableRow
-                                hero={
-                                    Object.assign(
-                                        {},
-                                        fullHeroes[h],
-                                        { total: getHeroCost(fullHeroes[h], props.dogcogLevel) }
-                                    )
-                                }
-                                id={h}
-                                key={k}
-                                setHeroCurrentLevel={props.setHeroCurrentLevel}
-                                setHeroTargetLevel={props.setHeroTargetLevel}
-                            />
-                        ))
-                }
+                {Object.keys(fullHeroes)
+                    .sort(
+                        (a, b) =>
+                            fullHeroes[b].baseCost - fullHeroes[a].baseCost,
+                    )
+                    .map((h, k) => (
+                        <HeroesTableRow
+                            hero={Object.assign({}, fullHeroes[h], {
+                                total: getHeroCost(
+                                    fullHeroes[h],
+                                    props.dogcogLevel,
+                                ),
+                            })}
+                            id={h}
+                            key={k}
+                            setHeroCurrentLevel={props.setHeroCurrentLevel}
+                            setHeroTargetLevel={props.setHeroTargetLevel}
+                        />
+                    ))}
             </tbody>
         </table>
     );

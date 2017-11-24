@@ -17,26 +17,26 @@ export default class AncientsTableRow extends Component {
         name: string,
         setAncientCoefficient: func,
         toggleEditMode: func,
-    }
+    };
 
     editMode = () => {
         this.setState({ edit: true });
         this.props.toggleEditMode();
-    }
+    };
 
     saveCoefficient = event => {
         this.props.setAncientCoefficient(
             this.props.id,
-            Number(event.target.value)
+            Number(event.target.value),
         );
         this.props.toggleEditMode();
         this.setState({ edit: false });
-    }
+    };
 
-    hideIcon = () => this.setState({ hover: false })
-    showIcon = () => this.setState({ hover: true })
+    hideIcon = () => this.setState({ hover: false });
+    showIcon = () => this.setState({ hover: true });
 
-    onSubmit = e => e.preventDefault()
+    onSubmit = e => e.preventDefault();
 
     render() {
         const imgStyle = {
@@ -50,25 +50,24 @@ export default class AncientsTableRow extends Component {
         const iconStyle = {
             marginLeft: 5,
             cursor: 'pointer',
-            visibility: this.state.hover && !this.props.editing
-                ? 'inherit'
-                : 'hidden',
+            visibility:
+                this.state.hover && !this.props.editing ? 'inherit' : 'hidden',
         };
 
-        const content = this.state.edit
-            ? (
-                <form className="form-inline" onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <input
-                            className="form-control shorter text-center"
-                            autoFocus
-                            onBlur={this.saveCoefficient}
-                            defaultValue={this.props.coefficient}
-                        />
-                    </div>
-                </form>
-            )
-            : this.props.coefficient;
+        const content = this.state.edit ? (
+            <form className="form-inline" onSubmit={this.onSubmit}>
+                <div className="form-group">
+                    <input
+                        className="form-control shorter text-center"
+                        autoFocus
+                        onBlur={this.saveCoefficient}
+                        defaultValue={this.props.coefficient}
+                    />
+                </div>
+            </form>
+        ) : (
+            this.props.coefficient
+        );
 
         return (
             <tr>

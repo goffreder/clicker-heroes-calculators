@@ -20,7 +20,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setPlayStyle: style => dispatch(setPlayStyle(style)),
-    saveGameState: gameState => dispatch(loadGameState(parseGameState(gameState), gameState)),
+    saveGameState: gameState =>
+        dispatch(loadGameState(parseGameState(gameState), gameState)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Relics);

@@ -23,7 +23,8 @@ const ancients = {
         image: images.Libertas,
         baseLevel: 0,
         relicBonusId: 24,
-        relicText: '+{}% Gold gained from monsters when idle (no clicks for 60 seconds)',
+        relicText:
+            '+{}% Gold gained from monsters when idle (no clicks for 60 seconds)',
         coefficients: {
             hybrid: 1,
             idle: 1,
@@ -218,7 +219,8 @@ const ancients = {
         image: images.Kumawakamaru,
         baseLevel: 0,
         relicBonusId: 27,
-        relicText: '-{} monsters required to advance to the next zone (minimum 2 monsters per zone)',
+        relicText:
+            '-{} monsters required to advance to the next zone (minimum 2 monsters per zone)',
         coefficients: {
             hybrid: 100,
             idle: 100,
@@ -335,7 +337,8 @@ const ancients = {
         image: images.Revolc,
         baseLevel: 0,
         relicBonusId: 5,
-        relicText: '+{}% Chance of double rubies from clickable treasures, when you get a ruby.',
+        relicText:
+            '+{}% Chance of double rubies from clickable treasures, when you get a ruby.',
         coefficients: {
             hybrid: 40,
             idle: 30,
@@ -356,10 +359,9 @@ const ancients = {
     },
 };
 
-const byRelicBonusId = Object.keys(ancients)
-    .reduce((relicsObj, ancientId) => {
-        return { ...relicsObj, [ancients[ancientId].relicBonusId]: ancientId };
-    }, {});
+const byRelicBonusId = Object.keys(ancients).reduce((relicsObj, ancientId) => {
+    return { ...relicsObj, [ancients[ancientId].relicBonusId]: ancientId };
+}, {});
 
 const defaultState = {
     editing: false,
@@ -374,7 +376,9 @@ const reducer = {
         const payloadAncients = action.payload.state.ancients.ancients;
 
         Object.keys(payloadAncients).forEach(ancientId => {
-            ancients[ancientId].baseLevel = Number(payloadAncients[ancientId].level);
+            ancients[ancientId].baseLevel = Number(
+                payloadAncients[ancientId].level,
+            );
         });
 
         return {
@@ -383,7 +387,7 @@ const reducer = {
             xyliqilLevel: action.payload.state.outsiders.outsiders[1].level,
         };
     },
-    TOGGLE_EDIT_MODE: (state) => {
+    TOGGLE_EDIT_MODE: state => {
         return {
             ...state,
             editing: !state.editing,
@@ -397,7 +401,8 @@ const reducer = {
                 [action.payload.ancientId]: {
                     ...state.ancients[action.payload.ancientId],
                     coefficients: {
-                        ...state.ancients[action.payload.ancientId].coefficients,
+                        ...state.ancients[action.payload.ancientId]
+                            .coefficients,
                         [action.payload.style]: action.payload.coefficient,
                     },
                 },
@@ -406,7 +411,7 @@ const reducer = {
     },
 };
 
-export default(state = defaultState, action) => {
+export default (state = defaultState, action) => {
     if (typeof reducer[action.type] === 'undefined') {
         return state;
     }

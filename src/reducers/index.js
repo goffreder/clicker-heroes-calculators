@@ -13,7 +13,9 @@ const relicsCalculatorApp = combineReducers({
         return action.type === 'LOAD_GAME_STATE' ? action.payload.state : state;
     },
     encodedState: (state = '', action) => {
-        return action.type === 'LOAD_GAME_STATE' ? action.payload.encodedState : state;
+        return action.type === 'LOAD_GAME_STATE'
+            ? action.payload.encodedState
+            : state;
     },
     heroes,
     ancients,

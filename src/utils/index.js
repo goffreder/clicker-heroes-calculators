@@ -1,6 +1,6 @@
 export { loadState, saveState, clearState } from './localStorage';
 
-export const getDogcogPercentage = (dogcogLevel) => {
+export const getDogcogPercentage = dogcogLevel => {
     return 99 * (1 - Math.exp(-0.01 * dogcogLevel));
 };
 
@@ -9,7 +9,7 @@ export const getHeroCost = (hero, dogcogLevel) => {
     const dogcogPercentage = getDogcogPercentage(dogcogLevel);
     const costDiff = Math.pow(1.07, targetLevel) - Math.pow(1.07, currentLevel);
 
-    return (baseCost * (costDiff) / 0.07) * (100 - dogcogPercentage) / 100;
+    return baseCost * costDiff / 0.07 * (100 - dogcogPercentage) / 100;
 };
 
 export const roundNum = num => num.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];
@@ -53,7 +53,7 @@ export const getRelicImage = (name, type, images) => {
                     return images.helms.spartanGuard;
                 case name.match('Gladiator Guard') !== null:
                     return images.helms.gladiatorGuard;
-                case name.match('Wanderer\'s Shade') !== null:
+                case name.match("Wanderer's Shade") !== null:
                     return images.helms.wanderersShade;
                 case name.match('Praetor Guard') !== null:
                     return images.helms.praetorGuard;
@@ -71,7 +71,7 @@ export const getRelicImage = (name, type, images) => {
                     return images.helms.redKeeper;
                 case name.match('Celestial Gate') !== null:
                     return images.helms.celestialGate;
-                case name.match('Ronin\'s Shade') !== null:
+                case name.match("Ronin's Shade") !== null:
                     return images.helms.roninsShade;
                 case name.match('Tundra Topper') !== null:
                     return images.helms.tundraTopper;
@@ -117,7 +117,7 @@ export const getRelicImage = (name, type, images) => {
                     return images.amulets.sinhalite;
                 case name.match('Sharktoof') !== null:
                     return images.amulets.sharktoof;
-                case name.match('Giant\'s End') !== null:
+                case name.match("Giant's End") !== null:
                     return images.amulets.giantsEnd;
                 case name.match('Galaxy Orb') !== null:
                     return images.amulets.galaxyOrb;

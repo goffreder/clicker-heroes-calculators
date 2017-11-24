@@ -8,7 +8,7 @@ export default class Header extends React.Component {
     static propTypes = {
         active: React.PropTypes.string,
         loadTab: React.PropTypes.func,
-    }
+    };
 
     onClick = event => {
         const dest = event.target.href.match(/#([a-zA-Z-_]*)$/)[1];
@@ -16,7 +16,7 @@ export default class Header extends React.Component {
         if (this.props.active !== dest) {
             this.props.loadTab(dest);
         }
-    }
+    };
 
     resetState = () => {
         // eslint-disable-next-line no-alert
@@ -25,23 +25,25 @@ export default class Header extends React.Component {
 
             location.reload();
         }
-    }
+    };
 
     renderNavButton = () => {
-        return (<button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#navbar"
-            aria-expanded="false"
-            aria-controls="navbar"
-        >
-            <span className="sr-only">{'Toggle navigation'}</span>
-            <span className="icon-bar"/>
-            <span className="icon-bar"/>
-            <span className="icon-bar"/>
-        </button>);
-    }
+        return (
+            <button
+                type="button"
+                className="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-expanded="false"
+                aria-controls="navbar"
+            >
+                <span className="sr-only">{'Toggle navigation'}</span>
+                <span className="icon-bar" />
+                <span className="icon-bar" />
+                <span className="icon-bar" />
+            </button>
+        );
+    };
 
     render() {
         const githubReleasesLink =
@@ -54,7 +56,9 @@ export default class Header extends React.Component {
                 <div className="container">
                     <div className="navbar-header">
                         {this.renderNavButton()}
-                        <a className="navbar-brand" href="#">{'CH Calculators'}</a>
+                        <a className="navbar-brand" href="#">
+                            {'CH Calculators'}
+                        </a>
                     </div>
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
