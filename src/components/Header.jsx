@@ -81,6 +81,12 @@ export default class Header extends React.Component {
                                 label="Hero Costs"
                             />
                             <HeaderLink
+                                active={this.props.active === 'outsiders'}
+                                href="#outsiders"
+                                onClick={this.onClick}
+                                label="Outsiders"
+                            />
+                            <HeaderLink
                                 href="#"
                                 onClick={this.resetState}
                                 label="Reset"

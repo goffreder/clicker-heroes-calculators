@@ -306,3 +306,47 @@ export const getDogcogRelicLevels = state => {
 
     return dogcogRelic ? Math.floor(dogcogRelic.level) : 0;
 };
+
+export const getoutsiderCallbacks = () => ({
+    1: {
+        costForLevel: n => n * (n + 1) / 2,
+        maxLevelForSouls: s => Math.floor((-1 + Math.sqrt(1 + 8 * s)) / 2),
+    },
+    2: {
+        costForLevel: n => n * (n + 1) / 2,
+        maxLevelForSouls: s => Math.floor((-1 + Math.sqrt(1 + 8 * s)) / 2),
+    },
+    3: {
+        costForLevel: n => n,
+        maxLevelForSouls: s => s,
+    },
+    5: {
+        costForLevel: n => n * (n + 1) / 2,
+        maxLevelForSouls: s => Math.floor((-1 + Math.sqrt(1 + 8 * s)) / 2),
+    },
+    6: {
+        costForLevel: n => n * (n + 1) / 2,
+        maxLevelForSouls: s => Math.floor((-1 + Math.sqrt(1 + 8 * s)) / 2),
+    },
+    7: {
+        costForLevel: n => n * (n + 1) / 2,
+        maxLevelForSouls: s => Math.floor((-1 + Math.sqrt(1 + 8 * s)) / 2),
+    },
+    8: {
+        costForLevel: n => n * (n + 1) / 2,
+        maxLevelForSouls: s => Math.floor((-1 + Math.sqrt(1 + 8 * s)) / 2),
+    },
+    9: {
+        costForLevel: n => n * (n + 1) / 2,
+        maxLevelForSouls: s => Math.floor((-1 + Math.sqrt(1 + 8 * s)) / 2),
+    },
+    10: {
+        costForLevel: n => n * (n + 1) / 2,
+        maxLevelForSouls: s => Math.floor((-1 + Math.sqrt(1 + 8 * s)) / 2),
+    },
+});
+
+export const getOutsiders = state => Object.values(state.outsiders.outsiders);
+
+export const getTotalAncientSouls = state => state.outsiders.totalAncientSouls;
+export const getSpentAncientSouls = state => state.outsiders.spentAncientSouls;

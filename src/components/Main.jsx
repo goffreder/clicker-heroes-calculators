@@ -3,6 +3,7 @@ import Relics from '../containers/Relics';
 import Ancients from '../containers/Ancients';
 import Heroes from '../containers/Heroes';
 import Links from '../components/Links';
+import Outsiders from '../containers/Outsiders';
 
 const Main = ({ active }) => {
     let content = null;
@@ -16,6 +17,9 @@ const Main = ({ active }) => {
             break;
         case 'links':
             content = <Links />;
+            break;
+        case 'outsiders':
+            content = <Outsiders />;
             break;
         case 'relics':
         default:

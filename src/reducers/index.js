@@ -5,6 +5,7 @@ import { combineReducers } from 'redux';
 import appState from './appState';
 import heroes from './heroes';
 import ancients from './ancients';
+import outsiders from './outsiders';
 
 const relicsCalculatorApp = combineReducers({
     version: () => appData.version,
@@ -19,6 +20,7 @@ const relicsCalculatorApp = combineReducers({
     },
     heroes,
     ancients,
+    outsiders,
 });
 
 export default relicsCalculatorApp;

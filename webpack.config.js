@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var version = require('./package.json').version;
 
 config = {
-    devtool: process.env.NODE_ENV !== 'production' ? 'eval' : null,
+    devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : null,
 
     entry: {
         main: [

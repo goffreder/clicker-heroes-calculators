@@ -36,3 +36,10 @@ export const setHeroTargetLevel = createAction(
     'SET_HERO_TARGET_LEVEL',
     (hero, value) => ({ hero, value }),
 );
+
+export const setAncientSouls = createAction('SET_ANCIENT_SOULS', souls => ({
+    souls,
+}));
+
+export const addOutsiderLevel = createAction('ADD_OUTSIDER_LEVEL', id => ({ id }));
+export const subOutsiderLevel = createAction('SUB_OUTSIDER_LEVEL', id => ({ id }));
