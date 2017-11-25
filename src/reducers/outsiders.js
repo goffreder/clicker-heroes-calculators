@@ -52,6 +52,7 @@ const defaultState = {
     outsiders,
     totalAncientSouls: 0,
     spentAncientSouls: 0,
+    highlighted: 1,
 };
 
 const reducer = {
@@ -111,6 +112,12 @@ const reducer = {
                 },
             },
             spentAncientSouls: newTotalSpentSouls,
+        };
+    },
+    HIGHLIGHT_OUTSIDER: (state, { payload }) => {
+        return {
+            ...state,
+            highlighted: payload.id,
         };
     },
 };

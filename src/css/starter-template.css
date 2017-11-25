@@ -46,6 +46,24 @@ table > thead > tr > th {
     margin: 0 10px;
 }
 
+#outsiders .outsiders-list {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+#outsiders .outsider {
+    padding: 10px 0;
+}
+
+#outsiders .outsider.highlighted {
+    background-color: #eee;
+}
+
+#outsiders .outsider:not(:first-of-type) {
+    border-top: 1px solid #ddd;
+}
+
 #outsiders .outsider div {
     display: inline-block;
 }

@@ -55,3 +55,7 @@ export const subOutsiderLevels = createAction(
         levels,
     }),
 );
+
+export const highlightOutsider = createAction('HIGHLIGHT_OUTSIDER', id => ({
+    id,
+}));

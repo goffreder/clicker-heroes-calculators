@@ -1,4 +1,5 @@
 import OutsiderRow from './OutsiderRow';
+import OutsidersChart from './OutsidersChart';
 
 const { number, func, arrayOf, shape, object, string } = React.PropTypes;
 
@@ -14,14 +15,20 @@ export default class Outsiders extends React.Component {
         outsiderCallbacks: object.isRequired,
         totalAncientSouls: number.isRequired,
         spentAncientSouls: number.isRequired,
+        highlightedOutsider: number.isRequired,
 
         setAncientSouls: func.isRequired,
         addOutsiderLevels: func.isRequired,
         subOutsiderLevels: func.isRequired,
+        highlightOutsider: func.isRequired,
     };
 
     handleSoulsChange = e => {
-        this.props.setAncientSouls(Number(e.target.value));
+        const value = Number(e.target.value);
+
+        if (value >= this.props.spentAncientSouls) {
+            this.props.setAncientSouls(value);
+        }
     };
 
     renderAncientSoulsForm = () => {
@@ -35,7 +42,7 @@ export default class Outsiders extends React.Component {
                         className="form-control short"
                         value={this.props.totalAncientSouls}
                         type="number"
-                        min="0"
+                        min={this.props.spentAncientSouls}
                         onChange={this.handleSoulsChange}
                     />
                 </div>
@@ -51,6 +58,8 @@ export default class Outsiders extends React.Component {
             spentAncientSouls,
             addOutsiderLevels,
             subOutsiderLevels,
+            highlightOutsider,
+            highlightedOutsider,
         } = this.props;
 
         return outsiders.map(o => {
@@ -62,7 +71,6 @@ export default class Outsiders extends React.Component {
                 outsiderCallbacks[id].costForLevel(level + 1) - spentSouls;
             const nextTenSouls =
                 outsiderCallbacks[id].costForLevel(level + 10) - spentSouls;
-            const percentage = spentSouls * 100 / totalAncientSouls;
 
             return (
                 <OutsiderRow
@@ -73,24 +81,40 @@ export default class Outsiders extends React.Component {
                     label={label}
                     addLevel={addOutsiderLevels}
                     subLevel={subOutsiderLevels}
+                    highlightOutsider={highlightOutsider}
                     spentSouls={spentSouls}
                     nextSouls={nextSouls}
                     availableSouls={availableSouls}
                     nextTenSouls={nextTenSouls}
-                    percentage={percentage}
+                    highlighted={highlightedOutsider === id}
                 />
             );
         });
     };
 
     render() {
+        const unspentSouls =
+            this.props.totalAncientSouls - this.props.spentAncientSouls;
+
         return (
             <div>
                 {this.renderAncientSoulsForm()}
                 <div id="outsiders" className="container">
                     <div className="row">
-                        <div className="col-md-7">{this.renderOutsiders()}</div>
-                        <div className="col-md-5">{'Graph'}</div>
+                        <div className="col-md-6 outsiders-list">
+                            {this.renderOutsiders()}
+                        </div>
+                        <div className="col-md-6">
+                            <OutsidersChart
+                                outsiders={this.props.outsiders}
+                                outsiderCallbacks={this.props.outsiderCallbacks}
+                                unspentSouls={unspentSouls}
+                                highlightOutsider={this.props.highlightOutsider}
+                                highlightedOutsider={
+                                    this.props.highlightedOutsider
+                                }
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

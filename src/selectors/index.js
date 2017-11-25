@@ -347,6 +347,6 @@ export const getoutsiderCallbacks = () => ({
 });
 
 export const getOutsiders = state => Object.values(state.outsiders.outsiders);
-
+export const getHighlightedOutsider = state => state.outsiders.highlighted;
 export const getTotalAncientSouls = state => state.outsiders.totalAncientSouls;
 export const getSpentAncientSouls = state => state.outsiders.spentAncientSouls;
