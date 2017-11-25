@@ -87,7 +87,16 @@ export default class Outsiders extends React.Component {
         return (
             <div>
                 {this.renderAncientSoulsForm()}
-                <div id="outsiders">{this.renderOutsiders()}</div>
+                <div id="outsiders" className="container">
+                    <div className="row">
+                        <div className="col-md-7">
+                            {this.renderOutsiders()}
+                        </div>
+                        <div className="col-md-5">
+                            {'Graph'}
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

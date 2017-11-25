@@ -41,11 +41,11 @@ export default class OutsiderRow extends React.Component {
             nextSouls,
             nextTenSouls,
             availableSouls,
-            percentage,
+            // percentage,
         } = this.props;
 
         return (
-            <div className="row">
+            <div className="outsider">
                 <div>{label}</div>
                 <div>
                     <button
@@ -73,9 +73,7 @@ export default class OutsiderRow extends React.Component {
                     >
                         {'+10'}
                     </button>
-                    <span>{`(${spentSouls} souls spent - ${
-                        percentage
-                    }% of total souls)`}</span>
+                    <span>{`(${spentSouls} souls spent)`}</span>
                 </div>
             </div>
         );
