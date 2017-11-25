@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 
-import { setAncientSouls, addOutsiderLevel, subOutsiderLevel } from '../actions';
+import {
+    setAncientSouls,
+    addOutsiderLevels,
+    subOutsiderLevels,
+} from '../actions';
 
 import {
     getOutsiders,
@@ -20,8 +24,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setAncientSouls: souls => dispatch(setAncientSouls(souls)),
-    addOutsiderLevel: id => dispatch(addOutsiderLevel(id)),
-    subOutsiderLevel: id => dispatch(subOutsiderLevel(id)),
+    addOutsiderLevels: (id, levels) => dispatch(addOutsiderLevels(id, levels)),
+    subOutsiderLevels: (id, levels) => dispatch(subOutsiderLevels(id, levels)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Outsiders);

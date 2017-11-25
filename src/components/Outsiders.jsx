@@ -16,8 +16,8 @@ export default class Outsiders extends React.Component {
         spentAncientSouls: number.isRequired,
 
         setAncientSouls: func.isRequired,
-        addOutsiderLevel: func.isRequired,
-        subOutsiderLevel: func.isRequired,
+        addOutsiderLevels: func.isRequired,
+        subOutsiderLevels: func.isRequired,
     };
 
     handleSoulsChange = e => {
@@ -44,38 +44,48 @@ export default class Outsiders extends React.Component {
     };
 
     renderOutsiders = () => {
-        return this.props.outsiders.map(o => {
-            const availableSouls = this.props.totalAncientSouls - this.props.spentAncientSouls;
-            const oMinLevel = 0;
-            const oMaxLevel = this.props.outsiderCallbacks[
-                o.id
-            ].maxLevelForSouls(availableSouls);
+        const {
+            outsiders,
+            outsiderCallbacks,
+            totalAncientSouls,
+            spentAncientSouls,
+            addOutsiderLevels,
+            subOutsiderLevels,
+        } = this.props;
+
+        return outsiders.map(o => {
+            const { id, level, label } = o;
+            const availableSouls = totalAncientSouls - spentAncientSouls;
+            const minLevel = 0;
+            const spentSouls = outsiderCallbacks[id].costForLevel(level);
+            const nextSouls =
+                outsiderCallbacks[id].costForLevel(level + 1) - spentSouls;
+            const nextTenSouls =
+                outsiderCallbacks[id].costForLevel(level + 10) - spentSouls;
+            const percentage = spentSouls * 100 / totalAncientSouls;
 
             return (
                 <OutsiderRow
-                    key={o.id}
-                    id={o.id}
-                    level={o.level}
-                    minLevel={oMinLevel}
-                    maxLevel={oMaxLevel}
-                    label={o.label}
-                    addLevel={this.props.addOutsiderLevel}
-                    subLevel={this.props.subOutsiderLevel}
+                    key={id}
+                    id={id}
+                    level={level}
+                    minLevel={minLevel}
+                    label={label}
+                    addLevel={addOutsiderLevels}
+                    subLevel={subOutsiderLevels}
+                    spentSouls={spentSouls}
+                    nextSouls={nextSouls}
+                    availableSouls={availableSouls}
+                    nextTenSouls={nextTenSouls}
+                    percentage={percentage}
                 />
             );
         });
     };
 
     render() {
-        const styles = {
-            container: {
-                width: 600,
-                margin: 'auto',
-            },
-        };
-
         return (
-            <div style={styles.container}>
+            <div>
                 {this.renderAncientSoulsForm()}
                 <div id="outsiders">{this.renderOutsiders()}</div>
             </div>

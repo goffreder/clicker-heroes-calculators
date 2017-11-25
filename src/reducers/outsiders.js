@@ -61,13 +61,17 @@ const reducer = {
             totalAncientSouls: payload.souls,
         };
     },
-    ADD_OUTSIDER_LEVEL: (state, { payload }) => {
+    ADD_OUTSIDER_LEVELS: (state, { payload }) => {
         const outsiderCallbacks = getoutsiderCallbacks();
         const oldLevel = state.outsiders[payload.id].level;
-        const newLevel = oldLevel + 1;
+        const newLevel = oldLevel + payload.levels;
         const oldTotalSpentSouls = state.spentAncientSouls;
-        const oldOutsiderSpentSouls = outsiderCallbacks[payload.id].costForLevel(oldLevel);
-        const newOutsiderSpentSouls = outsiderCallbacks[payload.id].costForLevel(newLevel);
+        const oldOutsiderSpentSouls = outsiderCallbacks[
+            payload.id
+        ].costForLevel(oldLevel);
+        const newOutsiderSpentSouls = outsiderCallbacks[
+            payload.id
+        ].costForLevel(newLevel);
         const diffSpentSouls = newOutsiderSpentSouls - oldOutsiderSpentSouls;
         const newTotalSpentSouls = oldTotalSpentSouls + diffSpentSouls;
 
@@ -83,13 +87,17 @@ const reducer = {
             spentAncientSouls: newTotalSpentSouls,
         };
     },
-    SUB_OUTSIDER_LEVEL: (state, { payload }) => {
+    SUB_OUTSIDER_LEVELS: (state, { payload }) => {
         const outsiderCallbacks = getoutsiderCallbacks();
         const oldLevel = state.outsiders[payload.id].level;
-        const newLevel = oldLevel - 1;
+        const newLevel = oldLevel - payload.levels;
         const oldTotalSpentSouls = state.spentAncientSouls;
-        const oldOutsiderSpentSouls = outsiderCallbacks[payload.id].costForLevel(oldLevel);
-        const newOutsiderSpentSouls = outsiderCallbacks[payload.id].costForLevel(newLevel);
+        const oldOutsiderSpentSouls = outsiderCallbacks[
+            payload.id
+        ].costForLevel(oldLevel);
+        const newOutsiderSpentSouls = outsiderCallbacks[
+            payload.id
+        ].costForLevel(newLevel);
         const diffSpentSouls = newOutsiderSpentSouls - oldOutsiderSpentSouls;
         const newTotalSpentSouls = oldTotalSpentSouls + diffSpentSouls;
 

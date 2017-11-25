@@ -41,5 +41,17 @@ export const setAncientSouls = createAction('SET_ANCIENT_SOULS', souls => ({
     souls,
 }));
 
-export const addOutsiderLevel = createAction('ADD_OUTSIDER_LEVEL', id => ({ id }));
-export const subOutsiderLevel = createAction('SUB_OUTSIDER_LEVEL', id => ({ id }));
+export const addOutsiderLevels = createAction(
+    'ADD_OUTSIDER_LEVELS',
+    (id, levels) => ({
+        id,
+        levels,
+    }),
+);
+export const subOutsiderLevels = createAction(
+    'SUB_OUTSIDER_LEVELS',
+    (id, levels) => ({
+        id,
+        levels,
+    }),
+);
