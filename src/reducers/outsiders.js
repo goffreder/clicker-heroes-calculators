@@ -52,10 +52,29 @@ const defaultState = {
     outsiders,
     totalAncientSouls: 0,
     spentAncientSouls: 0,
-    highlighted: 1,
+    highlighted: 0,
 };
 
 const reducer = {
+    LOAD_GAME_STATE: (state, { payload }) => {
+        const updatedOutsiders = {};
+
+        Object.values(payload.state.outsiders.outsiders).forEach(o => {
+            if (outsiders[o.id]) {
+                updatedOutsiders[o.id] = {
+                    ...outsiders[o.id],
+                    level: o.level,
+                };
+            }
+        });
+
+        return {
+            ...state,
+            outsiders: updatedOutsiders,
+            totalAncientSouls: payload.state.ancientSoulsTotal,
+            spentAncientSouls: payload.state.ancientSoulsTotal - payload.state.ancientSouls,
+        };
+    },
     SET_ANCIENT_SOULS: (state, { payload }) => {
         return {
             ...state,

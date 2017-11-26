@@ -6,3 +6,6 @@
 - [ ] add relic manual sorting
 - [x] use dogcog relic levels only for relics in use
 - [ ] tests!
+- [ ] outsiders data from save state
+- [ ] outsiders images
+- [ ] outsiders chart colors

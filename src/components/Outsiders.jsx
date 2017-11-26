@@ -26,9 +26,7 @@ export default class Outsiders extends React.Component {
     handleSoulsChange = e => {
         const value = Number(e.target.value);
 
-        if (value >= this.props.spentAncientSouls) {
-            this.props.setAncientSouls(value);
-        }
+        this.props.setAncientSouls(value);
     };
 
     renderAncientSoulsForm = () => {
