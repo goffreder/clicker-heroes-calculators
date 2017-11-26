@@ -54,6 +54,7 @@ table > thead > tr > th {
 
 #outsiders .outsider {
     padding: 10px 0;
+    line-height: 57px;
 }
 
 #outsiders .outsider.highlighted {

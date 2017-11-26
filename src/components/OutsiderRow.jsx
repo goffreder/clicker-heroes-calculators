@@ -5,6 +5,7 @@ export default class OutsiderRow extends React.Component {
         id: number.isRequired,
         label: string.isRequired,
         level: number.isRequired,
+        image: string.isRequired,
         minLevel: number.isRequired,
         spentSouls: number.isRequired,
         nextSouls: number.isRequired,
@@ -40,6 +41,7 @@ export default class OutsiderRow extends React.Component {
     render() {
         const {
             label,
+            image,
             level,
             minLevel,
             spentSouls,
@@ -49,13 +51,22 @@ export default class OutsiderRow extends React.Component {
             highlighted,
         } = this.props;
 
+        const imgStyle = {
+            width: 50,
+            marginLeft: 10,
+        };
+
         return (
             <div
                 className={'outsider row' + (highlighted ? ' highlighted' : '')}
                 onMouseEnter={this.handleOutsiderHover}
             >
-                <div className="col-md-4" style={{ textAlign: 'left' }}>
+                <div
+                    className="col-md-4"
+                    style={{ textAlign: 'right', padding: 0 }}
+                >
                     {label}
+                    <img src={image} style={imgStyle} />
                 </div>
                 <div className="col-md-8">
                     <button

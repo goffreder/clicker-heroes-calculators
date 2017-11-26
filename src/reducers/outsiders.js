@@ -1,49 +1,62 @@
 import { getoutsiderCallbacks } from '../selectors';
 
+import { allImages } from '../css/images';
+
+const images = allImages.outsiders;
+
 const outsiders = {
     1: {
         id: 1,
         label: 'Xyliqil',
+        image: images.Xyliqil,
         level: 0,
     },
     2: {
         id: 2,
         label: "Chor'gorloth",
+        image: images.Chorgorloth,
         level: 0,
     },
     3: {
         id: 3,
         label: 'Phandoryss',
+        image: images.Phandoryss,
         level: 0,
     },
     5: {
         id: 5,
         label: 'Ponyboy',
+        image: images.Ponyboy,
         level: 0,
     },
     6: {
         id: 6,
         label: 'Borb',
+        image: images.Borb,
         level: 0,
     },
     7: {
         id: 7,
         label: 'Rhageist',
+        image: images.Rhageist,
         level: 0,
     },
     8: {
         id: 8,
         label: "K'Ariqua",
+        image: images.KAriqua,
         level: 0,
     },
     9: {
         id: 9,
         label: 'Orphalas',
+        image: images.Orphalas,
         level: 0,
     },
     10: {
         id: 10,
         label: 'Sen-Akhan',
+        image: images.SenAkhan,
         level: 0,
     },
 };
@@ -72,7 +85,8 @@ const reducer = {
             ...state,
             outsiders: updatedOutsiders,
             totalAncientSouls: payload.state.ancientSoulsTotal,
-            spentAncientSouls: payload.state.ancientSoulsTotal - payload.state.ancientSouls,
+            spentAncientSouls:
+                payload.state.ancientSoulsTotal - payload.state.ancientSouls,
         };
     },
     SET_ANCIENT_SOULS: (state, { payload }) => {

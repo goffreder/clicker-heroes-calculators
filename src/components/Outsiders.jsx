@@ -61,7 +61,7 @@ export default class Outsiders extends React.Component {
         } = this.props;
 
         return outsiders.map(o => {
-            const { id, level, label } = o;
+            const { id, level, image, label } = o;
             const availableSouls = totalAncientSouls - spentAncientSouls;
             const minLevel = 0;
             const spentSouls = outsiderCallbacks[id].costForLevel(level);
@@ -76,6 +76,7 @@ export default class Outsiders extends React.Component {
                     id={id}
                     level={level}
                     minLevel={minLevel}
+                    image={image}
                     label={label}
                     addLevel={addOutsiderLevels}
                     subLevel={subOutsiderLevels}
